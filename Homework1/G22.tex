@@ -145,7 +145,7 @@ Aprendizagem - HomeWork 1 \vspace{-5mm}}
 
 \begin{document}
 
-\renewcommand{\arraystretch}{1.5}
+\renewcommand{\arraystretch}{1.7}
 \setlength{\columnseprule}{0.4pt}
 \tdplotsetmaincoords{70}{110} % Set the viewing angle
 \newcolumntype{M}[1]{>{\centering\arraybackslash\vspace{#1}}m{0.5\linewidth}<{\vspace{#1}}}
@@ -526,6 +526,7 @@ A árvore de decisão final é:
   
 \end{center}
 
+\newpage
 \section{Exercício 2.}
 
 Com o objetivo de desenhar a matriz de confusão da árvore de decisão construída acima, começamos por calcular os valores previstos para o output, $\hat{y}_{out}$, para cada uma das ocorrências do dataset D:
@@ -554,26 +555,50 @@ Com o objetivo de desenhar a matriz de confusão da árvore de decisão constru�
 
 Assim, desenhamos a \textbf{matriz de confusão}:
 
-\begin{table}[h!]
-\centering
-\begin{tabular}{|c|cccc|}
-\hline
-  & \multicolumn{4}{c|}{Valores reais}                                           \\ \hline
-\multirow{4}{*}{\rotatebox[origin=c]{90}{Valores Previstos}} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{B} & C \\ \cline{2-5} 
-  & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{1} & 0 \\ \cline{2-5} 
-  & \multicolumn{1}{c|}{B} & \multicolumn{1}{c|}{0} & \multicolumn{1}{c|}{2} & 0 \\ \cline{2-5} 
-  & \multicolumn{1}{c|}{C} & \multicolumn{1}{c|}{0} & \multicolumn{1}{c|}{1} & 4 \\ \hline
-\end{tabular}
-\end{table}
+\begin{multicols}{2}
+  \setlength{\columnseprule}{0pt}
 
-\begin{center}
-  \begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.5\textwidth]{Homework1/images/confusion_matrix.png}
-    \caption{Matriz de confusão}
-    \label{fig:confusion_matrix}
-  \end{figure}
-\end{center}
+  \vspace*{\fill}
+
+  \begin{table}[H]
+  \centering
+  \begin{tabular}{|c|cccc|}
+  \hline
+    & \multicolumn{4}{c|}{Valores reais}                                           \\ \hline
+  \multirow{4}{*}{\rotatebox[origin=c]{90}{Valores Previstos}} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{B} & C \\ \cline{2-5} 
+    & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{1} & 0 \\ \cline{2-5} 
+    & \multicolumn{1}{c|}{B} & \multicolumn{1}{c|}{0} & \multicolumn{1}{c|}{2} & 0 \\ \cline{2-5} 
+    & \multicolumn{1}{c|}{C} & \multicolumn{1}{c|}{0} & \multicolumn{1}{c|}{1} & 4 \\ \hline
+  \end{tabular}
+  \caption{Matriz de confusão}
+  \label{tab:confusion_matrix}
+  \end{table}
+
+  \collumnbreak
+
+  \vspace*{\fill}
+  
+  \begin{center}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=0.45\textwidth]{Homework1/images/confusion_matrix.png}
+      \caption{Matriz de confusão}
+      \label{fig:confusion_matrix}
+    \end{figure}
+  \end{center}
+
+\end{multicols}
+
+\section{Exercício 3.}
+
+Para calcular o $F_1$-score para cada uma das classes de $y_{out}$, começamos por calcular a precisão e o recall para cada uma delas:
+
+A precisão é dada por:
+\[ P = \frac{TP}{TP + FP} \]
+O recall é dado por:
+\[ R = \frac{TP}{TP + FN} \]
+
+Assim, obtemos que:
 
 
 
