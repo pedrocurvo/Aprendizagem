@@ -1,0 +1,16 @@
+
+# LaTeX
+*.aux
+*.bcf
+*.bbl
+*.idx
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+
+# bin folder
+bin/**
+
+# .vscode
+.vscode/**
