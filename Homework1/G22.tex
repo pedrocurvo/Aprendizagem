@@ -527,6 +527,7 @@ A árvore de decisão final é:
 \end{center}
 
 \newpage
+
 \section{Exercício 2.}
 
 Com o objetivo de desenhar a matriz de confusão da árvore de decisão construída acima, começamos por calcular os valores previstos para o output, $\hat{y}_{out}$, para cada uma das ocorrências do dataset D:
@@ -599,7 +600,64 @@ O recall é dado por:
 \[ R = \frac{TP}{TP + FN} \]
 
 Assim, obtemos que:
+\[ P_A = \frac{4}{4 + 1 + 0} = \frac{4}{5} \]
+\[ P_B = \frac{2}{2 + 0 + 0} = 1 \]
+\[ P_C = \frac{4}{4 + 1 + 0} = \frac{4}{5} \]
 
+\[ R_A = \frac{4}{4 + 0 + 0} = 1 \]
+\[ R_B = \frac{2}{2 + 1 + 1} = \frac{1}{2} \]
+\[ R_C = \frac{4}{4 + 0 + 0} = 1 \]
+
+Por fim, o $F_1$-score é dado por:
+
+\[ F_1 = \frac{1}{0.5\cdot \frac{1}{P} + 0.5\cdot \frac{1}{R}} \]
+
+Assim, podemos calcular o $F_1$-score para cada uma das classes:
+
+\[ F_1(A) = \frac{1}{0.5\cdot \frac{5}{4} + 0.5\cdot 1} = \frac{1}{\frac{5}{8} + \frac{1}{2}} = \frac{1}{\frac{5}{8} + \frac{4}{8}} = \frac{1}{\frac{9}{8}} = \frac{8}{9} \]
+
+\[ F_1(B) = \frac{1}{0.5\cdot 1 + 0.5\cdot 2} = \frac{1}{0.5 + 1} = \frac{1}{1.5} = \frac{2}{3} \]
+
+\[ F_1(C) = \frac{1}{0.5\cdot \frac{5}{4} + 0.5\cdot 1} = \frac{1}{\frac{5}{8} + \frac{1}{2}} = \frac{1}{\frac{5}{8} + \frac{4}{8}} = \frac{1}{\frac{9}{8}} = \frac{8}{9} \]
+
+\paragraph{Resposta: }
+Assim, podemos concluir que a classe com menor $F_1$-score é a classe B, com um $F_1$-score de $\frac{2}{3}$.
+
+\newpage
+
+\section{Exercício 4.}
+
+Para calcular o coeficiente de Spearman entre as variáveis $y_1$ e $y_2$, começamos por calcular o rank de cada uma das variáveis:
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+D      & $y_1$ & $y_1$ rank & $y_2$ & $y_2$ rank \\ \hline
+$x_1$  & 0.24  & 3          & 1     & 8          \\ \hline
+$x_2$  & 0.06  & 2          & 2     & 11          \\ \hline
+$x_3$  & 0.04  & 1          & 0     & 3.5         \\ \hline
+$x_4$  & 0.36  & 5          & 0     & 3.5          \\ \hline
+$x_5$  & 0.32  & 4          & 0     & 3.5          \\ \hline
+$x_6$  & 0.68  & 10          & 2     & 11          \\ \hline
+$x_7$  & 0.90  & 12          & 0     & 3.5          \\ \hline
+$x_8$  & 0.76  & 11          & 2     & 11          \\ \hline
+$x_9$  & 0.46  & 7          & 1     & 8         \\ \hline
+$x_{10}$ & 0.62  & 9          & 0     & 3.5          \\ \hline
+$x_{11}$ & 0.44  & 6          & 1     & 8          \\ \hline
+$x_{12}$ & 0.52  & 8          & 0     & 3.5          \\ \hline
+\end{tabular}
+\caption{Dataset D com ranks}
+\label{tab:datasetD_ranks}
+\end{table}
+
+A fórmula para o coeficiente de Spearman é:
+
+\[ r_S = \frac{\text{cov}(y_1, y_2)}{\sqrt{\text{var}(y_1)\cdot \text{var}(y_2)}} = \frac{\frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{ \sqrt{\left(\frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})^2 \right) \cdot \left(\frac{1}{n} \sum_{i=1}^{n} (y_i - \bar{y})^2 \right)}} = 0.079659 \]
+
+\paragraph{Resposta: }Como o coeficiente de Spearman entre as duas variáveis é $<< 1$, podemos concluir que as duas variáveis não estão correlacionadas.
+
+\section{Exercício 5.}
 
 
 
