@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.6.5)  22 SEP 2023 13:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.6.5)  22 SEP 2023 15:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1236,7 +1236,13 @@ File: tikzlibraryarrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 tex
 File: pgflibraryarrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \arrowsize=\dimen336
-)))
+))) (/usr/share/texlive/texmf-dist/tex/latex/forest/forest.sty
+Package: forest 2017/07/14 v2.1.5 Drawing (linguistic) trees
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.code.tex
+File: tikzlibraryshapes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibraryshapes.geometric.code.tex
 File: tikzlibraryshapes.geometric.code.tex 2020/01/08 v3.1.5b (3.1.5b)
@@ -1245,15 +1251,146 @@ File: tikzlibraryshapes.geometric.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 s.geometric.code.tex
 File: pgflibraryshapes.geometric.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 ))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.symbols.code.tex
+File: tikzlibraryshapes.symbols.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.symbols.code.tex
+File: pgflibraryshapes.symbols.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.arrows.code.tex
+File: tikzlibraryshapes.arrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.arrows.code.tex
+File: pgflibraryshapes.arrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.callouts.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.callouts.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
+s.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfnodepartlowerbox=\box115
+\pgfnodeparttwobox=\box116
+\pgfnodepartthreebox=\box117
+\pgfnodepartfourbox=\box118
+\pgfnodeparttwentybox=\box119
+\pgfnodepartnineteenbox=\box120
+\pgfnodeparteighteenbox=\box121
+\pgfnodepartseventeenbox=\box122
+\pgfnodepartsixteenbox=\box123
+\pgfnodepartfifteenbox=\box124
+\pgfnodepartfourteenbox=\box125
+\pgfnodepartthirteenbox=\box126
+\pgfnodeparttwelvebox=\box127
+\pgfnodepartelevenbox=\box128
+\pgfnodeparttenbox=\box129
+\pgfnodepartninebox=\box130
+\pgfnodeparteightbox=\box131
+\pgfnodepartsevenbox=\box132
+\pgfnodepartsixbox=\box133
+\pgfnodepartfivebox=\box134
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryfit.code.tex
+File: tikzlibraryfit.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryintersection
+s.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex
+)
+\pgf@intersect@solutions=\count471
+) (/usr/share/texlive/texmf-dist/tex/latex/pgfopts/pgfopts.sty
+Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
+\pgfopts@list@add@a@toks=\toks45
+\pgfopts@list@add@b@toks=\toks46
+)
+(/usr/share/texlive/texmf-dist/tex/latex/elocalloc/elocalloc.sty
+Package: elocalloc 2016/12/15 v0.03 local allocation for LaTeX 2015+ (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+(/usr/share/texlive/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+(/usr/share/texlive/texmf-dist/tex/latex/inlinedef/inlinedef.sty
+Package: inlinedef 2008/07/10 v1.0 Inlined expansions within definitions
+\ID@toks=\toks47
+\ID@count=\count472
+)
+\ID@usercommands=\toks48
+\safeloop@depth=\count473
+\safeRKloop@depth=\count474
+\forest@temp@dimen=\dimen337
+\forest@temp@count=\count475
+\forest@n=\count476
+\forest@temp@global@count=\count477
+\forest@temp@toks=\toks49
+\forest@temparray@M=\count478
+\forest@temparray@N=\count479
+\forest@global@temparray@M=\count480
+\forest@global@temparray@N=\count481
+\forest@isnum@count=\count482
+\forest@isdim@nonintpart=\count483
+\forest@isdim@dimen=\dimen338
+\forest@sort@m=\count484
+\forest@sort@k=\count485
+\forest@sort@p=\count486
+\bracket@content=\toks50
+\bracket@afterthought=\toks51
+\forest@node@maxid=\count487
+\forest@process@left@M=\count488
+\forest@process@left@N=\count489
+\forest@process@right@M=\count490
+\forest@process@right@N=\count491
+\forest@process@saved@M=\count492
+\forest@process@saved@N=\count493
+\forest@process@result@M=\count494
+\forest@process@result@N=\count495
+\forest@process@n=\count496
+\forest@nodewalk@branch@toks=\toks52
+\forest@nodewalk@shortsteps@resolution=\toks53
+\forest@do@dynamics=\toks54
+\forest@box=\box135
+\forest@xg=\dimen339
+\forest@yg=\dimen340
+\forest@xs=\dimen341
+\forest@ys=\dimen342
+\forest@pi@toks=\toks55
+\forest@segment@toks=\toks56
+\forest@PIi@toks=\toks57
+\forest@PIii@toks=\toks58
+\forest@copy@in=\read5
+\forest@copy@out=\write5
+\forest@externalize@max@outer@n=\count497
+\forest@externalize@inner@n=\count498
+)
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2019/09/10 1.8c listings language file
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 128.
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 128.
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 128.
+Package hyperref Info: Option `colorlinks' set `true' on input line 130.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 130.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 130.
 
-\@indexfile=\write5
-\openout5 = `G22.idx'.
+\@indexfile=\write6
+\openout6 = `G22.idx'.
 
 
 Writing index file G22.idx
@@ -1331,49 +1468,52 @@ Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'portuguese'.
 
-(/home/salvadortorpes/Aprendizagem/Homework1/trash/G22.aux)
+(/home/salvadortorpes/Aprendizagem/Homework1/trash/G22.aux
+
+LaTeX Warning: Label `tab:datasetDy2=1' multiply defined.
+
+)
 \openout1 = `G22.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmssm/m/it on input line 141.
+LaTeX Font Info:    Checking defaults for OML/cmssm/m/it on input line 143.
 LaTeX Font Info:    Trying to load font information for OML+cmssm on input line
- 141.
-
-(/usr/share/texlive/texmf-dist/tex/latex/sansmathfonts/omlcmssm.fd
+ 143.
+ (/usr/share/texlive/texmf-dist/tex/latex/sansmathfonts/omlcmssm.fd
 File: omlcmssm.fd 2019/04/04
 )
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for OMS/cmsssy/m/n on input line 141.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for OMS/cmsssy/m/n on input line 143.
 LaTeX Font Info:    Trying to load font information for OMS+cmsssy on input lin
-e 141.
+e 143.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathfonts/omscmsssy.fd
 File: omscmsssy.fd 2019/04/04
 )
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for OMX/cmssex/m/n on input line 141.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for OMX/cmssex/m/n on input line 143.
 LaTeX Font Info:    Trying to load font information for OMX+cmssex on input lin
-e 141.
+e 143.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathfonts/omxcmssex.fd
 File: omxcmssex.fd 2019/06/10
 )
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for U/xcmss/m/n on input line 141.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for U/xcmss/m/n on input line 143.
 LaTeX Font Info:    Trying to load font information for U+xcmss on input line 1
-41.
+43.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathfonts/uxcmss.fd
 File: uxcmss.fd 2019/04/04
 )
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1423,21 +1563,21 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'G22.bbl' not found.
 
 No file G22.bbl.
-Package biblatex Info: Reference section=0 on input line 141.
-Package biblatex Info: Reference segment=0 on input line 141.
+Package biblatex Info: Reference section=0 on input line 143.
+Package biblatex Info: Reference segment=0 on input line 143.
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count471
-\scratchdimen=\dimen337
-\scratchbox=\box115
-\nofMPsegments=\count472
-\nofMParguments=\count473
-\everyMPshowfont=\toks45
-\MPscratchCnt=\count474
-\MPscratchDim=\dimen338
-\MPnumerator=\count475
-\makeMPintoPDFobject=\count476
-\everyMPtoPDFconversion=\toks46
+\scratchcounter=\count499
+\scratchdimen=\dimen343
+\scratchbox=\box136
+\nofMPsegments=\count500
+\nofMParguments=\count501
+\everyMPshowfont=\toks59
+\MPscratchCnt=\count502
+\MPscratchDim=\dimen344
+\MPnumerator=\count503
+\makeMPintoPDFobject=\count504
+\everyMPtoPDFconversion=\toks60
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 
@@ -1462,10 +1602,10 @@ Package caption Info: listings package is loaded.
 Package caption Info: sidecap package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
-Package chemgreek Info: Activating mapping `default' on line 141.
+Package chemgreek Info: Activating mapping `default' on line 143.
 
-\AtBeginShipoutBox=\box116
-Package hyperref Info: Link coloring ON on input line 141.
+\AtBeginShipoutBox=\box137
+Package hyperref Info: Link coloring ON on input line 143.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -1476,106 +1616,237 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count477
+\c@section@level=\count505
 )
-LaTeX Info: Redefining \ref on input line 141.
-LaTeX Info: Redefining \pageref on input line 141.
-LaTeX Info: Redefining \nameref on input line 141.
+LaTeX Info: Redefining \ref on input line 143.
+LaTeX Info: Redefining \pageref on input line 143.
+LaTeX Info: Redefining \nameref on input line 143.
 
 (/home/salvadortorpes/Aprendizagem/Homework1/trash/G22.out)
 (/home/salvadortorpes/Aprendizagem/Homework1/trash/G22.out)
-\@outlinefile=\write6
-\openout6 = `G22.out'.
+\@outlinefile=\write7
+\openout7 = `G22.out'.
 
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 141.
-\c@lstlisting=\count478
+LaTeX Info: Redefining \selectfont on input line 143.
+\c@lstlisting=\count506
  ABD: EveryShipout initializing macros
-LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 141.
+LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 143.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `normal'
-(Font)                  U/msa/m/n --> U/ssmsa/m/n on input line 141.
+(Font)                  U/msa/m/n --> U/ssmsa/m/n on input line 143.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `bold'
-(Font)                  U/msa/m/n --> U/ssmsa/m/n on input line 141.
-LaTeX Font Info:    Redeclaring symbol font `AMSb' on input line 141.
+(Font)                  U/msa/m/n --> U/ssmsa/m/n on input line 143.
+LaTeX Font Info:    Redeclaring symbol font `AMSb' on input line 143.
 LaTeX Font Info:    Overwriting symbol font `AMSb' in version `normal'
-(Font)                  U/msb/m/n --> U/ssmsb/m/n on input line 141.
+(Font)                  U/msb/m/n --> U/ssmsb/m/n on input line 143.
 LaTeX Font Info:    Overwriting symbol font `AMSb' in version `bold'
-(Font)                  U/msb/m/n --> U/ssmsb/m/n on input line 141.
+(Font)                  U/msb/m/n --> U/ssmsb/m/n on input line 143.
 
 
-Package array Warning: Column w is already defined on input line 148.
+Package array Warning: Column w is already defined on input line 150.
 
-<Homework1/images/IST_Logo.png, id=15, 310.91156pt x 376.40625pt>
+<Homework1/images/IST_Logo.png, id=31, 310.91156pt x 376.40625pt>
 File: Homework1/images/IST_Logo.png Graphic file (type png)
 <use Homework1/images/IST_Logo.png>
-Package pdftex.def Info: Homework1/images/IST_Logo.png  used on input line 155.
+Package pdftex.def Info: Homework1/images/IST_Logo.png  used on input line 157.
 
 (pdftex.def)             Requested size: 932.73235pt x 1129.21596pt.
 LaTeX Font Info:    Trying to load font information for OT1+cmsmf on input line
- 155.
+ 157.
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathfonts/ot1cmsmf.fd
 File: ot1cmsmf.fd 2019/04/04
 )
 LaTeX Font Info:    Trying to load font information for U+ssmsa on input line 1
-55.
+57.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathfonts/ussmsa.fd
 File: ussmsa.fd 2019/04/04
 )
 LaTeX Font Info:    Trying to load font information for U+ssmsb on input line 1
-55.
+57.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathfonts/ussmsb.fd
 File: ussmsb.fd 2019/04/04
 )
 LaTeX Font Info:    Trying to load font information for TS1+xcmss on input line
- 155.
-LaTeX Font Info:    No file TS1xcmss.fd. on input line 155.
+ 157.
+LaTeX Font Info:    No file TS1xcmss.fd. on input line 157.
 
 
 LaTeX Font Warning: Font shape `TS1/xcmss/m/n' undefined
 (Font)              using `TS1/cmr/m/n' instead
-(Font)              for symbol `textordmasculine' on input line 155.
+(Font)              for symbol `textordmasculine' on input line 157.
 
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 160.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 162.
 
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 186.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 188.
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
+(Font)              using `OT1/xcmss/bx/n' instead on input line 192.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 192.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 192.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 192.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 192.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 192.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 192.
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./Homework1/images/IST_Log
-o.png>] [2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 255.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 255.
+o.png>]
+! Undefined control sequence.
+l.222 \collumnbreak
+                   
+? 
+! Undefined control sequence.
+l.238 \collumnbreak
+                   
+? 
+
+LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
+(Font)              using `OT1/xcmss/bx/n' instead on input line 270.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 270.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 270.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 270.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 270.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 270.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 270.
+
+! Undefined control sequence.
+l.298 \collumnbreak
+                   
+? 
+! Undefined control sequence.
+l.315 \collumnbreak
+                   
+? 
+
+Overfull \vbox (4.7268pt too high) has occurred while \output is active []
+
+
+[2]
+
+LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
+(Font)              using `OT1/xcmss/bx/n' instead on input line 348.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 348.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 348.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 348.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 348.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 348.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 348.
+
+! Undefined control sequence.
+l.376 \collumnbreak
+                   
+? 
+! Undefined control sequence.
+l.393 \collumnbreak
+                   
+? 
+
+LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
+(Font)              using `OT1/xcmss/bx/n' instead on input line 425.
+
+[3]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.472 \end{forest}
+                  
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.472 \end{forest}
+                  
+? 
+[4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 477.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 477.
  (/home/salvadortorpes/Aprendizagem/Homework1/trash/G22.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 255.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 255.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 477.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 477.
 Package rerunfilecheck Info: File `G22.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package logreq Info: Writing requests to 'G22.run.xml'.
 \openout1 = `G22.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33131 strings out of 481239
- 624994 string characters out of 5920378
- 1308238 words of memory out of 5000000
- 47759 multiletter control sequences out of 15000+600000
- 545175 words of font info for 72 fonts, out of 8000000 for 9000
+ 44357 strings out of 481239
+ 932270 string characters out of 5920378
+ 1608180 words of memory out of 5000000
+ 58905 multiletter control sequences out of 15000+600000
+ 545856 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,11n,77p,1192b,1615s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 143i,12n,178p,1623b,1743s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dis
@@ -1586,13 +1857,13 @@ ublic/sansmathfonts/cmssex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/sansmathfonts/cmssmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
 c/sansmathfonts/cmssmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/s
 ansmathfonts/cmssmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/sans
-mathfonts/cmsssy10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.p
-fb>
-Output written on /home/salvadortorpes/Aprendizagem/Homework1/trash/G22.pdf (2 
-pages, 112236 bytes).
+mathfonts/cmssmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/sansmat
+hfonts/cmsssy10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on /home/salvadortorpes/Aprendizagem/Homework1/trash/G22.pdf (4 
+pages, 131834 bytes).
 PDF statistics:
- 83 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
- 9 named destinations out of 1000 (max. 500000)
- 34 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 119 PDF objects out of 1000 (max. 8388607)
+ 98 compressed objects within 1 object stream
+ 21 named destinations out of 1000 (max. 500000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 
