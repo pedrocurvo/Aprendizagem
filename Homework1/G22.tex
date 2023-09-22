@@ -62,6 +62,9 @@
 \usepackage{sidecap}
 \usepackage{graphicx}
 
+
+% \usepackage[table,xcdraw]{xcolor}
+
 \usepackage{tikz-3dplot}
 % \usepackage{pgfplots}
 \usetikzlibrary{calc, 3d, arrows}
@@ -151,8 +154,6 @@ Aprendizagem - HomeWork 1 \vspace{-5mm}}
 
 \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
 
-
-
 \maketitle
 
 \vspace{-5mm}
@@ -187,13 +188,17 @@ Considering dataset D:
 
 \section{Exercício 1.}
 
-De modo a corretamente completar a árvore de decisão, é necessário calcular o Information gain (IG) da variável de output $y_{out}$ condicionada a cada uma das variáveis $y_2$, $y_3$ e $y_4$:
+De modo a corretamente completar a árvore de decisão, é necessário calcular o Information gain (IG) da variável de output $y_{out}$ condicionada a cada uma das variáveis $y_2$, $y_3$ e $y_4$. 
 
-\subsection{Information Gain de $y_{out}$ condicionada a $y_2$}
+\subsection{Escolha do 2º nó}
+
+Como queremos completar o ramo $y_1>0.4$, vamos apenas considerar as ocorrencias em que $y_1>0.4$ para calcular o IG.
+
+\paragraph{Information Gain de $y_{out}$ condicionada a $y_2$}
 
 \[ IG(y_{out}|y_2) = H(y_{out}) - H(y_{out}|y_2) \]
 
-\[ H(y_{out}) = \left(- \sum_{i=1}^{3} p_{out_i} (\log_2 p_{out_i})\right) = - \left( \frac{4}{12} \log_2 \left( \frac{4}{12} \right) + \frac{4}{12} \log_2 \left( \frac{4}{12} \right) + \frac{4}{12} \log_2 \left( \frac{4}{12} \right) \right) = 1.58496 \]
+\[ H(y_{out}) = \left(- \sum_{i=1}^{3} p_{out_i} (\log_2 p_{out_i})\right) = - \left( \frac{3}{7} \log_2 \left( \frac{3}{7} \right) + \frac{2}{7} \log_2 \left( \frac{2}{7} \right) + \frac{2}{7} \log_2 \left( \frac{2}{7} \right) \right) = 1.5567 \]
 
 \[ H(y_{out}|y_2) = \sum_{i=0}^{2} p_{y_2 = i} H(y_{out}|y_2 = i) \]
 
@@ -207,9 +212,6 @@ Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_2 = 0$,
     \begin{tabular}{|c|c|c|}
     \hline
         D     & $y_2$ & $y_{out}$ \\ \hline
-        $x_3$ & 0     & B         \\ \hline
-        $x_4$ & 0     & C         \\ \hline
-        $x_5$ & 0     & C         \\ \hline
         $x_7$ & 0     & A         \\ \hline
         $x_{10}$ & 0     & B         \\ \hline
         $x_{12}$ & 0     & C         \\ \hline
@@ -226,7 +228,6 @@ Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_2 = 0$,
   \begin{tabular}{|c|c|c|}
   \hline
       D     & $y_2$ & $y_{out}$ \\ \hline
-      $x_1$ & 1     & A         \\ \hline
       $x_9$ & 1     & B         \\ \hline
       $x_{11}$ & 1     & C         \\ \hline
   \end{tabular}
@@ -242,9 +243,8 @@ Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_2 = 0$,
   \begin{tabular}{|c|c|c|}
   \hline
       D     & $y_2$ & $y_{out}$ \\ \hline
-      $x_1$ & 1     & A         \\ \hline
-      $x_9$ & 1     & B         \\ \hline
-      $x_{11}$ & 1     & C         \\ \hline
+      $x_6$ & 2     & A         \\ \hline
+      $x_8$ & 2     & A         \\ \hline
   \end{tabular}
   \caption{Dataset D com $y_2 = 1$}
   \label{tab:datasetDy2=1}
@@ -252,22 +252,22 @@ Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_2 = 0$,
 
 \end{multicols}
 
-\[ H(y_{out}|y_2 = 0) = - \left( \frac{1}{6} \log_2 \left( \frac{1}{6} \right) + \frac{2}{6} \log_2 \left( \frac{2}{6} \right) + \frac{1}{2} \log_2 \left( \frac{1}{2} \right) \right) = 1.45915 \]
+\[ H(y_{out}|y_2 = 0) = - \left( \frac{1}{3} \log_2 \left( \frac{1}{3} \right) + \frac{1}{3} \log_2 \left( \frac{1}{3} \right) + \frac{1}{3} \log_2 \left( \frac{1}{3} \right) \right) = 1.58496 \]
 
-\[ H(y_{out}|y_2 = 1) = - \left( \frac{1}{3} \log_2 \left( \frac{1}{3} \right) + \frac{1}{3} \log_2 \left( \frac{1}{3} \right) + \frac{1}{3} \log_2 \left( \frac{1}{3} \right) \right) = 1.58496 \]
+\[ H(y_{out}|y_2 = 1) = - \left( \frac{1}{2} \log_2 \left( \frac{1}{2} \right) + \frac{1}{2} \log_2 \left( \frac{1}{2} \right) \right) = 1 \]
 
-\[ H(y_{out}|y_2 = 2) = - \left( \frac{1}{3} \log_2 \left( \frac{1}{3} \right) + \frac{2}{3} \log_2 \left( \frac{2}{3} \right) \right) = 0.9183 \]
+\[ H(y_{out}|y_2 = 2) = - \left( \log(1) \right) = 0 \]
 
 Assim, podemos calcular a entropia de $y_{out}$ condicionada a $y_2$:
 
-\[ H(y_{out}|y_2) = \frac{6}{12} H(y_{out}|y_2 = 0) + \frac{3}{12} H(y_{out}|y_2 = 1) + \frac{3}{12} H(y_{out}|y_2 = 2) = \]
-\[ = \frac{6}{12} \times 1.45915 + \frac{3}{12} \times 1.58496 + \frac{3}{12} \times 0.9183 = 1.35538 \]
+\[ H(y_{out}|y_2) = \frac{3}{7} H(y_{out}|y_2 = 0) + \frac{2}{7} H(y_{out}|y_2 = 1) + \frac{2}{7} H(y_{out}|y_2 = 2) = \]
+\[ = \frac{3}{7} \times 1.58496 + \frac{2}{7} \times 1 + \frac{2}{7} \times 0 = 0.96498 \]
 
 Por fim, podemos calcular o Information Gain:
 
-\[ IG(y_{out}|y_2) = H(y_{out}) - H(y_{out}|y_2) = 1.58496 - 1.35538 = 0.22958 \]
+\[ IG(y_{out}|y_2) = H(y_{out}) - H(y_{out}|y_2) = 1.5567 - 0.96498 = 0.59172 \]
 
-\subsection{Information Gain de $y_{out}$ condicionada a $y_3$}
+\paragraph{Information Gain de $y_{out}$ condicionada a $y_3$}
 
 \[ IG(y_{out}|y_3) = H(y_{out}) - H(y_{out}|y_3) \]
 
@@ -284,9 +284,6 @@ Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_3 = 0$,
 \begin{tabular}{|c|c|c|}
 \hline
 D     & $y_3$ & $y_{out}$ \\ \hline
-$x_2$ & 0     & B         \\ \hline
-$x_3$ & 0     & B         \\ \hline
-$x_5$ & 0     & C         \\ \hline
 $x_{10}$ & 0     & B         \\ \hline
 \end{tabular}
 \caption{Dataset D com $y_3 = 0$}
@@ -302,7 +299,6 @@ $x_{10}$ & 0     & B         \\ \hline
 \begin{tabular}{|c|c|c|}
 \hline
 D     & $y_3$ & $y_{out}$ \\ \hline
-$x_1$ & 1     & A         \\ \hline
 $x_7$ & 1     & A         \\ \hline
 $x_9$ & 1     & B         \\ \hline
 \end{tabular}
@@ -319,7 +315,6 @@ $x_9$ & 1     & B         \\ \hline
 \begin{tabular}{|c|c|c|}
 \hline
 D     & $y_3$ & $y_{out}$ \\ \hline
-$x_4$ & 2     & C         \\ \hline
 $x_6$ & 2     & A         \\ \hline
 $x_8$ & 2     & A         \\ \hline
 $x_{11}$ & 2     & C         \\ \hline
@@ -330,22 +325,23 @@ $x_{12}$ & 2     & C         \\ \hline
 \end{table}
 \end{multicols}
 
-\[ H(y_{out}|y_3 = 0) = - \left( \frac{3}{4} \log_2 \left( \frac{3}{4} \right) + \frac{1}{4} \log_2 \left( \frac{1}{4} \right) \right) = 0.81128 \]
+\[ H(y_{out}|y_3 = 0) = - \left( \log(1) \right) = 0 \]
 
-\[ H(y_{out}|y_3 = 1) = - \left( \frac{2}{3} \log_2 \left( \frac{2}{3} \right) + \frac{1}{3} \log_2 \left( \frac{1}{3} \right) \right) = 0.9183 \]
+\[ H(y_{out}|y_3 = 1) = - \left( \frac{1}{2} \log_2 \left( \frac{1}{2} \right) + \frac{1}{2} \log_2 \left( \frac{1}{2} \right) \right) = 1 \]
 
-\[ H(y_{out}|y_3 = 2) = - \left( \frac{2}{5} \log_2 \left( \frac{2}{5} \right) + \frac{3}{5} \log_2 \left( \frac{3}{5} \right) \right) = 0.97095 \]
+\[ H(y_{out}|y_3 = 2) = - \left( \frac{2}{4} \log_2 \left( \frac{2}{4} \right) + \frac{2}{4} \log_2 \left( \frac{2}{4} \right) \right) = 1 \]
 
 Assim, podemos calcular a entropia de $y_{out}$ condicionada a $y_3$:
 
-\[ H(y_{out}|y_3) = \frac{4}{12} H(y_{out}|y_3 = 0) + \frac{3}{12} H(y_{out}|y_3 = 1) + \frac{5}{12} H(y_{out}|y_3 = 2) = \]
-\[ = \frac{4}{12} \times 0.81128 + \frac{3}{12} \times 0.9183 + \frac{5}{12} \times 0.97095 = 0.90456 \]
+\[ H(y_{out}|y_3) = \frac{1}{7} H(y_{out}|y_3 = 0) + \frac{2}{7} H(y_{out}|y_3 = 1) + \frac{4}{7} H(y_{out}|y_3 = 2) = \]
+
+\[ = \frac{1}{7} \times 0 + \frac{2}{7} \times 1 + \frac{4}{7} \times 1 = 0.85714 \]
 
 Por fim, podemos calcular o Information Gain:
 
-\[ IG(y_{out}|y_3) = H(y_{out}) - H(y_{out}|y_3) = 1.58496 - 0.90456 = 0.6804 \]
+\[ IG(y_{out}|y_3) = H(y_{out}) - H(y_{out}|y_3) = 1.5567 - 0.85714 = 0.69956 \]
 
-\subsection{Information Gain de $y_{out}$ condicionada a $y_4$}
+\paragraph{Information Gain de $y_{out}$ condicionada a $y_4$}
 
 \[ IG(y_{out}|y_4) = H(y_{out}) - H(y_{out}|y_4) \]
 
@@ -362,9 +358,6 @@ Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_4 = 0$,
 \begin{tabular}{|c|c|c|}
 \hline  
 D     & $y_4$ & $y_{out}$ \\ \hline
-$x_1$ & 0     & A         \\ \hline
-$x_2$ & 0     & B         \\ \hline
-$x_3$ & 0     & B         \\ \hline
 $x_8$ & 0     & A         \\ \hline
 $x_{12}$ & 0     & C         \\ \hline
 \end{tabular}
@@ -380,7 +373,6 @@ $x_{12}$ & 0     & C         \\ \hline
 \begin{tabular}{|c|c|c|}
 \hline
 D     & $y_4$ & $y_{out}$ \\ \hline
-$x_4$ & 1     & C         \\ \hline
 $x_6$ & 1     & A         \\ \hline
 $x_9$ & 1     & B         \\ \hline
 $x_{10}$ & 1     & B         \\ \hline
@@ -397,7 +389,6 @@ $x_{10}$ & 1     & B         \\ \hline
 \begin{tabular}{|c|c|c|}
 \hline
 D     & $y_4$ & $y_{out}$ \\ \hline
-$x_5$ & 2     & C         \\ \hline
 $x_7$ & 2     & A         \\ \hline
 $x_{11}$ & 2     & C         \\ \hline
 \end{tabular}
@@ -407,41 +398,103 @@ $x_{11}$ & 2     & C         \\ \hline
 
 \end{multicols}
 
-\[ H(y_{out}|y_4 = 0) = - \left( \frac{2}{5} \log_2 \left( \frac{2}{5} \right) + \frac{2}{5} \log_2 \left( \frac{2}{5} \right) + \frac{1}{5} \log_2 \left( \frac{1}{5} \right) \right) = 1.52193 \]
+\[ H(y_{out}|y_4 = 0) = - \left( \frac{1}{2} \log_2 \left( \frac{1}{2} \right) + \frac{1}{2} \log_2 \left( \frac{1}{2} \right) \right) = 1 \]
 
-\[ H(y_{out}|y_4 = 1) = - \left( \frac{1}{4} \log_2 \left( \frac{1}{4} \right) + \frac{2}{4} \log_2 \left( \frac{2}{4} \right) + \frac{1}{4} \log_2 \left( \frac{1}{4} \right) \right) = 1.5 \]
+\[ H(y_{out}|y_4 = 1) = - \left( \frac{2}{3} \log_2 \left( \frac{2}{3} \right) + \frac{1}{3} \log_2 \left( \frac{1}{3} \right) \right) = 0.918295 \]
 
-\[ H(y_{out}|y_4 = 2) = - \left( \frac{1}{3} \log_2 \left( \frac{1}{3} \right) + \frac{2}{3} \log_2 \left( \frac{2}{3} \right) \right) = 0.9183 \]
+\[ H(y_{out}|y_4 = 2) = - \left( \frac{1}{2} \log_2 \left( \frac{1}{2} \right) + \frac{1}{2} \log_2 \left( \frac{1}{2} \right) \right) = 1 \]
 
 Assim, podemos calcular a entropia de $y_{out}$ condicionada a $y_4$:
 
-\[ H(y_{out}|y_4) = \frac{5}{12} H(y_{out}|y_4 = 0) + \frac{4}{12} H(y_{out}|y_4 = 1) + \frac{3}{12} H(y_{out}|y_4 = 2) = \]
-\[ = \frac{5}{12} \times 1.52193 + \frac{4}{12} \times 1.5 + \frac{3}{12} \times 0.9183 = 1.3637 \]
+\[ H(y_{out}|y_4) = \frac{2}{7} H(y_{out}|y_4 = 0) + \frac{3}{7} H(y_{out}|y_4 = 1) + \frac{2}{7} H(y_{out}|y_4 = 2) = \]
+
+\[ = \frac{2}{7} \times 1 + \frac{3}{7} \times 0.918295 + \frac{2}{7} \times 1 = 0.96498 \]
 
 Por fim, podemos calcular o Information Gain:
 
-\[ IG(y_{out}|y_4) = H(y_{out}) - H(y_{out}|y_4) = 1.58496 - 1.3637 = 0.22126 \]
+\[ IG(y_{out}|y_4) = H(y_{out}) - H(y_{out}|y_4) = 1.5567 - 0.96498 = 0.59172 \]
+
+\paragraph{Comparação dos IG}
+
+Podemos confirmar, pelos cálculos acima, que:
+
+\[ IG(y_{out}|y_2) = IG(y_{out}|y_4) < IG(y_{out}|y_3) \]
+
+Assim, a variável $y_3$ é a que tem maior IG, pelo que é a variável que escolhemos para o 2º nó da árvore de decisão no ramo $y_1>0.4$.
+Este nó vai ter três ramos, um para cada valor possível de $y_3$: a ocorrência $y_3=0$ tem apenas uma ocorrência e a ocorrência $y_3=1$ tem apenas duas ocorrências, pelo que estes dois nós não são expandidos.
+Por outro lado, $y_3=2$ tem 4 ocorrências, pelo que é o único nó que é expandido. Falta averiguar qual a variável que vai ser usada para expandir este nó.
+
+\subsection{Escolha do 3º nó}
+
+Queremos agora completar o ramo que verifica $y_1 > 0.4$ e $y_3 = 2$. Para isso, vamos calcular o IG de $y_{out}$ para $y_2$ e $y_4$ considerando apenas as ocorrências que verificam $y_1 > 0.4$ e $y_3 = 2$:
+
+\paragraph{Information Gain de $y_{out}$ condicionada a $y_2$}
+
+\[ IG(y_{out}|y_2) = H(y_{out}) - H(y_{out}|y_2) \]
+
+\[ H(y_{out}) = \left(- \sum_{i=1}^{3} p_{out_i} (\log_2 p_{out_i})\right) = - \left( \frac{2}{4} \log_2 \left( \frac{2}{4} \right) + \frac{2}{4} \log_2 \left( \frac{2}{4} \right) \right) = 1 \]
+
+\[ H(y_{out}|y_2) = \sum_{i=0}^{2} p_{y_2 = i} H(y_{out}|y_2 = i) \]
+
+As entropias condicionadas de $y_{out}$ para cada valor de $y_2$ são:
+
+\[ H(y_{out}|y_2 = 0) = - \left( \log_2(1) \right) = 0 \]
+
+\[ H(y_{out}|y_2 = 1) = - \left( \log_2(1) \right) = 0 \]
+
+\[ H(y_{out}|y_2 = 2) = - \left( \log_2(1) \right) = 0 \]
+
+Assim, podemos calcular a entropia de $y_{out}$ condicionada a $y_2$:
+
+\[ H(y_{out}|y_2) = \frac{1}{4} H(y_{out}|y_2 = 0) + \frac{1}{4} H(y_{out}|y_2 = 1) + \frac{2}{4} H(y_{out}|y_2 = 2) = \]
+
+\[ = \frac{1}{4} \times 0 + \frac{1}{4} \times 0 + \frac{2}{4} \times 0 = 0 \]
+
+Por fim, podemos calcular o Information Gain:
+
+\[ IG(y_{out}|y_2) = H(y_{out}) - H(y_{out}|y_2) = 1 - 0 = 1 \]
+
+\paragraph{Information Gain de $y_{out}$ condicionada a $y_4$}
+
+\[ IG(y_{out}|y_4) = H(y_{out}) - H(y_{out}|y_4) \]
+
+\[ H(y_{out}|y_4) = \sum_{i=0}^{2} p_{y_4 = i} H(y_{out}|y_4 = i) \]
+
+As entropias condicionadas de $y_{out}$ para cada valor de $y_4$ são:
+
+\[ H(y_{out}|y_4 = 0) = - \left( \frac{1}{2} \log_2 \left( \frac{1}{2} \right) + \frac{1}{2} \log_2 \left( \frac{1}{2} \right) \right) = 1 \]
+
+\[ H(y_{out}|y_4 = 1) = - \left( \log_2(1) \right) = 0 \]
+
+\[ H(y_{out}|y_4 = 2) = - \left( \log_2(1) \right) = 0 \]
+
+Assim, podemos calcular a entropia de $y_{out}$ condicionada a $y_4$:
+
+\[ H(y_{out}|y_4) = \frac{2}{4} H(y_{out}|y_4 = 0) + \frac{1}{4} H(y_{out}|y_4 = 1) + \frac{1}{4} H(y_{out}|y_4 = 2) = \]
+
+\[ = \frac{2}{4} \times 1 + \frac{1}{4} \times 0 + \frac{1}{4} \times 0 = 0.5 \]
+
+Por fim, podemos calcular o Information Gain:
+
+\[ IG(y_{out}|y_4) = H(y_{out}) - H(y_{out}|y_4) = 1 - 0.5 = 0.5 \]
+
+\paragraph{Comparação dos IG}
+
+Podemos confirmar, pelos cálculos acima, que:
+
+\[ IG(y_{out}|y_2) > IG(y_{out}|y_4) \]
+
+Assim, a variável $y_2$ é a que tem maior IG, pelo que é a variável que escolhemos para o 3º nó da árvore de decisão no ramo $y_1>0.4$ e $y_3 = 2$.
+Todos os nós desta árvore têm menos que 4 ocorrências, pelo que nehum deles é expandido e termina a árvore de decisão.
+
 
 \subsection{Construção da árvore de decisão}
 
-Ordenando os IG por ordem decrescente obtemos:
-
-\[ IG(y_{out}|y_3) > IG(y_{out}|y_2) > IG(y_{out}|y_4) \]
-
-Assim, o nó com $y_1>0.4$ corresponde a $y_3$. 
-A variável $y_3$ tem 3 possíveis valores, pelo que a árvore de decisão terá 3 ramos: como estamos condicionados a $y_1>0.4$, temos as seguintes ocorrências em cada ramo:
-
-\[ \#(y_3=0|y_1>0.4) = 1 \]
-\[ \#(y_3=1|y_1>0.4) = 2 \]
-\[ \#(y_3=2|y_1>0.4) = 4 \]
-
-Assim, apenas o nó $y_3=2$ tem pelo menos 4 ocorrências, logo, é o único que é expandido para a variável $y_2$.
-
-Nenhum dos ramos da variável $y_2$ tem pelo menos 4 ocorrências, pelo que nenhum deles é expandido para a variável $y_4$ e termina a árvore de decisão.
-
+Para completar a árvore, resta preencher os nós terminais com os valores de $y_{out}$ que são mais prováveis em cada ramo. Em caso de empate, escolhemos por ordem alfabética.
 A árvore de decisão final é:
 
-\begin{forest}
+\begin{center}
+  \begin{forest}
   for tree={
     edge={->},
     parent anchor=south,
@@ -450,26 +503,68 @@ A árvore de decisão final é:
     base=top,
     draw,
     font=\sffamily,
-    s sep=5mm, % Vertical separation between siblings
+    s sep=9mm, % Vertical separation between siblings
     l sep=10mm, % Horizontal separation between parent and child nodes
   }
   [y_1, circle
-    [$y_2$, edge label={node[midway,above]{ $y_1 \leq 0.4$}}, circle
-      [C, diamond]
-      [A, diamond]
-      [B, diamond]
+    [$y_2$, edge label={node[midway,above]{ $ \leq 0.4$}}, circle
+      [C, diamond, label = {$ = 0$}]
+      [A, diamond, label = {$ = 1$}]
+      [B, diamond, label = {$ = 2$}]
     ]
-    [$y_3$, edge label={node[midway,above]{ $y_1 > 0.4$}}, circle
-      [B, diamond, label= {$y_3 = 0$}]
-      [A, diamond, edge label={node[midway,above]{ $y_3 = 1$}}]
-      [$y_2$, edge label={node[midway,above]{ $y_3 = 2$}}, circle
-        [A, diamond]
-        [A, diamond]
-        [C, diamond]
+    [$y_3$, edge label={node[midway,above]{ $ > 0.4$}}, circle
+      [B, diamond, label = {$ = 0$}]
+      [A, diamond, label = {$ = 1$}]
+      [$y_2$, circle, label = {$ = 2$}
+        [C, diamond, label = {$ = 0$}]
+        [C, diamond, label = {$ = 1$}]
+        [A, diamond, label = {$ = 2$}]
       ]
     ]
   ]
-\end{forest}
+  \end{forest}
+  
+\end{center}
+
+\section{Exercício 2.}
+
+Com o objetivo de desenhar a matriz de confusão da árvore de decisão construída acima, começamos por calcular os valores previstos para o output, $\hat{y}_{out}$, para cada uma das ocorrências do dataset D:
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+    D     & $y_1$ & $y_2$ & $y_3$ & $y_4$ & $\hat{y}_{out}$ & $y_{out}$ \\ \hline
+    $x_1$ & 0.24   & 1     & 1     & 0     & A         & A         \\ \hline
+    $x_2$ & 0.06   & 2     & 0     & 0     & B         & B         \\ \hline
+    $x_3$ & 0.04   & 0     & 0     & 0     & C         & B         \\ \hline
+    $x_4$ & 0.36   & 0     & 2     & 1     & C         & C         \\ \hline
+    $x_5$ & 0.32   & 0     & 0     & 2     & C         & C         \\ \hline
+    $x_6$ & 0.68   & 2     & 2     & 1     & A         & A         \\ \hline
+    $x_7$ & 0.90   & 0     & 1     & 2     & A         & A         \\ \hline
+    $x_8$ & 0.76   & 2     & 2     & 0     & A         & A         \\ \hline
+    $x_9$ & 0.46   & 1     & 1     & 1     & A         & B         \\ \hline
+  $x_{10}$ & 0.62   & 0     & 0     & 1     & B         & B         \\ \hline
+  $x_{11}$ & 0.44   & 1     & 2     & 2     & C         & C         \\ \hline
+  $x_{12}$ & 0.52   & 0     & 2     & 0     & C         & C         \\ \hline
+\end{tabular}
+\caption{Dataset D com $\hat{y}_{out}$}
+\label{tab:datasetD_comprev}
+\end{table}
+
+Assim, desenhamos a \textbf{matriz de confusão}:
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|cccc|}
+\hline
+  & \multicolumn{4}{c|}{Valores reais}                                           \\ \hline
+\multirow{4}{*}{Valores Previstos} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{B} & C \\ \cline{2-5} 
+  & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{1} & 0 \\ \cline{2-5} 
+  & \multicolumn{1}{c|}{B} & \multicolumn{1}{c|}{0} & \multicolumn{1}{c|}{2} & 0 \\ \cline{2-5} 
+  & \multicolumn{1}{c|}{C} & \multicolumn{1}{c|}{0} & \multicolumn{1}{c|}{1} & 4 \\ \hline
+\end{tabular}
+\end{table}
 
 
 
