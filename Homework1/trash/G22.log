@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.6.5)  22 SEP 2023 19:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.6.5)  23 SEP 2023 06:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -48,6 +48,16 @@ File: babel.def 2020/02/14 3.40 Babel common definitions
 )
 Package babel Info: Making " an active character on input line 145.
 ))
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.15 <
+      <<<<<< HEAD
+? 
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
@@ -74,6 +84,26 @@ Package: iftex 2019/11/07 v1.0c TeX engine tests
 \Gm@layoutvoffset=\dimen143
 \Gm@dimlist=\toks17
 )
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.17 =
+      ======
+? 
+
+! LaTeX Error: Option clash for package geometry.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.20 >
+      >>>>>> 85e78fd30ddbbd75aa2ce9afb744ea39ed65bb60
+? 
 (/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
 \c@tracingmulticols=\count180
@@ -1219,7 +1249,156 @@ Package: sidecap 2003/06/06 v1.6f SideCap Package (RN/HjG)
 \c@SC@C=\count470
 \SC@BOX=\box114
 )
-(/usr/share/texlive/texmf-dist/tex/latex/tikz-3dplot/tikz-3dplot.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
+
+(/usr/share/texlive/texmf-dist/tex/latex/ly1/ly1enc.def
+File: ly1enc.def 2009/07/22 v0.7 TeX 'n ANSI encoding (DPC/KB)
+Now handling font encoding LY1 ...
+... processing UTF-8 mapping file for font encoding LY1
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ly1enc.dfu
+File: ly1enc.dfu 2019/11/14 v1.2k UTF-8 support for inputenc
+   defining Unicode char U+00A0 (decimal 160)
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A2 (decimal 162)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00A4 (decimal 164)
+   defining Unicode char U+00A5 (decimal 165)
+   defining Unicode char U+00A6 (decimal 166)
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AB (decimal 171)
+   defining Unicode char U+00AD (decimal 173)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00B0 (decimal 176)
+   defining Unicode char U+00B5 (decimal 181)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+00BB (decimal 187)
+   defining Unicode char U+00BC (decimal 188)
+   defining Unicode char U+00BD (decimal 189)
+   defining Unicode char U+00BE (decimal 190)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C0 (decimal 192)
+   defining Unicode char U+00C1 (decimal 193)
+   defining Unicode char U+00C2 (decimal 194)
+   defining Unicode char U+00C3 (decimal 195)
+   defining Unicode char U+00C4 (decimal 196)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00C7 (decimal 199)
+   defining Unicode char U+00C8 (decimal 200)
+   defining Unicode char U+00C9 (decimal 201)
+   defining Unicode char U+00CA (decimal 202)
+   defining Unicode char U+00CB (decimal 203)
+   defining Unicode char U+00CC (decimal 204)
+   defining Unicode char U+00CD (decimal 205)
+   defining Unicode char U+00CE (decimal 206)
+   defining Unicode char U+00CF (decimal 207)
+   defining Unicode char U+00D0 (decimal 208)
+   defining Unicode char U+00D1 (decimal 209)
+   defining Unicode char U+00D2 (decimal 210)
+   defining Unicode char U+00D3 (decimal 211)
+   defining Unicode char U+00D4 (decimal 212)
+   defining Unicode char U+00D5 (decimal 213)
+   defining Unicode char U+00D6 (decimal 214)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00D9 (decimal 217)
+   defining Unicode char U+00DA (decimal 218)
+   defining Unicode char U+00DB (decimal 219)
+   defining Unicode char U+00DC (decimal 220)
+   defining Unicode char U+00DD (decimal 221)
+   defining Unicode char U+00DE (decimal 222)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E0 (decimal 224)
+   defining Unicode char U+00E1 (decimal 225)
+   defining Unicode char U+00E2 (decimal 226)
+   defining Unicode char U+00E3 (decimal 227)
+   defining Unicode char U+00E4 (decimal 228)
+   defining Unicode char U+00E5 (decimal 229)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00E7 (decimal 231)
+   defining Unicode char U+00E8 (decimal 232)
+   defining Unicode char U+00E9 (decimal 233)
+   defining Unicode char U+00EA (decimal 234)
+   defining Unicode char U+00EB (decimal 235)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F0 (decimal 240)
+   defining Unicode char U+00F1 (decimal 241)
+   defining Unicode char U+00F2 (decimal 242)
+   defining Unicode char U+00F3 (decimal 243)
+   defining Unicode char U+00F4 (decimal 244)
+   defining Unicode char U+00F5 (decimal 245)
+   defining Unicode char U+00F6 (decimal 246)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+00F9 (decimal 249)
+   defining Unicode char U+00FA (decimal 250)
+   defining Unicode char U+00FB (decimal 251)
+   defining Unicode char U+00FC (decimal 252)
+   defining Unicode char U+00FD (decimal 253)
+   defining Unicode char U+00FE (decimal 254)
+   defining Unicode char U+00FF (decimal 255)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+0160 (decimal 352)
+   defining Unicode char U+0161 (decimal 353)
+   defining Unicode char U+0174 (decimal 372)
+   defining Unicode char U+0175 (decimal 373)
+   defining Unicode char U+0176 (decimal 374)
+   defining Unicode char U+0177 (decimal 375)
+   defining Unicode char U+0178 (decimal 376)
+   defining Unicode char U+017D (decimal 381)
+   defining Unicode char U+017E (decimal 382)
+   defining Unicode char U+0192 (decimal 402)
+   defining Unicode char U+0218 (decimal 536)
+   defining Unicode char U+0219 (decimal 537)
+   defining Unicode char U+021A (decimal 538)
+   defining Unicode char U+021B (decimal 539)
+   defining Unicode char U+0237 (decimal 567)
+   defining Unicode char U+02C6 (decimal 710)
+   defining Unicode char U+02DC (decimal 732)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+   defining Unicode char U+2026 (decimal 8230)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2039 (decimal 8249)
+   defining Unicode char U+203A (decimal 8250)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+FB00 (decimal 64256)
+   defining Unicode char U+FB01 (decimal 64257)
+   defining Unicode char U+FB02 (decimal 64258)
+   defining Unicode char U+FB03 (decimal 64259)
+   defining Unicode char U+FB04 (decimal 64260)
+   defining Unicode char U+FB05 (decimal 64261)
+   defining Unicode char U+FB06 (decimal 64262)
+))
+LaTeX Font Info:    Trying to load font information for LY1+cmr on input line 1
+12.
+LaTeX Font Info:    No file LY1cmr.fd. on input line 112.
+LaTeX Font Info:    Trying to load font information for LY1+ptm on input line 1
+12.
+
+(/usr/share/texlive/texmf-dist/tex/latex/ly1/ly1ptm.fd
+File: ly1ptm.fd 2001/02/01 font definitions for LY1/ptm using Berry names.
+)
+
+LaTeX Font Warning: Font shape `LY1/cmr/m/n' undefined
+(Font)              using `LY1/ptm/m/n' instead on input line 112.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/tikz-3dplot/tikz-3dplot.sty
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2020/01/08 v3.1.5b (3.1.5b)
@@ -1385,9 +1564,9 @@ Package: inlinedef 2008/07/10 v1.0 Inlined expansions within definitions
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2019/09/10 1.8c listings language file
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 133.
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 133.
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 133.
+Package hyperref Info: Option `colorlinks' set `true' on input line 140.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 140.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 140.
 
 \@indexfile=\write6
 \openout6 = `G22.idx'.
@@ -1475,45 +1654,47 @@ LaTeX Warning: Label `tab:datasetDy2=1' multiply defined.
 )
 \openout1 = `G22.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmssm/m/it on input line 146.
+LaTeX Font Info:    Checking defaults for OML/cmssm/m/it on input line 153.
 LaTeX Font Info:    Trying to load font information for OML+cmssm on input line
- 146.
+ 153.
  (/usr/share/texlive/texmf-dist/tex/latex/sansmathfonts/omlcmssm.fd
 File: omlcmssm.fd 2019/04/04
 )
-LaTeX Font Info:    ... okay on input line 146.
-LaTeX Font Info:    Checking defaults for OMS/cmsssy/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for OMS/cmsssy/m/n on input line 153.
 LaTeX Font Info:    Trying to load font information for OMS+cmsssy on input lin
-e 146.
+e 153.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathfonts/omscmsssy.fd
 File: omscmsssy.fd 2019/04/04
 )
-LaTeX Font Info:    ... okay on input line 146.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 146.
-LaTeX Font Info:    ... okay on input line 146.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 146.
-LaTeX Font Info:    ... okay on input line 146.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 146.
-LaTeX Font Info:    ... okay on input line 146.
-LaTeX Font Info:    Checking defaults for OMX/cmssex/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 153.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 153.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 153.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for OMX/cmssex/m/n on input line 153.
 LaTeX Font Info:    Trying to load font information for OMX+cmssex on input lin
-e 146.
+e 153.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathfonts/omxcmssex.fd
 File: omxcmssex.fd 2019/06/10
 )
-LaTeX Font Info:    ... okay on input line 146.
-LaTeX Font Info:    Checking defaults for U/xcmss/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for U/xcmss/m/n on input line 153.
 LaTeX Font Info:    Trying to load font information for U+xcmss on input line 1
-46.
+53.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathfonts/uxcmss.fd
 File: uxcmss.fd 2019/04/04
 )
-LaTeX Font Info:    ... okay on input line 146.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 146.
-LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 153.
+LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 153.
+LaTeX Font Info:    ... okay on input line 153.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1563,8 +1744,8 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'G22.bbl' not found.
 
 No file G22.bbl.
-Package biblatex Info: Reference section=0 on input line 146.
-Package biblatex Info: Reference segment=0 on input line 146.
+Package biblatex Info: Reference section=0 on input line 153.
+Package biblatex Info: Reference segment=0 on input line 153.
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count499
@@ -1602,10 +1783,10 @@ Package caption Info: listings package is loaded.
 Package caption Info: sidecap package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
-Package chemgreek Info: Activating mapping `default' on line 146.
+Package chemgreek Info: Activating mapping `default' on line 153.
 
 \AtBeginShipoutBox=\box137
-Package hyperref Info: Link coloring ON on input line 146.
+Package hyperref Info: Link coloring ON on input line 153.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -1618,9 +1799,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count505
 )
-LaTeX Info: Redefining \ref on input line 146.
-LaTeX Info: Redefining \pageref on input line 146.
-LaTeX Info: Redefining \nameref on input line 146.
+LaTeX Info: Redefining \ref on input line 153.
+LaTeX Info: Redefining \pageref on input line 153.
+LaTeX Info: Redefining \nameref on input line 153.
 
 (/home/salvadortorpes/Aprendizagem/Homework1/trash/G22.out)
 (/home/salvadortorpes/Aprendizagem/Homework1/trash/G22.out)
@@ -1629,198 +1810,181 @@ LaTeX Info: Redefining \nameref on input line 146.
 
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 146.
+LaTeX Info: Redefining \selectfont on input line 153.
 \c@lstlisting=\count506
  ABD: EveryShipout initializing macros
-LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 146.
+LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 153.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `normal'
-(Font)                  U/msa/m/n --> U/ssmsa/m/n on input line 146.
+(Font)                  U/msa/m/n --> U/ssmsa/m/n on input line 153.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `bold'
-(Font)                  U/msa/m/n --> U/ssmsa/m/n on input line 146.
-LaTeX Font Info:    Redeclaring symbol font `AMSb' on input line 146.
+(Font)                  U/msa/m/n --> U/ssmsa/m/n on input line 153.
+LaTeX Font Info:    Redeclaring symbol font `AMSb' on input line 153.
 LaTeX Font Info:    Overwriting symbol font `AMSb' in version `normal'
-(Font)                  U/msb/m/n --> U/ssmsb/m/n on input line 146.
+(Font)                  U/msb/m/n --> U/ssmsb/m/n on input line 153.
 LaTeX Font Info:    Overwriting symbol font `AMSb' in version `bold'
-(Font)                  U/msb/m/n --> U/ssmsb/m/n on input line 146.
+(Font)                  U/msb/m/n --> U/ssmsb/m/n on input line 153.
 
 
-Package array Warning: Column w is already defined on input line 153.
+Package array Warning: Column w is already defined on input line 161.
 
-<Homework1/images/IST_Logo.png, id=43, 310.91156pt x 376.40625pt>
-File: Homework1/images/IST_Logo.png Graphic file (type png)
-<use Homework1/images/IST_Logo.png>
-Package pdftex.def Info: Homework1/images/IST_Logo.png  used on input line 158.
+[1
 
-(pdftex.def)             Requested size: 932.73235pt x 1129.21596pt.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+
+LaTeX Warning: File `images/IST_Logo.png' not found on input line 167.
+
+
+! Package pdftex.def Error: File `images/IST_Logo.png' not found: using draft s
+etting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.167 
+      
+? 
 LaTeX Font Info:    Trying to load font information for OT1+cmsmf on input line
- 158.
+ 167.
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathfonts/ot1cmsmf.fd
 File: ot1cmsmf.fd 2019/04/04
 )
 LaTeX Font Info:    Trying to load font information for U+ssmsa on input line 1
-58.
+67.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathfonts/ussmsa.fd
 File: ussmsa.fd 2019/04/04
 )
 LaTeX Font Info:    Trying to load font information for U+ssmsb on input line 1
-58.
+67.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathfonts/ussmsb.fd
 File: ussmsb.fd 2019/04/04
 )
 LaTeX Font Info:    Trying to load font information for TS1+xcmss on input line
- 158.
-LaTeX Font Info:    No file TS1xcmss.fd. on input line 158.
+ 167.
+LaTeX Font Info:    No file TS1xcmss.fd. on input line 167.
 
 
 LaTeX Font Warning: Font shape `TS1/xcmss/m/n' undefined
 (Font)              using `TS1/cmr/m/n' instead
-(Font)              for symbol `textordmasculine' on input line 158.
+(Font)              for symbol `textordmasculine' on input line 167.
 
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 163.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 172.
 
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./Homework1/images/IST_Log
-o.png>]
+[2]
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 191.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 200.
 
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 195.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 204.
 
 
 LaTeX Font Warning: Font shape `TS1/xcmss/bx/n' undefined
 (Font)              using `TS1/xcmss/m/n' instead
-(Font)              for symbol `textordmasculine' on input line 195.
+(Font)              for symbol `textordmasculine' on input line 204.
 
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 201.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 210.
 
-! Undefined control sequence.
-l.226 \collumnbreak
-                   
-? 
-! Undefined control sequence.
-l.241 \collumnbreak
-                   
-? 
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 274.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 281.
 
-[2]
-! Undefined control sequence.
-l.297 \collumnbreak
-                   
-? 
-! Undefined control sequence.
-l.313 \collumnbreak
-                   
-? 
-
-LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 348.
-
-! Undefined control sequence.
-l.371 \collumnbreak
-                   
-? 
-! Undefined control sequence.
-l.387 \collumnbreak
-                   
-? 
 [3]
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 421.
-
-
-LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 429.
-
-
-LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 435.
-
-
-LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 461.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 352.
 
 [4]
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 485.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 422.
 
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 493.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 430.
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.527   \end{forest}
-                    
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.527   \end{forest}
-                    
-? 
+
+LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
+(Font)              using `OT1/xcmss/bx/n' instead on input line 436.
+
+
+LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
+(Font)              using `OT1/xcmss/bx/n' instead on input line 462.
+
 [5]
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 533.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 486.
 
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 559.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 494.
 
-! Undefined control sequence.
-l.580   \collumnbreak
-                     
+[6]
+
+LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
+(Font)              using `OT1/xcmss/bx/n' instead on input line 534.
+
+
+LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
+(Font)              using `OT1/xcmss/bx/n' instead on input line 560.
+
+
+LaTeX Warning: File `images/confusion_matrix.png' not found on input line 588.
+
+
+! Package pdftex.def Error: File `images/confusion_matrix.png' not found: using
+ draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.588 ...5\textwidth]{images/confusion_matrix.png}
+                                                  
 ? 
-<Homework1/images/confusion_matrix.png, id=97, 462.528pt x 346.896pt>
-File: Homework1/images/confusion_matrix.png Graphic file (type png)
-<use Homework1/images/confusion_matrix.png>
-Package pdftex.def Info: Homework1/images/confusion_matrix.png  used on input l
-ine 587.
-(pdftex.def)             Requested size: 238.01991pt x 178.51845pt.
-[6 <./Homework1/images/confusion_matrix.png>]
-
-LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 597.
-
-
-LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 628.
-
 [7]
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 632.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 598.
 
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 662.
-
-
-LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 664.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 642.
 
 [8]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 670.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 670.
+
+LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
+(Font)              using `OT1/xcmss/bx/n' instead on input line 646.
+
+
+LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
+(Font)              using `OT1/xcmss/bx/n' instead on input line 676.
+
+
+LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
+(Font)              using `OT1/xcmss/bx/n' instead on input line 678.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 707.
+
+[9] [10]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 723.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 723.
  (/home/salvadortorpes/Aprendizagem/Homework1/trash/G22.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 670.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 670.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 723.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 723.
 Package rerunfilecheck Info: File `G22.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
 
@@ -1835,31 +1999,46 @@ Package logreq Info: Writing requests to 'G22.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 44322 strings out of 481239
- 931900 string characters out of 5920378
- 1602393 words of memory out of 5000000
- 58849 multiletter control sequences out of 15000+600000
- 546098 words of font info for 75 fonts, out of 8000000 for 9000
+ 44579 strings out of 481239
+ 935257 string characters out of 5920378
+ 1602405 words of memory out of 5000000
+ 59068 multiletter control sequences out of 15000+600000
+ 547519 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  149i,12n,178p,1623b,1797s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/sansmathfonts/cmssbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/sansmathfonts/cmssex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-sansmathfonts/cmssmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/sa
-nsmathfonts/cmssmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/sansm
-athfonts/cmssmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/sansmath
-fonts/cmsssy10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb><
-/usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on /home/salvadortorpes/Aprendizagem/Homework1/trash/G22.pdf (8 
-pages, 165036 bytes).
+pdfTeX warning (dest): name{section.6} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.3} has been referenced but does not ex
+ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.2} has been referenced but does not ex
+ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.1} has been referenced but does not ex
+ist, replaced by a fixed one
+
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/sansm
+athfonts/cmssbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/sansmat
+hfonts/cmssex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/sansmathf
+onts/cmssmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/sansmathfon
+ts/cmssmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/sansmathfonts/
+cmssmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/sansmathfonts/cms
+ssy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></
+usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/font
+s/type1/public/cm-super/sfrm1200.pfb>
+Output written on /home/salvadortorpes/Aprendizagem/Homework1/trash/G22.pdf (10
+ pages, 168211 bytes).
 PDF statistics:
- 174 PDF objects out of 1000 (max. 8388607)
- 145 compressed objects within 2 object streams
- 41 named destinations out of 1000 (max. 500000)
- 95 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 197 PDF objects out of 1000 (max. 8388607)
+ 167 compressed objects within 2 object streams
+ 49 named destinations out of 1000 (max. 500000)
+ 85 words of extra memory for PDF output out of 10000 (max. 10000000)
 
