@@ -12,11 +12,17 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[portuguese]{babel}
+<<<<<<< HEAD
 \usepackage[letterpaper,top=10mm,bottom=15mm,left=15mm,right=15mm,marginparwidth=1.75cm]{geometry}
+=======
+% \usepackage[letterpaper,top=10mm,bottom=15mm,left=15mm,right=15mm,marginparwidth=1.75cm]{geometry}
+\usepackage[letterpaper,margin=1in,marginparwidth=1.75cm]{geometry}
+>>>>>>> 85e78fd30ddbbd75aa2ce9afb744ea39ed65bb60
 \usepackage{multicol}
 \usepackage{biblatex}
 \addbibresource{Bibliografia.bib}
 \usepackage{graphicx}
+% \graphicspath{{../Homework1/images/}}
 \usepackage{subcaption}
 \usepackage{tabularx}
 \usepackage{booktabs}
@@ -32,6 +38,7 @@
 \usepackage{textcomp}
 \usepackage{pdflscape}
 \usepackage{makeidx}
+\usepackage{amsmath}
 % \usepackage{tocbibind}
 \providecommand{\tightlist}{\relax}
 \usepackage{tocloft}
@@ -64,7 +71,7 @@
 
 
 % \usepackage[table,xcdraw]{xcolor}
-
+\usepackage[LY1]{fontenc}
 \usepackage{tikz-3dplot}
 % \usepackage{pgfplots}
 \usetikzlibrary{calc, 3d, arrows}
@@ -135,8 +142,8 @@
 \makeindex
 
 
-\title{\vspace{-6mm}\includegraphics[width=15mm,scale=3]{Homework1/images/IST_Logo.png}\\ \vspace{5mm}
-Aprendizagem - HomeWork 1 \vspace{-5mm}}
+\title{\vspace{-6mm}\includegraphics[width=15mm,scale=3]{images/IST_Logo.png}\\ \vspace{5mm}
+Aprendizagem - Homework 1 \vspace{-5mm}}
 \date{1º Semestre - 23/24}
 
 \usepackage{sansmathfonts}
@@ -150,7 +157,9 @@ Aprendizagem - HomeWork 1 \vspace{-5mm}}
 \tdplotsetmaincoords{70}{110} % Set the viewing angle
 \newcolumntype{M}[1]{>{\centering\arraybackslash\vspace{#1}}m{0.5\linewidth}<{\vspace{#1}}}
 \newcolumntype{C}[2]{>{\centering\arraybackslash\vspace{#1}\rule{0pt}{#1}\hspace{0pt}}m{#2}}
-\newcolumntype{w}[1]{>{\centering\arraybackslash}m{#1}}
+\ifx\undefined\w
+  \newcolumntype{w}[1]{>{\centering\arraybackslash}m{#1}}
+\fi
 
 \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
 
@@ -160,14 +169,14 @@ Aprendizagem - HomeWork 1 \vspace{-5mm}}
 
 \hrulefill
 
-\section{Dataset}
+\section*{Dataset}
 
 Consideramos o seguinte dataset D:
 
 \begin{table}[h!]
-\centering
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
     D     & $y_1$ & $y_2$ & $y_3$ & $y_4$ & $y_{out}$ \\ \hline
     $x_1$ & 0.24   & 1     & 1     & 0     & A         \\ \hline
     $x_2$ & 0.06   & 2     & 0     & 0     & B         \\ \hline
@@ -178,12 +187,12 @@ Consideramos o seguinte dataset D:
     $x_7$ & 0.90   & 0     & 1     & 2     & A         \\ \hline
     $x_8$ & 0.76   & 2     & 2     & 0     & A         \\ \hline
     $x_9$ & 0.46   & 1     & 1     & 1     & B         \\ \hline
- $x_{10}$ & 0.62   & 0     & 0     & 1     & B         \\ \hline
- $x_{11}$ & 0.44   & 1     & 2     & 2     & C         \\ \hline
- $x_{12}$ & 0.52   & 0     & 2     & 0     & C         \\ \hline
-\end{tabular}
-\caption{Dataset D}
-\label{tab:datasetD}
+    $x_{10}$ & 0.62   & 0     & 0     & 1     & B         \\ \hline
+    $x_{11}$ & 0.44   & 1     & 2     & 2     & C         \\ \hline
+    $x_{12}$ & 0.52   & 0     & 2     & 0     & C         \\ \hline
+  \end{tabular}
+  \caption{Dataset D}
+  \label{tab:datasetD}
 \end{table}
 
 \newpage
@@ -206,13 +215,13 @@ Como queremos completar o ramo $y_1>0.4$, vamos apenas considerar as ocorrencias
 
 Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_2 = 0$, $y_2 = 1$ e $y_2 = 2$, respetivamente:
 
-\begin{multicols}{3}
-  \setlength{\columnseprule}{0pt}
-  
+\begin{center}
+\begin{minipage}[b]{0.3\linewidth}
+  \centering
   \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|}
-    \hline
+        \hline
         D     & $y_2$ & $y_{out}$ \\ \hline
         $x_7$ & 0     & A         \\ \hline
         $x_{10}$ & 0     & B         \\ \hline
@@ -220,39 +229,37 @@ Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_2 = 0$,
     \end{tabular}
     \caption{Dataset D com $y_2 = 0$}
     \label{tab:datasetDy2=0}
-    \end{table}
-
-\vspace*{\fill}
-\collumnbreak
-
-\begin{table}[H]
-  \centering
-  \begin{tabular}{|c|c|c|}
-  \hline
-      D     & $y_2$ & $y_{out}$ \\ \hline
-      $x_9$ & 1     & B         \\ \hline
-      $x_{11}$ & 1     & C         \\ \hline
-  \end{tabular}
-  \caption{Dataset D com $y_2 = 1$}
-  \label{tab:datasetDy2=1}
   \end{table}
-
-\vspace*{\fill}
-\collumnbreak
-
-\begin{table}[H]
+\end{minipage}
+\begin{minipage}[b]{0.3\linewidth}
   \centering
-  \begin{tabular}{|c|c|c|}
-  \hline
-      D     & $y_2$ & $y_{out}$ \\ \hline
-      $x_6$ & 2     & A         \\ \hline
-      $x_8$ & 2     & A         \\ \hline
-  \end{tabular}
-  \caption{Dataset D com $y_2 = 1$}
-  \label{tab:datasetDy2=1}
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+      \hline
+        D     & $y_2$ & $y_{out}$ \\ \hline
+        $x_9$ & 1     & B         \\ \hline
+        $x_{11}$ & 1     & C         \\ \hline
+    \end{tabular}
+    \caption{Dataset D com $y_2 = 1$}
+    \label{tab:datasetDy2=1}
   \end{table}
-
-\end{multicols}
+\end{minipage}
+\begin{minipage}[b]{0.3\linewidth}
+  \centering
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+        D     & $y_2$ & $y_{out}$ \\ \hline
+        $x_6$ & 2     & A         \\ \hline
+        $x_8$ & 2     & A         \\ \hline
+    \end{tabular}
+    \caption{Dataset D com $y_2 = 2$}
+    \label{tab:datasetDy2=2}
+  \end{table}
+\end{minipage}
+\end{center}
 
 \[ H(y_{out}|y_2 = 0) = - \left( \frac{1}{3} \log_2 \left( \frac{1}{3} \right) + \frac{1}{3} \log_2 \left( \frac{1}{3} \right) + \frac{1}{3} \log_2 \left( \frac{1}{3} \right) \right) = 1.58496 \]
 
@@ -277,55 +284,52 @@ Por fim, podemos calcular o Information Gain:
 
 Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_3 = 0$, $y_3 = 1$ e $y_3 = 2$, respetivamente:
 
-\begin{multicols}{3}
-\setlength{\columnseprule}{0pt}
+\begin{center}
+\begin{minipage}[b]{0.3\linewidth}
+  \centering
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+      \hline
+      D     & $y_3$ & $y_{out}$ \\ \hline
+      $x_{10}$ & 0     & B         \\ \hline
+    \end{tabular}
+    \caption{Dataset D com $y_3 = 0$}
+    \label{tab:datasetDy3=0}
+  \end{table}
+\end{minipage}
+\begin{minipage}[b]{0.3\linewidth}
+  \centering
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+      \hline
+      D     & $y_3$ & $y_{out}$ \\ \hline
+      $x_7$ & 1     & A         \\ \hline
+      $x_9$ & 1     & B         \\ \hline
+    \end{tabular}
+    \caption{Dataset D com $y_3 = 1$}
+    \label{tab:datasetDy3=1}
+  \end{table}
+\end{minipage}
+\begin{minipage}[b]{0.3\linewidth}
+  \centering
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+      \hline
+      D     & $y_3$ & $y_{out}$ \\ \hline
+      $x_6$ & 2     & A         \\ \hline
+      $x_8$ & 2     & A         \\ \hline
+      $x_{11}$ & 2     & C         \\ \hline
+      $x_{12}$ & 2     & C         \\ \hline
+    \end{tabular}
+    \caption{Dataset D com $y_3 = 2$}
+    \label{tab:datasetDy3=2}
+  \end{table}
+\end{minipage}
+\end{center}
 
-\vspace*{\fill}
-\begin{table}[H]
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-D     & $y_3$ & $y_{out}$ \\ \hline
-$x_{10}$ & 0     & B         \\ \hline
-\end{tabular}
-\caption{Dataset D com $y_3 = 0$}
-\label{tab:datasetDy3=0}
-\end{table}
-
-\vspace*{\fill}
-
-\collumnbreak
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-D     & $y_3$ & $y_{out}$ \\ \hline
-$x_7$ & 1     & A         \\ \hline
-$x_9$ & 1     & B         \\ \hline
-\end{tabular}
-\caption{Dataset D com $y_3 = 1$}
-\label{tab:datasetDy3=1}
-\end{table}
-
-
-\vspace*{\fill}
-\collumnbreak
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-D     & $y_3$ & $y_{out}$ \\ \hline
-$x_6$ & 2     & A         \\ \hline
-$x_8$ & 2     & A         \\ \hline
-$x_{11}$ & 2     & C         \\ \hline
-$x_{12}$ & 2     & C         \\ \hline
-\end{tabular}
-\caption{Dataset D com $y_3 = 2$}
-\label{tab:datasetDy3=2}
-\end{table}
-\end{multicols}
 
 \[ H(y_{out}|y_3 = 0) = - \left( \log(1) \right) = 0 \]
 
@@ -351,54 +355,51 @@ Por fim, podemos calcular o Information Gain:
 
 Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_4 = 0$, $y_4 = 1$ e $y_4 = 2$, respetivamente:
 
-\begin{multicols}{3}
-\setlength{\columnseprule}{0pt}
-
-\vspace*{\fill}
-\begin{table}[H]
-\centering
-\begin{tabular}{|c|c|c|}
-\hline  
-D     & $y_4$ & $y_{out}$ \\ \hline
-$x_8$ & 0     & A         \\ \hline
-$x_{12}$ & 0     & C         \\ \hline
-\end{tabular}
-\caption{Dataset D com $y_4 = 0$}
-\label{tab:datasetDy4=0}
-\end{table}
-
-\vspace*{\fill}
-\collumnbreak
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-D     & $y_4$ & $y_{out}$ \\ \hline
-$x_6$ & 1     & A         \\ \hline
-$x_9$ & 1     & B         \\ \hline
-$x_{10}$ & 1     & B         \\ \hline
-\end{tabular}
-\caption{Dataset D com $y_4 = 1$}
-\label{tab:datasetDy4=1}
-\end{table}
-
-\vspace*{\fill}
-\collumnbreak
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-D     & $y_4$ & $y_{out}$ \\ \hline
-$x_7$ & 2     & A         \\ \hline
-$x_{11}$ & 2     & C         \\ \hline
-\end{tabular}
-\caption{Dataset D com $y_4 = 2$}
-\label{tab:datasetDy4=2}
-\end{table}
-
-\end{multicols}
+\begin{center}
+\begin{minipage}[b]{0.3\linewidth}
+  \centering
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+      \hline  
+      D     & $y_4$ & $y_{out}$ \\ \hline
+      $x_8$ & 0     & A         \\ \hline
+      $x_{12}$ & 0     & C         \\ \hline
+    \end{tabular}
+    \caption{Dataset D com $y_4 = 0$}
+    \label{tab:datasetDy4=0}
+  \end{table}
+\end{minipage}
+\begin{minipage}[b]{0.3\linewidth}
+  \centering
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+      \hline
+      D     & $y_4$ & $y_{out}$ \\ \hline
+      $x_6$ & 1     & A         \\ \hline
+      $x_9$ & 1     & B         \\ \hline
+      $x_{10}$ & 1     & B         \\ \hline
+      \end{tabular}
+    \caption{Dataset D com $y_4 = 1$}
+    \label{tab:datasetDy4=1}
+  \end{table}
+\end{minipage}
+\begin{minipage}[b]{0.3\linewidth}
+  \centering
+  \begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+      \hline
+      D     & $y_4$ & $y_{out}$ \\ \hline
+      $x_7$ & 2     & A         \\ \hline
+      $x_{11}$ & 2     & C         \\ \hline
+    \end{tabular}
+    \caption{Dataset D com $y_4 = 2$}
+    \label{tab:datasetDy4=2}
+  \end{table}
+\end{minipage}
+\end{center}
 
 \[ H(y_{out}|y_4 = 0) = - \left( \frac{1}{2} \log_2 \left( \frac{1}{2} \right) + \frac{1}{2} \log_2 \left( \frac{1}{2} \right) \right) = 1 \]
 
@@ -497,33 +498,33 @@ A árvore de decisão final é:
 
 \begin{center}
   \begin{forest}
-  for tree={
-    edge={->},
-    parent anchor=south,
-    child anchor=north,
-    align=center,
-    base=top,
-    draw,
-    font=\sffamily,
-    s sep=9mm, % Vertical separation between siblings
-    l sep=10mm, % Horizontal separation between parent and child nodes
-  }
-  [y_1, circle
-    [$y_2$, edge label={node[midway,above]{ $ \leq 0.4$}}, circle
-      [C, diamond, label = {$ = 0$}]
-      [A, diamond, label = {$ = 1$}]
-      [B, diamond, label = {$ = 2$}]
-    ]
-    [$y_3$, edge label={node[midway,above]{ $ > 0.4$}}, circle
-      [B, diamond, label = {$ = 0$}]
-      [A, diamond, label = {$ = 1$}]
-      [$y_2$, circle, label = {$ = 2$}
+    for tree={
+      edge={->},
+      parent anchor=south,
+      child anchor=north,
+      align=center,
+      base=top,
+      draw,
+      font=\sffamily,
+      s sep=9mm, % Vertical separation between siblings
+      l sep=10mm, % Horizontal separation between parent and child nodes
+    }
+    [$y_1$, circle
+      [$y_2$, edge label={node[midway,above]{ $ \leq 0.4$}}, circle
         [C, diamond, label = {$ = 0$}]
-        [C, diamond, label = {$ = 1$}]
-        [A, diamond, label = {$ = 2$}]
+        [A, diamond, label = {$ = 1$}]
+        [B, diamond, label = {$ = 2$}]
+      ]
+      [$y_3$, edge label={node[midway,above]{ $ > 0.4$}}, circle
+        [B, diamond, label = {$ = 0$}]
+        [A, diamond, label = {$ = 1$}]
+        [$y_2$, circle, label = {$ = 2$}
+          [C, diamond, label = {$ = 0$}]
+          [C, diamond, label = {$ = 1$}]
+          [A, diamond, label = {$ = 2$}]
+        ]
       ]
     ]
-  ]
   \end{forest}
   
 \end{center}
@@ -535,25 +536,25 @@ A árvore de decisão final é:
 Com o objetivo de desenhar a matriz de confusão da árvore de decisão construída acima, começamos por calcular os valores previstos para o output, $\hat{y}_{out}$, para cada uma das ocorrências do dataset D:
 
 \begin{table}[h!]
-\centering
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline
-    D     & $y_1$ & $y_2$ & $y_3$ & $y_4$ & $\hat{y}_{out}$ & $y_{out}$ \\ \hline
-    $x_1$ & 0.24   & 1     & 1     & 0     & A         & A         \\ \hline
-    $x_2$ & 0.06   & 2     & 0     & 0     & B         & B         \\ \hline
-    $x_3$ & 0.04   & 0     & 0     & 0     & C         & B         \\ \hline
-    $x_4$ & 0.36   & 0     & 2     & 1     & C         & C         \\ \hline
-    $x_5$ & 0.32   & 0     & 0     & 2     & C         & C         \\ \hline
-    $x_6$ & 0.68   & 2     & 2     & 1     & A         & A         \\ \hline
-    $x_7$ & 0.90   & 0     & 1     & 2     & A         & A         \\ \hline
-    $x_8$ & 0.76   & 2     & 2     & 0     & A         & A         \\ \hline
-    $x_9$ & 0.46   & 1     & 1     & 1     & A         & B         \\ \hline
-  $x_{10}$ & 0.62   & 0     & 0     & 1     & B         & B         \\ \hline
-  $x_{11}$ & 0.44   & 1     & 2     & 2     & C         & C         \\ \hline
-  $x_{12}$ & 0.52   & 0     & 2     & 0     & C         & C         \\ \hline
-\end{tabular}
-\caption{Dataset D com $\hat{y}_{out}$}
-\label{tab:datasetD_comprev}
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline
+        D     & $y_1$ & $y_2$ & $y_3$ & $y_4$ & $\hat{y}_{out}$ & $y_{out}$ \\ \hline
+        $x_1$ & 0.24   & 1     & 1     & 0     & A         & A         \\ \hline
+        $x_2$ & 0.06   & 2     & 0     & 0     & B         & B         \\ \hline
+        $x_3$ & 0.04   & 0     & 0     & 0     & C         & B         \\ \hline
+        $x_4$ & 0.36   & 0     & 2     & 1     & C         & C         \\ \hline
+        $x_5$ & 0.32   & 0     & 0     & 2     & C         & C         \\ \hline
+        $x_6$ & 0.68   & 2     & 2     & 1     & A         & A         \\ \hline
+        $x_7$ & 0.90   & 0     & 1     & 2     & A         & A         \\ \hline
+        $x_8$ & 0.76   & 2     & 2     & 0     & A         & A         \\ \hline
+        $x_9$ & 0.46   & 1     & 1     & 1     & A         & B         \\ \hline
+        $x_{10}$ & 0.62   & 0     & 0     & 1     & B         & B         \\ \hline
+        $x_{11}$ & 0.44   & 1     & 2     & 2     & C         & C         \\ \hline
+        $x_{12}$ & 0.52   & 0     & 2     & 0     & C         & C         \\ \hline
+    \end{tabular}
+  \caption{Dataset D com $\hat{y}_{out}$}
+  \label{tab:datasetD_comprev}
 \end{table}
 
 Assim, desenhamos a \textbf{matriz de confusão}:
@@ -564,27 +565,27 @@ Assim, desenhamos a \textbf{matriz de confusão}:
   \vspace*{\fill}
 
   \begin{table}[H]
-  \centering
-  \begin{tabular}{|c|cccc|}
-  \hline
-    & \multicolumn{4}{c|}{Valores reais}                                           \\ \hline
-  \multirow{4}{*}{\rotatebox[origin=c]{90}{Valores Previstos}} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{B} & C \\ \cline{2-5} 
-    & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{1} & 0 \\ \cline{2-5} 
-    & \multicolumn{1}{c|}{B} & \multicolumn{1}{c|}{0} & \multicolumn{1}{c|}{2} & 0 \\ \cline{2-5} 
-    & \multicolumn{1}{c|}{C} & \multicolumn{1}{c|}{0} & \multicolumn{1}{c|}{1} & 4 \\ \hline
-  \end{tabular}
-  \caption{Matriz de confusão}
-  \label{tab:confusion_matrix}
+    \centering
+    \begin{tabular}{|c|cccc|}
+      \hline
+        & \multicolumn{4}{c|}{Valores reais}                                           \\ \hline
+      \multirow{4}{*}{\rotatebox[origin=c]{90}{Valores Previstos}} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{B} & C \\ \cline{2-5} 
+        & \multicolumn{1}{c|}{A} & \multicolumn{1}{c|}{4} & \multicolumn{1}{c|}{1} & 0 \\ \cline{2-5} 
+        & \multicolumn{1}{c|}{B} & \multicolumn{1}{c|}{0} & \multicolumn{1}{c|}{2} & 0 \\ \cline{2-5} 
+        & \multicolumn{1}{c|}{C} & \multicolumn{1}{c|}{0} & \multicolumn{1}{c|}{1} & 4 \\ \hline
+    \end{tabular}
+    \caption{Matriz de confusão}
+    \label{tab:confusion_matrix}
   \end{table}
 
-  \collumnbreak
+  \columnbreak
 
   \vspace*{\fill}
   
   \begin{center}
     \begin{figure}[H]
       \centering
-      \includegraphics[width=0.45\textwidth]{Homework1/images/confusion_matrix.png}
+      \includegraphics[width=0.45\textwidth]{images/confusion_matrix.png}
       \caption{Matriz de confusão}
       \label{fig:confusion_matrix}
     \end{figure}
@@ -604,13 +605,26 @@ O recall é dado por:
 \[ R = \frac{TP}{TP + FN} \]
 
 Assim, obtemos que:
-\[ P_A = \frac{4}{4 + 1 + 0} = \frac{4}{5} \]
-\[ P_B = \frac{2}{2 + 0 + 0} = 1 \]
-\[ P_C = \frac{4}{4 + 1 + 0} = \frac{4}{5} \]
-
-\[ R_A = \frac{4}{4 + 0 + 0} = 1 \]
-\[ R_B = \frac{2}{2 + 1 + 1} = \frac{1}{2} \]
-\[ R_C = \frac{4}{4 + 0 + 0} = 1 \]
+\begin{center}
+  \begin{minipage}{0.3\textwidth}
+    \begin{align*}
+      P_A &= \frac{4}{4 + 1 + 0} = \frac{4}{5} \\
+      R_A &= \frac{4}{4 + 0 + 0} = 1 \\
+    \end{align*}
+  \end{minipage}
+  \begin{minipage}{0.3\textwidth}
+    \begin{align*}
+      P_B &= \frac{2}{2 + 0 + 0} = 1 \\
+      R_B &= \frac{2}{2 + 1 + 1} = \frac{1}{2} \\
+    \end{align*}
+  \end{minipage}
+  \begin{minipage}{0.3\textwidth}
+    \begin{align*}
+      P_C &= \frac{4}{4 + 1 + 0} = \frac{4}{5} \\
+      R_C &= \frac{4}{4 + 0 + 0} = 1 \\
+    \end{align*}
+  \end{minipage}
+\end{center}
 
 Por fim, o $F_1$-score é dado por:
 
@@ -634,25 +648,25 @@ Assim, podemos concluir que a classe com menor $F_1$-score é a classe B, com um
 Para calcular o coeficiente de Spearman entre as variáveis $y_1$ e $y_2$, começamos por calcular o rank de cada uma das variáveis:
 
 \begin{table}[h!]
-\centering
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-D      & $y_1$ & $y_1$ rank & $y_2$ & $y_2$ rank \\ \hline
-$x_1$  & 0.24  & 3          & 1     & 8          \\ \hline
-$x_2$  & 0.06  & 2          & 2     & 11          \\ \hline
-$x_3$  & 0.04  & 1          & 0     & 3.5         \\ \hline
-$x_4$  & 0.36  & 5          & 0     & 3.5          \\ \hline
-$x_5$  & 0.32  & 4          & 0     & 3.5          \\ \hline
-$x_6$  & 0.68  & 10          & 2     & 11          \\ \hline
-$x_7$  & 0.90  & 12          & 0     & 3.5          \\ \hline
-$x_8$  & 0.76  & 11          & 2     & 11          \\ \hline
-$x_9$  & 0.46  & 7          & 1     & 8         \\ \hline
-$x_{10}$ & 0.62  & 9          & 0     & 3.5          \\ \hline
-$x_{11}$ & 0.44  & 6          & 1     & 8          \\ \hline
-$x_{12}$ & 0.52  & 8          & 0     & 3.5          \\ \hline
-\end{tabular}
-\caption{Dataset D com ranks}
-\label{tab:datasetD_ranks}
+  \centering
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    D      & $y_1$ & $y_1$ rank & $y_2$ & $y_2$ rank \\ \hline
+    $x_1$  & 0.24  & 3          & 1     & 8          \\ \hline
+    $x_2$  & 0.06  & 2          & 2     & 11          \\ \hline
+    $x_3$  & 0.04  & 1          & 0     & 3.5         \\ \hline
+    $x_4$  & 0.36  & 5          & 0     & 3.5          \\ \hline
+    $x_5$  & 0.32  & 4          & 0     & 3.5          \\ \hline
+    $x_6$  & 0.68  & 10          & 2     & 11          \\ \hline
+    $x_7$  & 0.90  & 12          & 0     & 3.5          \\ \hline
+    $x_8$  & 0.76  & 11          & 2     & 11          \\ \hline
+    $x_9$  & 0.46  & 7          & 1     & 8         \\ \hline
+    $x_{10}$ & 0.62  & 9          & 0     & 3.5          \\ \hline
+    $x_{11}$ & 0.44  & 6          & 1     & 8          \\ \hline
+    $x_{12}$ & 0.52  & 8          & 0     & 3.5          \\ \hline
+  \end{tabular}
+  \caption{Dataset D com ranks}
+  \label{tab:datasetD_ranks}
 \end{table}
 
 A fórmula para o coeficiente de Spearman é:
