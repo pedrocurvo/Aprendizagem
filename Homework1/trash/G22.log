@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.6.5)  22 SEP 2023 19:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.6.5)  22 SEP 2023 19:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1523,14 +1523,14 @@ LaTeX Font Info:    ... okay on input line 146.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(28.45274pt, 557.38951pt, 28.45274pt)
+* h-part:(L,W,R)=(42.67912pt, 528.93675pt, 42.67912pt)
 * v-part:(T,H,B)=(28.45274pt, 723.83812pt, 42.67912pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=557.38951pt
+* \textwidth=528.93675pt
 * \textheight=723.83812pt
-* \oddsidemargin=-43.81725pt
-* \evensidemargin=-43.81725pt
+* \oddsidemargin=-29.59087pt
+* \evensidemargin=-29.59087pt
 * \topmargin=-80.81725pt
 * \headheight=12.0pt
 * \headsep=25.0pt
@@ -1792,7 +1792,7 @@ File: Homework1/images/confusion_matrix.png Graphic file (type png)
 <use Homework1/images/confusion_matrix.png>
 Package pdftex.def Info: Homework1/images/confusion_matrix.png  used on input l
 ine 587.
-(pdftex.def)             Requested size: 250.82358pt x 188.12032pt.
+(pdftex.def)             Requested size: 238.01991pt x 178.51845pt.
 [6 <./Homework1/images/confusion_matrix.png>]
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
@@ -1856,7 +1856,7 @@ athfonts/cmssmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/sansmath
 fonts/cmsssy10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb><
 /usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
 Output written on /home/salvadortorpes/Aprendizagem/Homework1/trash/G22.pdf (8 
-pages, 165077 bytes).
+pages, 165036 bytes).
 PDF statistics:
  174 PDF objects out of 1000 (max. 8388607)
  145 compressed objects within 2 object streams
