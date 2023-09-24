@@ -16,9 +16,11 @@ def calculate_information_gain(data, attribute, target):
     for value in unique_values:
         subset = data[data[attribute] == value]
         subset_entropy = calculate_entropy(subset[target])
+        print(f'Entropy for {attribute} = {value}: {subset_entropy}')
         weighted_entropy += (len(subset) / len(data)) * subset_entropy
     
     information_gain = total_entropy - weighted_entropy
+    print(f'Total_Entropy {total_entropy}, Weighted_Entropy {weighted_entropy}')
     return information_gain
 
 import pandas as pd
@@ -33,4 +35,4 @@ data = pd.DataFrame(
 
 for i in range(1, 5):
     information_gain = calculate_information_gain(data, f'y{i}', 'y_out')
-    print(f'Information Gain for y{i}: {information_gain}')
+    print(f'Information Gain for y{i}: {information_gain} \n')
