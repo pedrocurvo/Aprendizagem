@@ -11,3 +11,6 @@
 
 # bin folder
 bin/**
+
+# .vscode
+.vscode/**
