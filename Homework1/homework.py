@@ -65,9 +65,9 @@ class_C = data[data['y_out'] == 'C']
 fig, ax = plt.subplots(figsize=(8, 6))
 
 # Plot the histograms for each class
-ax.hist(class_A['y1'], bins=5, range=(0, 1), density=True, alpha=0.5, label='Class A')
-ax.hist(class_B['y1'], bins=5, range=(0, 1), density=True, alpha=0.5, label='Class B')
-ax.hist(class_C['y1'], bins=5, range=(0, 1), density=True, alpha=0.5, label='Class C')
+ax.hist(class_A['y1'], bins=5, range=(0, 1), density=False, alpha=0.5, label='Class A')
+ax.hist(class_B['y1'], bins=5, range=(0, 1), density=False, alpha=0.5, label='Class B')
+ax.hist(class_C['y1'], bins=5, range=(0, 1), density=False, alpha=0.5, label='Class C')
 
 # Add a legend and axis labels
 ax.legend()
