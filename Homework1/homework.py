@@ -99,5 +99,5 @@ sns.heatmap(cm_df, annot=True, cmap='Blues', fmt='g')
 plt.xlabel('Reais')
 plt.ylabel('Previstos')
 
-plt.show()
 plt.savefig('images/confusion_matrix.png')
+plt.show()
