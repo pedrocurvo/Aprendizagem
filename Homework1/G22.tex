@@ -12,11 +12,13 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[portuguese]{babel}
-\usepackage[letterpaper,top=10mm,bottom=15mm,left=10mm,right=10mm,marginparwidth=1.75cm]{geometry}
+% \usepackage[letterpaper,top=10mm,bottom=15mm,left=15mm,right=15mm,marginparwidth=1.75cm]{geometry}
+\usepackage[letterpaper,margin=1in,marginparwidth=1.75cm]{geometry}
 \usepackage{multicol}
 \usepackage{biblatex}
 \addbibresource{Bibliografia.bib}
 \usepackage{graphicx}
+\graphicspath{{images/}}
 \usepackage{subcaption}
 \usepackage{tabularx}
 \usepackage{booktabs}
@@ -32,6 +34,7 @@
 \usepackage{textcomp}
 \usepackage{pdflscape}
 \usepackage{makeidx}
+\usepackage{amsmath}
 % \usepackage{tocbibind}
 \providecommand{\tightlist}{\relax}
 \usepackage{tocloft}
@@ -150,7 +153,9 @@ Aprendizagem - HomeWork 1 \vspace{-5mm}}
 \tdplotsetmaincoords{70}{110} % Set the viewing angle
 \newcolumntype{M}[1]{>{\centering\arraybackslash\vspace{#1}}m{0.5\linewidth}<{\vspace{#1}}}
 \newcolumntype{C}[2]{>{\centering\arraybackslash\vspace{#1}\rule{0pt}{#1}\hspace{0pt}}m{#2}}
-\newcolumntype{w}[1]{>{\centering\arraybackslash}m{#1}}
+\ifx\undefined\w
+  \newcolumntype{w}[1]{>{\centering\arraybackslash}m{#1}}
+\fi
 
 \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
 
@@ -160,7 +165,7 @@ Aprendizagem - HomeWork 1 \vspace{-5mm}}
 
 \hrulefill
 
-\section{Dataset}
+\section*{Dataset}
 
 Consideramos o seguinte dataset D:
 
@@ -223,7 +228,7 @@ Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_2 = 0$,
     \end{table}
 
 \vspace*{\fill}
-\collumnbreak
+\columnbreak
 
 \begin{table}[H]
   \centering
@@ -238,7 +243,7 @@ Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_2 = 0$,
   \end{table}
 
 \vspace*{\fill}
-\collumnbreak
+\columnbreak
 
 \begin{table}[H]
   \centering
@@ -249,7 +254,7 @@ Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_2 = 0$,
       $x_8$ & 2     & A         \\ \hline
   \end{tabular}
   \caption{Dataset D com $y_2 = 1$}
-  \label{tab:datasetDy2=1}
+  \label{tab:datasetDy2=1_1}
   \end{table}
 
 \end{multicols}
@@ -294,7 +299,7 @@ $x_{10}$ & 0     & B         \\ \hline
 
 \vspace*{\fill}
 
-\collumnbreak
+\columnbreak
 
 \begin{table}[H]
 \centering
@@ -310,7 +315,7 @@ $x_9$ & 1     & B         \\ \hline
 
 
 \vspace*{\fill}
-\collumnbreak
+\columnbreak
 
 \begin{table}[H]
 \centering
@@ -368,7 +373,7 @@ $x_{12}$ & 0     & C         \\ \hline
 \end{table}
 
 \vspace*{\fill}
-\collumnbreak
+\columnbreak
 
 \begin{table}[H]
 \centering
@@ -384,7 +389,7 @@ $x_{10}$ & 1     & B         \\ \hline
 \end{table}
 
 \vspace*{\fill}
-\collumnbreak
+\columnbreak
 
 \begin{table}[H]
 \centering
@@ -497,33 +502,33 @@ A árvore de decisão final é:
 
 \begin{center}
   \begin{forest}
-  for tree={
-    edge={->},
-    parent anchor=south,
-    child anchor=north,
-    align=center,
-    base=top,
-    draw,
-    font=\sffamily,
-    s sep=9mm, % Vertical separation between siblings
-    l sep=10mm, % Horizontal separation between parent and child nodes
-  }
-  [y_1, circle
-    [$y_2$, edge label={node[midway,above]{ $ \leq 0.4$}}, circle
-      [C, diamond, label = {$ = 0$}]
-      [A, diamond, label = {$ = 1$}]
-      [B, diamond, label = {$ = 2$}]
-    ]
-    [$y_3$, edge label={node[midway,above]{ $ > 0.4$}}, circle
-      [B, diamond, label = {$ = 0$}]
-      [A, diamond, label = {$ = 1$}]
-      [$y_2$, circle, label = {$ = 2$}
+    for tree={
+      edge={->},
+      parent anchor=south,
+      child anchor=north,
+      align=center,
+      base=top,
+      draw,
+      font=\sffamily,
+      s sep=9mm, % Vertical separation between siblings
+      l sep=10mm, % Horizontal separation between parent and child nodes
+    }
+    [$y_1$, circle
+      [$y_2$, edge label={node[midway,above]{ $ \leq 0.4$}}, circle
         [C, diamond, label = {$ = 0$}]
-        [C, diamond, label = {$ = 1$}]
-        [A, diamond, label = {$ = 2$}]
+        [A, diamond, label = {$ = 1$}]
+        [B, diamond, label = {$ = 2$}]
+      ]
+      [$y_3$, edge label={node[midway,above]{ $ > 0.4$}}, circle
+        [B, diamond, label = {$ = 0$}]
+        [A, diamond, label = {$ = 1$}]
+        [$y_2$, circle, label = {$ = 2$}
+          [C, diamond, label = {$ = 0$}]
+          [C, diamond, label = {$ = 1$}]
+          [A, diamond, label = {$ = 2$}]
+        ]
       ]
     ]
-  ]
   \end{forest}
   
 \end{center}
@@ -577,14 +582,14 @@ Assim, desenhamos a \textbf{matriz de confusão}:
   \label{tab:confusion_matrix}
   \end{table}
 
-  \collumnbreak
+  \columnbreak
 
   \vspace*{\fill}
   
   \begin{center}
     \begin{figure}[H]
       \centering
-      \includegraphics[width=0.45\textwidth]{Homework1/images/confusion_matrix.png}
+      \includegraphics[width=0.45\textwidth]{confusion_matrix.png}
       \caption{Matriz de confusão}
       \label{fig:confusion_matrix}
     \end{figure}
