@@ -139,7 +139,7 @@
 
 
 \title{\vspace{-6mm}\includegraphics[width=15mm,scale=3]{images/IST_Logo.png}\\ \vspace{5mm}
-Aprendizagem - HomeWork 1 \vspace{-5mm}}
+Aprendizagem - Homework 1 \vspace{-5mm}}
 \date{1º Semestre - 23/24}
 
 \usepackage{sansmathfonts}
@@ -211,9 +211,9 @@ Como queremos completar o ramo $y_1>0.4$, vamos apenas considerar as ocorrencias
 
 Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_2 = 0$, $y_2 = 1$ e $y_2 = 2$, respetivamente:
 
-\begin{multicols}{3}
-  \setlength{\columnseprule}{0pt}
-  
+\begin{center}
+\begin{minipage}[b]{0.3\linewidth}
+  \centering
   \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|}
@@ -226,10 +226,9 @@ Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_2 = 0$,
     \caption{Dataset D com $y_2 = 0$}
     \label{tab:datasetDy2=0}
   \end{table}
-
-  \vspace*{\fill}
-  \columnbreak
-
+\end{minipage}
+\begin{minipage}[b]{0.3\linewidth}
+  \centering
   \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|}
@@ -241,10 +240,9 @@ Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_2 = 0$,
     \caption{Dataset D com $y_2 = 1$}
     \label{tab:datasetDy2=1}
   \end{table}
-
-  \vspace*{\fill}
-  \columnbreak
-
+\end{minipage}
+\begin{minipage}[b]{0.3\linewidth}
+  \centering
   \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|}
@@ -253,11 +251,11 @@ Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_2 = 0$,
         $x_6$ & 2     & A         \\ \hline
         $x_8$ & 2     & A         \\ \hline
     \end{tabular}
-    \caption{Dataset D com $y_2 = 1$}
-    \label{tab:datasetDy2=1_1}
+    \caption{Dataset D com $y_2 = 2$}
+    \label{tab:datasetDy2=2}
   \end{table}
-
-\end{multicols}
+\end{minipage}
+\end{center}
 
 \[ H(y_{out}|y_2 = 0) = - \left( \frac{1}{3} \log_2 \left( \frac{1}{3} \right) + \frac{1}{3} \log_2 \left( \frac{1}{3} \right) + \frac{1}{3} \log_2 \left( \frac{1}{3} \right) \right) = 1.58496 \]
 
@@ -282,10 +280,9 @@ Por fim, podemos calcular o Information Gain:
 
 Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_3 = 0$, $y_3 = 1$ e $y_3 = 2$, respetivamente:
 
-\begin{multicols}{3}
-  \setlength{\columnseprule}{0pt}
-
-  \vspace*{\fill}
+\begin{center}
+\begin{minipage}[b]{0.3\linewidth}
+  \centering
   \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|}
@@ -296,11 +293,9 @@ Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_3 = 0$,
     \caption{Dataset D com $y_3 = 0$}
     \label{tab:datasetDy3=0}
   \end{table}
-
-  \vspace*{\fill}
-
-  \columnbreak
-
+\end{minipage}
+\begin{minipage}[b]{0.3\linewidth}
+  \centering
   \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|}
@@ -312,11 +307,9 @@ Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_3 = 0$,
     \caption{Dataset D com $y_3 = 1$}
     \label{tab:datasetDy3=1}
   \end{table}
-
-
-  \vspace*{\fill}
-  \columnbreak
-
+\end{minipage}
+\begin{minipage}[b]{0.3\linewidth}
+  \centering
   \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|}
@@ -330,7 +323,9 @@ Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_3 = 0$,
     \caption{Dataset D com $y_3 = 2$}
     \label{tab:datasetDy3=2}
   \end{table}
-\end{multicols}
+\end{minipage}
+\end{center}
+
 
 \[ H(y_{out}|y_3 = 0) = - \left( \log(1) \right) = 0 \]
 
@@ -356,10 +351,9 @@ Por fim, podemos calcular o Information Gain:
 
 Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_4 = 0$, $y_4 = 1$ e $y_4 = 2$, respetivamente:
 
-\begin{multicols}{3}
-  \setlength{\columnseprule}{0pt}
-
-  \vspace*{\fill}
+\begin{center}
+\begin{minipage}[b]{0.3\linewidth}
+  \centering
   \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|}
@@ -371,10 +365,9 @@ Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_4 = 0$,
     \caption{Dataset D com $y_4 = 0$}
     \label{tab:datasetDy4=0}
   \end{table}
-
-  \vspace*{\fill}
-  \columnbreak
-
+\end{minipage}
+\begin{minipage}[b]{0.3\linewidth}
+  \centering
   \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|}
@@ -387,10 +380,9 @@ Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_4 = 0$,
     \caption{Dataset D com $y_4 = 1$}
     \label{tab:datasetDy4=1}
   \end{table}
-
-  \vspace*{\fill}
-  \columnbreak
-
+\end{minipage}
+\begin{minipage}[b]{0.3\linewidth}
+  \centering
   \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|}
@@ -402,8 +394,8 @@ Tabela dividida em 3 sub-tabelas, cada uma com os dados que verificam $y_4 = 0$,
     \caption{Dataset D com $y_4 = 2$}
     \label{tab:datasetDy4=2}
   \end{table}
-
-\end{multicols}
+\end{minipage}
+\end{center}
 
 \[ H(y_{out}|y_4 = 0) = - \left( \frac{1}{2} \log_2 \left( \frac{1}{2} \right) + \frac{1}{2} \log_2 \left( \frac{1}{2} \right) \right) = 1 \]
 
@@ -609,13 +601,26 @@ O recall é dado por:
 \[ R = \frac{TP}{TP + FN} \]
 
 Assim, obtemos que:
-\[ P_A = \frac{4}{4 + 1 + 0} = \frac{4}{5} \]
-\[ P_B = \frac{2}{2 + 0 + 0} = 1 \]
-\[ P_C = \frac{4}{4 + 1 + 0} = \frac{4}{5} \]
-
-\[ R_A = \frac{4}{4 + 0 + 0} = 1 \]
-\[ R_B = \frac{2}{2 + 1 + 1} = \frac{1}{2} \]
-\[ R_C = \frac{4}{4 + 0 + 0} = 1 \]
+\begin{center}
+  \begin{minipage}{0.3\textwidth}
+    \begin{align*}
+      P_A &= \frac{4}{4 + 1 + 0} = \frac{4}{5} \\
+      R_A &= \frac{4}{4 + 0 + 0} = 1 \\
+    \end{align*}
+  \end{minipage}
+  \begin{minipage}{0.3\textwidth}
+    \begin{align*}
+      P_B &= \frac{2}{2 + 0 + 0} = 1 \\
+      R_B &= \frac{2}{2 + 1 + 1} = \frac{1}{2} \\
+    \end{align*}
+  \end{minipage}
+  \begin{minipage}{0.3\textwidth}
+    \begin{align*}
+      P_C &= \frac{4}{4 + 1 + 0} = \frac{4}{5} \\
+      R_C &= \frac{4}{4 + 0 + 0} = 1 \\
+    \end{align*}
+  \end{minipage}
+\end{center}
 
 Por fim, o $F_1$-score é dado por:
 
