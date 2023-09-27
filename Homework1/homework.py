@@ -69,6 +69,26 @@ ax.hist(class_A['y1'], bins=5, range=(0, 1), density=True, alpha=0.5, label='Cla
 ax.hist(class_B['y1'], bins=5, range=(0, 1), density=True, alpha=0.5, label='Class B')
 ax.hist(class_C['y1'], bins=5, range=(0, 1), density=True, alpha=0.5, label='Class C')
 
+# Mean and Std for each class
+mean_A = class_A['y1'].mean()
+std_A = class_A['y1'].std()
+mean_B = class_B['y1'].mean()
+std_B = class_B['y1'].std()
+mean_C = class_C['y1'].mean()
+std_C = class_C['y1'].std()
+
+# Draw a Gaussian distribution for each class
+x = np.linspace(0, 1, 100)
+y_A = 1 / (std_A * np.sqrt(2 * np.pi)) * np.exp(-0.5 * (x - mean_A) ** 2 / std_A ** 2)
+y_B = 1 / (std_B * np.sqrt(2 * np.pi)) * np.exp(-0.5 * (x - mean_B) ** 2 / std_B ** 2)
+y_C = 1 / (std_C * np.sqrt(2 * np.pi)) * np.exp(-0.5 * (x - mean_C) ** 2 / std_C ** 2)
+ax.plot(x, y_A, color='k', linestyle='dashed', linewidth=1)
+ax.plot(x, y_B, color='k', linestyle='dashed', linewidth=1)
+ax.plot(x, y_C, color='k', linestyle='dashed', linewidth=1)
+
+
+
+
 # Add a legend and axis labels
 ax.legend()
 ax.set_xlabel('y1')
