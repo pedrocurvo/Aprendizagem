@@ -58,7 +58,7 @@
 
 
 
-\usepackage{xcolor}
+
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 \usetikzlibrary{positioning, arrows.meta}
@@ -146,6 +146,35 @@ Aprendizagem - Homework 1 \vspace{-5mm}}
 \usepackage{sansmathfonts}
 \usepackage[T1]{fontenc}
 \usepackage[OT1]{fontenc}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
 
 \begin{document}
 
@@ -672,12 +701,14 @@ A fórmula para o coeficiente de Spearman é:
 
 \paragraph{Resposta: }Como o coeficiente de Spearman entre as duas variáveis é $<< 1$, podemos concluir que as duas variáveis não estão correlacionadas.
 
+\newpage
+
 \section{Exercício 5.}
 
 Queremos desenhar os histogramas da variável $y_1$ condicionados aos diferentes outcomes da variável $y_{out}$. 
 Assim, é necessário calcular os valores dos bins para 3 histogramas diferentes. Em primeiro lugar, utilizamos os dados:
 
-\begin{table}[h!]
+\begin{table}[H]
   \centering
   \begin{tabular}{|c|c|}
     \hline
@@ -700,22 +731,56 @@ Assim, é necessário calcular os valores dos bins para 3 histogramas diferentes
 \end{table}
 
 Queremos que cada histograma tenha 5 bins sendo a range total $[0,1]$, logo, os bins possíveis são $[0, 0.2]$, $[0.2, 0.4]$, $[0.4, 0.6]$, $[0.6, 0.8]$ e $[0.8, 1]$.
-\paragraph{}
-Na seguinte tabela encontram-se os cálculos para a altura de cada bin em cada um dos três histogramas:
 
-\begin{table}[h!]
+
+\begin{table}[H]
 \centering
 \begin{tabular}{|c|w{1.8cm}|w{1.8cm}|w{1.8cm}|w{1.8cm}|w{1.8cm}|w{1.8cm}|w{1.8cm}|}
 \hline
 Bins & Contagens com $y_{out} = A$ & Altura do bin para $y_{out} = A$ & Contagens com $y_{out} = B$ & Altura do bin para $y_{out} = B$ & Contagens com $y_{out} = C$ & Altura do bin para $y_{out} = C$ & Classe predominante no bin \\ \hline
-$[0,0.2]$       &  0             & 0                    & 2 & $\frac{2}{4} = 0.5$    & 0 & 0                   & B \\ \hline
-$[0.2,0.4]$     &  1             & $\frac{1}{4} = 0.25$ & 0 & 0                      & 2 & $\frac{2}{4} = 0.5$ & C \\ \hline
-$[0.4,0.6]$     &  0             & 0                    & 1 & $\frac{1}{4} = 0.25$   & 2 & $\frac{2}{4} = 0.5$ & C \\ \hline
-$[0.6,0.8]$     &  2             & $\frac{2}{4}=0.5$    & 1 & $\frac{1}{4} = 0.25$   & 0 & 0                   & A \\ \hline
-$[0.8,1]$       &  1             & $\frac{1}{4} = 0.25$ & 0 & 0                      & 0 & 0                   & A \\ \hline
+$[0,0.2]$       &  0             & 0                              & 2 & $\frac{2}{4\cdot 0.2} = 2.5$    & 0 & 0                   & B \\ \hline
+$[0.2,0.4]$     &  1             & $\frac{1}{4 \cdot 0.2} = 1.25$ & 0 & 0                               & 2 & $\frac{2}{4\cdot 0.2} = 2.5$ & C \\ \hline
+$[0.4,0.6]$     &  0             & 0                              & 1 & $\frac{1}{4\cdot 0.2} = 1.25$   & 2 & $\frac{2}{4\cdot 0.2} = 2.5$ & C \\ \hline
+$[0.6,0.8]$     &  2             & $\frac{2}{4\cdot 0.2}=2.5$     & 1 & $\frac{1}{4\cdot 0.2} = 1.25$   & 0 & 0                   & A \\ \hline
+$[0.8,1]$       &  1             & $\frac{1}{4\cdot 0.2} = 1.25$  & 0 & 0                               & 0 & 0                   & A \\ \hline
 \end{tabular}
 \end{table}
 
+Na tabela acima encontram-se os cálculos para a altura de cada bin em cada um dos três histogramas. 
+A altura é dada pela fórmula:
+\[ h = \frac{C}{n\cdot l} \]
+Onde $C$ é o número de ocorrências no bin, $n$ é o número total de ocorrências e $l$ é a largura do bin.
+
+\paragraph{}
+
+Obtivemos os seguintes histogramas da variável $y_1$ condicionados aos diferentes outcomes da variável $y_{out}$:
+
+
+
+\newpage
+
+\section{Componente de Programação}
+
+\subsection{Imports}
+
+\begin{lstlisting}[language=Python, caption=Python example]
+  import sklearn as sk
+  from sklearn.feature_selection import f_classif
+  from sklearn.model_selection import train_test_split
+  from sklearn import tree
+  import numpy as np
+  import pandas as pd
+  import matplotlib.pyplot as plt
+  import seaborn as sns
+  from pathlib import Path
+  from scipy.io.arff import loadarff
+\end{lstlisting}
+
+\subsection{Dataset}
+
+\begin{lstlisting}[language=Python, caption=Python example]
+  
+\end{lstlisting}
 
 
 

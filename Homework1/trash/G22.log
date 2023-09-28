@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.6.5)  23 SEP 2023 06:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2023.6.5)  28 SEP 2023 10:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -867,23 +867,6 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package xcolor Info: Driver file: pdftex.def on input line 225.
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
-Package xcolor Info: Model `RGB' extended on input line 1364.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
-)
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
@@ -958,7 +941,23 @@ File: pgfsyssoftpath.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
 tex
 File: pgfsysprotocol.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-))
+)) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2020/01/08 v3.1.5b (3.1.5b)
 
@@ -1620,48 +1619,48 @@ Package csquotes Info: Redefining alias 'default' -> 'portuguese'.
 (/home/salvadortorpes/Aprendizagem/Homework1/trash/G22.aux)
 \openout1 = `G22.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmssm/m/it on input line 150.
+LaTeX Font Info:    Checking defaults for OML/cmssm/m/it on input line 179.
 LaTeX Font Info:    Trying to load font information for OML+cmssm on input line
- 150.
+ 179.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathfonts/omlcmssm.fd
 File: omlcmssm.fd 2019/04/04
 )
-LaTeX Font Info:    ... okay on input line 150.
-LaTeX Font Info:    Checking defaults for OMS/cmsssy/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for OMS/cmsssy/m/n on input line 179.
 LaTeX Font Info:    Trying to load font information for OMS+cmsssy on input lin
-e 150.
+e 179.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathfonts/omscmsssy.fd
 File: omscmsssy.fd 2019/04/04
 )
-LaTeX Font Info:    ... okay on input line 150.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 150.
-LaTeX Font Info:    ... okay on input line 150.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 150.
-LaTeX Font Info:    ... okay on input line 150.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 150.
-LaTeX Font Info:    ... okay on input line 150.
-LaTeX Font Info:    Checking defaults for OMX/cmssex/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 179.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 179.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 179.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for OMX/cmssex/m/n on input line 179.
 LaTeX Font Info:    Trying to load font information for OMX+cmssex on input lin
-e 150.
+e 179.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathfonts/omxcmssex.fd
 File: omxcmssex.fd 2019/06/10
 )
-LaTeX Font Info:    ... okay on input line 150.
-LaTeX Font Info:    Checking defaults for U/xcmss/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for U/xcmss/m/n on input line 179.
 LaTeX Font Info:    Trying to load font information for U+xcmss on input line 1
-50.
+79.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathfonts/uxcmss.fd
 File: uxcmss.fd 2019/04/04
 )
-LaTeX Font Info:    ... okay on input line 150.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 150.
-LaTeX Font Info:    ... okay on input line 150.
-LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 150.
-LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 179.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 179.
+LaTeX Font Info:    ... okay on input line 179.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1711,8 +1710,8 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'G22.bbl' not found.
 
 No file G22.bbl.
-Package biblatex Info: Reference section=0 on input line 150.
-Package biblatex Info: Reference segment=0 on input line 150.
+Package biblatex Info: Reference section=0 on input line 179.
+Package biblatex Info: Reference segment=0 on input line 179.
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count499
@@ -1750,10 +1749,10 @@ Package caption Info: listings package is loaded.
 Package caption Info: sidecap package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
-Package chemgreek Info: Activating mapping `default' on line 150.
+Package chemgreek Info: Activating mapping `default' on line 179.
 
 \AtBeginShipoutBox=\box137
-Package hyperref Info: Link coloring ON on input line 150.
+Package hyperref Info: Link coloring ON on input line 179.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -1766,9 +1765,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count505
 )
-LaTeX Info: Redefining \ref on input line 150.
-LaTeX Info: Redefining \pageref on input line 150.
-LaTeX Info: Redefining \nameref on input line 150.
+LaTeX Info: Redefining \ref on input line 179.
+LaTeX Info: Redefining \pageref on input line 179.
+LaTeX Info: Redefining \nameref on input line 179.
 
 (/home/salvadortorpes/Aprendizagem/Homework1/trash/G22.out)
 (/home/salvadortorpes/Aprendizagem/Homework1/trash/G22.out)
@@ -1777,170 +1776,186 @@ LaTeX Info: Redefining \nameref on input line 150.
 
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 150.
+LaTeX Info: Redefining \selectfont on input line 179.
 \c@lstlisting=\count506
  ABD: EveryShipout initializing macros
-LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 150.
+LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 179.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `normal'
-(Font)                  U/msa/m/n --> U/ssmsa/m/n on input line 150.
+(Font)                  U/msa/m/n --> U/ssmsa/m/n on input line 179.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `bold'
-(Font)                  U/msa/m/n --> U/ssmsa/m/n on input line 150.
-LaTeX Font Info:    Redeclaring symbol font `AMSb' on input line 150.
+(Font)                  U/msa/m/n --> U/ssmsa/m/n on input line 179.
+LaTeX Font Info:    Redeclaring symbol font `AMSb' on input line 179.
 LaTeX Font Info:    Overwriting symbol font `AMSb' in version `normal'
-(Font)                  U/msb/m/n --> U/ssmsb/m/n on input line 150.
+(Font)                  U/msb/m/n --> U/ssmsb/m/n on input line 179.
 LaTeX Font Info:    Overwriting symbol font `AMSb' in version `bold'
-(Font)                  U/msb/m/n --> U/ssmsb/m/n on input line 150.
+(Font)                  U/msb/m/n --> U/ssmsb/m/n on input line 179.
 
 
-Package array Warning: Column w is already defined on input line 158.
+Package array Warning: Column w is already defined on input line 187.
 
-<images/IST_Logo.png, id=39, 310.91156pt x 376.40625pt>
+<images/IST_Logo.png, id=43, 310.91156pt x 376.40625pt>
 File: images/IST_Logo.png Graphic file (type png)
 <use images/IST_Logo.png>
-Package pdftex.def Info: images/IST_Logo.png  used on input line 164.
+Package pdftex.def Info: images/IST_Logo.png  used on input line 193.
 (pdftex.def)             Requested size: 932.73235pt x 1129.21596pt.
 LaTeX Font Info:    Trying to load font information for OT1+cmsmf on input line
- 164.
+ 193.
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathfonts/ot1cmsmf.fd
 File: ot1cmsmf.fd 2019/04/04
 )
 LaTeX Font Info:    Trying to load font information for U+ssmsa on input line 1
-64.
+93.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathfonts/ussmsa.fd
 File: ussmsa.fd 2019/04/04
 )
 LaTeX Font Info:    Trying to load font information for U+ssmsb on input line 1
-64.
+93.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathfonts/ussmsb.fd
 File: ussmsb.fd 2019/04/04
 )
 LaTeX Font Info:    Trying to load font information for TS1+xcmss on input line
- 164.
-LaTeX Font Info:    No file TS1xcmss.fd. on input line 164.
+ 193.
+LaTeX Font Info:    No file TS1xcmss.fd. on input line 193.
 
 
 LaTeX Font Warning: Font shape `TS1/xcmss/m/n' undefined
 (Font)              using `TS1/cmr/m/n' instead
-(Font)              for symbol `textordmasculine' on input line 164.
+(Font)              for symbol `textordmasculine' on input line 193.
 
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 169.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 198.
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/IST_Logo.png>]
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 197.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 226.
 
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 201.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 230.
 
 
 LaTeX Font Warning: Font shape `TS1/xcmss/bx/n' undefined
 (Font)              using `TS1/xcmss/m/n' instead
-(Font)              for symbol `textordmasculine' on input line 201.
+(Font)              for symbol `textordmasculine' on input line 230.
 
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 207.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 236.
 
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 278.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 307.
 
 [2]
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 349.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 378.
 
 [3]
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 419.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 448.
 
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 427.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 456.
 
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 433.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 462.
 
 [4]
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 459.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 488.
 
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 483.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 512.
 
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 491.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 520.
 
 [5] [6]
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 531.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 560.
 
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 557.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 586.
 
-<images/confusion_matrix.png, id=98, 462.528pt x 346.896pt>
+<images/confusion_matrix.png, id=102, 462.528pt x 346.896pt>
 File: images/confusion_matrix.png Graphic file (type png)
 <use images/confusion_matrix.png>
-Package pdftex.def Info: images/confusion_matrix.png  used on input line 585.
+Package pdftex.def Info: images/confusion_matrix.png  used on input line 614.
 (pdftex.def)             Requested size: 211.38832pt x 158.54192pt.
 [7 <./images/confusion_matrix.png>]
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 595.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 624.
 
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 639.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 668.
 
 [8]
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 643.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 672.
+
+
+Overfull \hbox (39.73904pt too wide) detected at line 700
+\OML/cmssm/m/it/10 r[] \OT1/cmsmf/m/n/10 = [] = [] = 0\OML/cmssm/m/it/10 :\OT1/
+cmsmf/m/n/10 079659
+ []
 
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 673.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 702.
 
-
-LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 675.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+[9]
 
 LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
-(Font)              using `OT1/xcmss/bx/n' instead on input line 704.
+(Font)              using `OT1/xcmss/bx/n' instead on input line 706.
 
 
-Overfull \hbox (24.12805pt too wide) in paragraph at lines 708--717
+Overfull \hbox (24.12805pt too wide) in paragraph at lines 738--747
  [][] 
  []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
+(Font)              using `OT1/xcmss/bx/n' instead on input line 756.
 
-[9] [10]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 723.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 723.
+[10]
+
+LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
+(Font)              using `OT1/xcmss/bx/n' instead on input line 762.
+
+
+LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
+(Font)              using `OT1/xcmss/bx/n' instead on input line 764.
+
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 766.
+
+LaTeX Font Warning: Font shape `OT1/xcmss/b/n' undefined
+(Font)              using `OT1/xcmss/bx/n' instead on input line 779.
+
+[11]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 790.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 790.
  (/home/salvadortorpes/Aprendizagem/Homework1/trash/G22.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 723.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 723.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 790.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 790.
 Package rerunfilecheck Info: File `G22.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
 
@@ -1952,11 +1967,11 @@ Package logreq Info: Writing requests to 'G22.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 44537 strings out of 481239
- 934537 string characters out of 5920378
- 1603351 words of memory out of 5000000
- 59045 multiletter control sequences out of 15000+600000
- 547182 words of font info for 76 fonts, out of 8000000 for 9000
+ 44984 strings out of 481239
+ 938450 string characters out of 5920378
+ 1615233 words of memory out of 5000000
+ 59474 multiletter control sequences out of 15000+600000
+ 547818 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  149i,12n,178p,1623b,1797s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
@@ -1970,13 +1985,15 @@ c/sansmathfonts/cmssex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 sansmathfonts/cmssmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/sa
 nsmathfonts/cmssmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/sansm
 athfonts/cmssmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/sansmath
-fonts/cmsssy10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb><
-/usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on /home/salvadortorpes/Aprendizagem/Homework1/trash/G22.pdf (10
- pages, 167651 bytes).
+fonts/cmsssy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/sansmathfo
+nts/cmsssy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mtt8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share
+/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on /home/salvadortorpes/Aprendizagem/Homework1/trash/G22.pdf (11
+ pages, 184901 bytes).
 PDF statistics:
- 183 PDF objects out of 1000 (max. 8388607)
- 152 compressed objects within 2 object streams
- 46 named destinations out of 1000 (max. 500000)
- 87 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 216 PDF objects out of 1000 (max. 8388607)
+ 182 compressed objects within 2 object streams
+ 62 named destinations out of 1000 (max. 500000)
+ 95 words of extra memory for PDF output out of 10000 (max. 10000000)
 
