@@ -704,17 +704,19 @@ Queremos que cada histograma tenha 5 bins sendo a range total $[0,1]$, logo, os 
 Na seguinte tabela encontram-se os cálculos para a altura de cada bin em cada um dos três histogramas:
 
 \begin{table}[h!]
-  \centering
-  \begin{tabular}{|c|w{1.8cm}|w{1.8cm}|w{1.8cm}|w{1.8cm}|w{1.8cm}|w{1.8cm}|w{1.8cm}|}
-  \hline
-  Bins & Contagens com $y_{out} = A$ & Altura do bin para $y_{out} = A$ & Contagens com $y_{out} = B$ & Altura do bin para $y_{out} = B$ & Contagens com $y_{out} = C$ & Altura do bin para $y_{out} = C$ & Classe predominante no bin \\ \hline
-  $[0,0.2]$       &  0             & 0                    & 2 & $\frac{2}{4} = 0.5$    & 0 & 0                   & B \\ \hline
-  $[0.2,0.4]$     &  1             & $\frac{1}{4} = 0.25$ & 0 & 0                      & 2 & $\frac{2}{4} = 0.5$ & C \\ \hline
-  $[0.4,0.6]$     &  0             & 0                    & 1 & $\frac{1}{4} = 0.25$   & 2 & $\frac{2}{4} = 0.5$ & C \\ \hline
-  $[0.6,0.8]$     &  2             & $\frac{2}{4}=0.5$    & 1 & $\frac{1}{4} = 0.25$   & 0 & 0                   & A \\ \hline
-  $[0.8,1]$       &  1             & $\frac{1}{4} = 0.25$ & 0 & 0                      & 0 & 0                   & A \\ \hline
-  \end{tabular}
-  \end{table}
+\centering
+\begin{tabular}{|c|w{1.8cm}|w{1.8cm}|w{1.8cm}|w{1.8cm}|w{1.8cm}|w{1.8cm}|w{1.8cm}|}
+\hline
+Bins & Contagens com $y_{out} = A$ & Altura do bin para $y_{out} = A$ & Contagens com $y_{out} = B$ & Altura do bin para $y_{out} = B$ & Contagens com $y_{out} = C$ & Altura do bin para $y_{out} = C$ & Classe predominante no bin \\ \hline
+$[0,0.2]$       &  0             & 0                    & 2 & $\frac{2}{4} = 0.5$    & 0 & 0                   & B \\ \hline
+$[0.2,0.4]$     &  1             & $\frac{1}{4} = 0.25$ & 0 & 0                      & 2 & $\frac{2}{4} = 0.5$ & C \\ \hline
+$[0.4,0.6]$     &  0             & 0                    & 1 & $\frac{1}{4} = 0.25$   & 2 & $\frac{2}{4} = 0.5$ & C \\ \hline
+$[0.6,0.8]$     &  2             & $\frac{2}{4}=0.5$    & 1 & $\frac{1}{4} = 0.25$   & 0 & 0                   & A \\ \hline
+$[0.8,1]$       &  1             & $\frac{1}{4} = 0.25$ & 0 & 0                      & 0 & 0                   & A \\ \hline
+\end{tabular}
+\end{table}
+
+
 
 
 
