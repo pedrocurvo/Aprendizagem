@@ -65,10 +65,46 @@ class_C = data[data['y_out'] == 'C']
 fig, ax = plt.subplots(figsize=(8, 6))
 
 # Plot the histograms for each class
-ax.hist(class_A['y1'], bins=5, range=(0, 1), density=False, alpha=0.5, label='Class A')
-ax.hist(class_B['y1'], bins=5, range=(0, 1), density=False, alpha=0.5, label='Class B')
-ax.hist(class_C['y1'], bins=5, range=(0, 1), density=False, alpha=0.5, label='Class C')
+
+# Plot histogram for Class A
+fig, ax = plt.subplots(figsize=(8, 6))
+ax.hist(class_A['y1'], bins=5, range=(0, 1), density=True, alpha=0.5, label='Class A')
+ax.set_xlabel('y1')
+ax.set_ylabel('Relative Probability Density')
+ax.set_title('Histogram for Class A')
+plt.savefig('images/histogram_A.png')
 plt.show()
+
+# Plot histogram for Class B
+fig, ax = plt.subplots(figsize=(8, 6))
+ax.hist(class_B['y1'], bins=5, range=(0, 1), density=True, alpha=0.5, label='Class B', color='orange')
+ax.set_xlabel('y1')
+ax.set_ylabel('Relative Probability Density')
+ax.set_title('Histogram for Class B')
+plt.savefig('images/histogram_B.png')
+plt.show()
+
+# Plot histogram for Class C
+fig, ax = plt.subplots(figsize=(8, 6))
+ax.hist(class_C['y1'], bins=5, range=(0, 1), density=True, alpha=0.5, label='Class C', color='green')
+ax.set_xlabel('y1')
+ax.set_ylabel('Relative Probability Density')
+ax.set_title('Histogram for Class C')
+plt.savefig('images/histogram_C.png')
+plt.show()
+
+# Plot all histograms together
+fig, ax = plt.subplots(figsize=(8, 6))
+ax.hist(class_A['y1'], bins=5, range=(0, 1), density=True, alpha=0.5, label='Class A')
+ax.hist(class_B['y1'], bins=5, range=(0, 1), density=True, alpha=0.5, label='Class B')
+ax.hist(class_C['y1'], bins=5, range=(0, 1), density=True, alpha=0.5, label='Class C')
+ax.set_xlabel('y1')
+ax.set_ylabel('Relative Probability Density')
+ax.set_title('Histogram for all Classes')
+ax.legend()
+plt.savefig('images/histogram_all.png')
+plt.show()
+
 
 # Mean and Std for each class
 mean_A = class_A['y1'].mean()
@@ -93,7 +129,7 @@ ax.plot(x, y_C, color='k', linestyle='dashed', linewidth=1)
 # Add a legend and axis labels
 ax.legend()
 ax.set_xlabel('y1')
-ax.set_ylabel('Relative frequency')
+ax.set_ylabel('Relative Probability Density')
 
 plt.show()
 
