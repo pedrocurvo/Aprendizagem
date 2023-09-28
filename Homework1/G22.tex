@@ -668,7 +668,7 @@ Para calcular o coeficiente de Spearman entre as variáveis $y_1$ e $y_2$, come�
 
 A fórmula para o coeficiente de Spearman é:
 
-\[ r_S = \frac{\text{cov}(y_1, y_2)}{\sqrt{\text{var}(y_1)\cdot \text{var}(y_2)}} = \frac{\frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{ \sqrt{\left(\frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})^2 \right) \cdot \left(\frac{1}{n} \sum_{i=1}^{n} (y_i - \bar{y})^2 \right)}} = 0.079659 \]
+\[ r_S = \frac{\text{cov}(rank(y_1), rank(y_2))}{\sqrt{\text{var}(rank(y_1))\cdot \text{var}(rank(y_2))}} = \frac{\frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{ \sqrt{\left(\frac{1}{n} \sum_{i=1}^{n} (rank(x_i) - \bar{rank(x)})^2 \right) \cdot \left(\frac{1}{n} \sum_{i=1}^{n} (rank(y_i) - \bar{rank(y)})^2 \right)}} = 0.079659 \]
 
 \paragraph{Resposta: }Como o coeficiente de Spearman entre as duas variáveis é $<< 1$, podemos concluir que as duas variáveis não estão correlacionadas.
 
