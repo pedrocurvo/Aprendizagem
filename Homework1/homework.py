@@ -57,7 +57,7 @@ data = pd.DataFrame(
     'y_out': ['A', 'B', 'B', 'C', 'C', 'A', 'A', 'A', 'B', 'B', 'C', 'C']
 })
 # Split the data by class
-class_A = data[data['y_out'] == 'A']
+class_A = data.drop(data[data['y_out'] != 'A'].index)
 class_B = data[data['y_out'] == 'B']
 class_C = data[data['y_out'] == 'C']
 
@@ -65,9 +65,10 @@ class_C = data[data['y_out'] == 'C']
 fig, ax = plt.subplots(figsize=(8, 6))
 
 # Plot the histograms for each class
-ax.hist(class_A['y1'], bins=5, range=(0, 1), density=True, alpha=0.5, label='Class A')
-ax.hist(class_B['y1'], bins=5, range=(0, 1), density=True, alpha=0.5, label='Class B')
-ax.hist(class_C['y1'], bins=5, range=(0, 1), density=True, alpha=0.5, label='Class C')
+ax.hist(class_A['y1'], bins=5, range=(0, 1), density=False, alpha=0.5, label='Class A')
+ax.hist(class_B['y1'], bins=5, range=(0, 1), density=False, alpha=0.5, label='Class B')
+ax.hist(class_C['y1'], bins=5, range=(0, 1), density=False, alpha=0.5, label='Class C')
+plt.show()
 
 # Mean and Std for each class
 mean_A = class_A['y1'].mean()
