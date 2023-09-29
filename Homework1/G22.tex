@@ -222,7 +222,7 @@ Aprendizagem - Homework 1 \vspace{-5mm}}
     \pagestyle{plain}
     \thispagestyle{empty} % Remove header/footer from first page
     
-    \begin{document}
+\begin{document}
     
     \renewcommand{\arraystretch}{1.7}
     \setlength{\columnseprule}{0.4pt}
@@ -272,10 +272,11 @@ Aprendizagem - Homework 1 \vspace{-5mm}}
 \section*{Exercício 1.}
 
 De modo a corretamente completar a árvore de decisão, é necessário calcular o Information gain (IG) da variável de output $y_{out}$ condicionada a cada uma das variáveis $y_2$, $y_3$ e $y_4$. 
+Temos de repetir o processo para cada nó.
 
 \subsection*{Escolha do 2º nó}
 
-Como queremos completar o ramo $y_1>0.4$, vamos apenas considerar as ocorrencias em que $y_1>0.4$ para calcular o IG.
+Como queremos completar o ramo $y_1>0.4$, vamos apenas considerar as ocorrências em que $y_1>0.4$ para calcular o IG.
 
 \paragraph{Information Gain de $y_{out}$ condicionada a $y_2$}
 
@@ -496,12 +497,12 @@ Podemos confirmar, pelos cálculos acima, que:
 \[ IG(y_{out}|y_2) = IG(y_{out}|y_4) < IG(y_{out}|y_3) \]
 
 Assim, a variável $y_3$ é a que tem maior IG, pelo que é a variável que escolhemos para o 2º nó da árvore de decisão no ramo $y_1>0.4$.
-Este nó vai ter três ramos, um para cada valor possível de $y_3$: a ocorrência $y_3=0$ tem apenas uma ocorrência e a ocorrência $y_3=1$ tem apenas duas ocorrências, pelo que estes dois nós não são expandidos.
-Por outro lado, $y_3=2$ tem 4 ocorrências, pelo que é o único nó que é expandido. Falta averiguar qual a variável que vai ser usada para expandir este nó.
+Este nó vai ter três ramos, um para cada valor possível de $y_3$: o caso $y_3=0$ tem apenas uma ocorrência e $y_3=1$ apenas tem duas, pelo que estes dois ramos não são expandidos numa nova variável de input.
+Por outro lado, $y_3=2$ tem 4 ocorrências, pelo que é o único nó que é expandido numa nova variável de input. Falta averiguar qual a variável que vai ser usada para expandir este nó.
 
 \subsection*{Escolha do 3º nó}
 
-Queremos agora completar o ramo que verifica $y_1 > 0.4$ e $y_3 = 2$. Para isso, vamos calcular o IG de $y_{out}$ para $y_2$ e $y_4$ considerando apenas as ocorrências que verificam $y_1 > 0.4$ e $y_3 = 2$:
+Queremos agora completar o ramo que verifica $y_1 > 0.4$ e $y_3 = 2$. Para isso, vamos calcular o IG de $y_{out}$ condicionada a $y_2$ e $y_4$ considerando apenas as ocorrências que verificam $y_1 > 0.4$ e $y_3 = 2$:
 
 \paragraph{Information Gain de $y_{out}$ condicionada a $y_2$}
 
@@ -560,8 +561,7 @@ Podemos confirmar, pelos cálculos acima, que:
 \[ IG(y_{out}|y_2) > IG(y_{out}|y_4) \]
 
 Assim, a variável $y_2$ é a que tem maior IG, pelo que é a variável que escolhemos para o 3º nó da árvore de decisão no ramo $y_1>0.4$ e $y_3 = 2$.
-Todos os nós desta árvore têm menos que 4 ocorrências, pelo que nehum deles é expandido e termina a árvore de decisão.
-
+Todos os ramos deste nó têm menos que 4 ocorrências, pelo que nehum deles é expandido e termina a árvore de decisão.
 
 \subsection*{Construção da árvore de decisão}
 
@@ -597,6 +597,7 @@ A árvore de decisão final é:
         ]
       ]
     ]
+  % \caption{Árvore de decisão Final}
   \end{forest}
   
 \end{center}
@@ -659,8 +660,11 @@ Para calcular o $F_1$-score para cada uma das classes de $y_{out}$, começamos p
 
 A precisão é dada por:
 \[ P = \frac{TP}{TP + FP} \]
+Onde $TP$ é o número de true positives e $FP$ é o número de false positives.
 O recall é dado por:
 \[ R = \frac{TP}{TP + FN} \]
+Onde $FN$ é o número de false negatives.
+\paragraph{}
 
 Assim, obtemos que:
 \begin{center}
@@ -729,7 +733,7 @@ Para calcular o coeficiente de Spearman entre as variáveis $y_1$ e $y_2$, come�
 
 A fórmula para o coeficiente de Spearman é:
 
-\[ r_S = \frac{\text{cov}(rank(y_1), rank(y_2))}{\sqrt{\text{var}(rank(y_1))\cdot \text{var}(rank(y_2))}} = \frac{\frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{ \sqrt{\left(\frac{1}{n} \sum_{i=1}^{n} (rank(x_i) - \bar{rank(x)})^2 \right) \cdot \left(\frac{1}{n} \sum_{i=1}^{n} (rank(y_i) - \bar{rank(y)})^2 \right)}} = 0.079659 \]
+\[ r_S = \frac{\text{cov}(\text{rank}(y_1), \text{rank}(y_2))}{\sqrt{\text{var}(\text{rank}(y_1))\cdot \text{var}(\text{rank}(y_2))}} = \frac{\frac{1}{n} \sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{ \sqrt{\left(\frac{1}{n} \sum_{i=1}^{n} (\text{rank}(x_i) - \overline{\text{rank}(x)})^2 \right) \cdot \left(\frac{1}{n} \sum_{i=1}^{n} (\text{rank}(y_i) - \overline{\text{rank}(y)})^2 \right)}} = 0.079659 \]
 
 \paragraph{Resposta: }Como o coeficiente de Spearman entre as duas variáveis é $<< 1$, podemos concluir que as duas variáveis não estão correlacionadas.
 
@@ -775,8 +779,8 @@ Queremos que cada histograma tenha 5 bins sendo a range total $[0,1]$, logo, os 
     $[0.4,0.6]$     &  0             & 0                              & 1 & $\frac{1}{4\cdot 0.2} = 1.25$   & 2 & $\frac{2}{4\cdot 0.2} = 2.5$ & C \\ \hline
     $[0.6,0.8]$     &  2             & $\frac{2}{4\cdot 0.2}=2.5$     & 1 & $\frac{1}{4\cdot 0.2} = 1.25$   & 0 & 0                   & A \\ \hline
     $[0.8,1]$       &  1             & $\frac{1}{4\cdot 0.2} = 1.25$  & 0 & 0                               & 0 & 0                   & A \\ \hline
-    \label{tab:c_bins}
   \end{tabular}
+  \label{tab:c_bins}
 \end{table}
 
 Na tabela acima encontram-se os cálculos para a altura de cada bin em cada um dos três histogramas. 
@@ -834,9 +838,9 @@ Deste modo e usando este critério como root split, podemos desenhar a árvore d
       l sep=10mm, % Horizontal separation between parent and child nodes
     }
     [$y_1$, circle
-      [A, edge label={node[midway,above]{ $[0, 0.2[ $}}, diamond]
+      [B, edge label={node[midway,above]{ $[0, 0.2[ $}}, diamond]
       [C, edge label={node[midway,above]{ $[0.2, 0.6[ $}}, diamond]
-      [B, edge label={node[midway,above]{ $ [0.6, 1.0[$}}, diamond]
+      [A, edge label={node[midway,above]{ $ [0.6, 1.0[$}}, diamond]
     ]
   \end{forest}
   
@@ -851,6 +855,7 @@ No exemplo acima, apenas usámos a variável $y_1$ para construir a árvore de d
 
 
 \newpage
+
 \section*{Componente de Programação}
 
 \subsection*{Imports}
