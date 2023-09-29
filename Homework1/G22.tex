@@ -766,7 +766,7 @@ Assim, é necessário calcular os valores dos bins para 3 histogramas diferentes
   \label{tab:datasetD_y1_yout}
 \end{table}
 
-Queremos que cada histograma tenha 5 bins sendo a range total $[0,1]$, logo, os bins possíveis são $[0, 0.2]$, $[0.2, 0.4]$, $[0.4, 0.6]$, $[0.6, 0.8]$ e $[0.8, 1]$.
+Queremos que cada histograma tenha 5 bins sendo a range total $[0,1]$, logo, os bins possíveis são $[0, 0.2[$, $[0.2, 0.4[$, $[0.4, 0.6[$, $[0.6, 0.8[$ e $[0.8, 1]$.
 
 
 \begin{table}[H]
@@ -774,10 +774,10 @@ Queremos que cada histograma tenha 5 bins sendo a range total $[0,1]$, logo, os 
   \begin{tabular}{|c|w{1.8cm}|w{1.8cm}|w{1.8cm}|w{1.8cm}|w{1.8cm}|w{1.8cm}|w{1.8cm}|}
     \hline
     Bins & Contagens com $y_{out} = A$ & Altura do bin para $y_{out} = A$ & Contagens com $y_{out} = B$ & Altura do bin para $y_{out} = B$ & Contagens com $y_{out} = C$ & Altura do bin para $y_{out} = C$ & Classe predominante no bin \\ \hline
-    $[0,0.2]$       &  0             & 0                              & 2 & $\frac{2}{4\cdot 0.2} = 2.5$    & 0 & 0                   & B \\ \hline
-    $[0.2,0.4]$     &  1             & $\frac{1}{4 \cdot 0.2} = 1.25$ & 0 & 0                               & 2 & $\frac{2}{4\cdot 0.2} = 2.5$ & C \\ \hline
-    $[0.4,0.6]$     &  0             & 0                              & 1 & $\frac{1}{4\cdot 0.2} = 1.25$   & 2 & $\frac{2}{4\cdot 0.2} = 2.5$ & C \\ \hline
-    $[0.6,0.8]$     &  2             & $\frac{2}{4\cdot 0.2}=2.5$     & 1 & $\frac{1}{4\cdot 0.2} = 1.25$   & 0 & 0                   & A \\ \hline
+    $[0,0.2[$       &  0             & 0                              & 2 & $\frac{2}{4\cdot 0.2} = 2.5$    & 0 & 0                   & B \\ \hline
+    $[0.2,0.4[$     &  1             & $\frac{1}{4 \cdot 0.2} = 1.25$ & 0 & 0                               & 2 & $\frac{2}{4\cdot 0.2} = 2.5$ & C \\ \hline
+    $[0.4,0.6[$     &  0             & 0                              & 1 & $\frac{1}{4\cdot 0.2} = 1.25$   & 2 & $\frac{2}{4\cdot 0.2} = 2.5$ & C \\ \hline
+    $[0.6,0.8[$     &  2             & $\frac{2}{4\cdot 0.2}=2.5$     & 1 & $\frac{1}{4\cdot 0.2} = 1.25$   & 0 & 0                   & A \\ \hline
     $[0.8,1]$       &  1             & $\frac{1}{4\cdot 0.2} = 1.25$  & 0 & 0                               & 0 & 0                   & A \\ \hline
   \end{tabular}
   \label{tab:c_bins}
