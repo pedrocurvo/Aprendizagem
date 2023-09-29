@@ -156,57 +156,103 @@ Aprendizagem - Homework 1 \vspace{-5mm}}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
 \lstdefinestyle{mystyle}{
-    backgroundcolor=\color{backcolour},   
-    commentstyle=\color{codegreen},
-    keywordstyle=\color{magenta},
-    numberstyle=\tiny\color{codegray},
-    stringstyle=\color{codepurple},
-    basicstyle=\ttfamily\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
-    tabsize=2
-}
-
-\lstset{style=mystyle}
-
-\begin{document}
-
-\renewcommand{\arraystretch}{1.7}
-\setlength{\columnseprule}{0.4pt}
-\tdplotsetmaincoords{70}{110} % Set the viewing angle
-\newcolumntype{M}[1]{>{\centering\arraybackslash\vspace{#1}}m{0.5\linewidth}<{\vspace{#1}}}
-\newcolumntype{C}[2]{>{\centering\arraybackslash\vspace{#1}\rule{0pt}{#1}\hspace{0pt}}m{#2}}
-\ifx\undefined\w
-  \newcolumntype{w}[1]{>{\centering\arraybackslash}m{#1}}
-\fi
-
-\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
-
-\maketitle
-
-\vspace{-5mm}
-
-\hrulefill
-
-\section*{Dataset}
-
-Consideramos o seguinte dataset D:
-
-\begin{table}[h!]
-  \centering
-  \begin{tabular}{|c|c|c|c|c|c|}
-    \hline
-    D     & $y_1$ & $y_2$ & $y_3$ & $y_4$ & $y_{out}$ \\ \hline
-    $x_1$ & 0.24   & 1     & 1     & 0     & A         \\ \hline
-    $x_2$ & 0.06   & 2     & 0     & 0     & B         \\ \hline
-    $x_3$ & 0.04   & 0     & 0     & 0     & B         \\ \hline
+  backgroundcolor=\color{backcolour},   
+  commentstyle=\color{codegray},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codegreen},
+  keywordstyle=[2]{\color{orange}},
+  keywords=[2]{plt.},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2,
+  frame=single,
+  framesep=2pt,
+  framerule=0pt,
+  xleftmargin=2pt,
+  xrightmargin=2pt,
+  aboveskip=1em,
+  belowskip=1em,
+  abovecaptionskip=0.5em,
+  belowcaptionskip=0.5em,
+  caption=\lstname,
+  captionpos=b,
+  language=Python,
+  morekeywords={as},
+  deletekeywords={None},
+  emph={self},
+  emphstyle=\color{blue},
+  escapeinside={(*@}{@*)},
+  literate={+}{{\textcolor{blue}{+}}}1
+       {*}{{\textcolor{blue}{*}}}1
+       {-}{{\textcolor{blue}{-}}}1
+       {/}{{\textcolor{blue}{/}}}1
+       {=}{{\textcolor{blue}{=}}}1
+       {>}{{\textcolor{blue}{>}}}1
+       {<}{{\textcolor{blue}{<}}}1
+       {==}{{\textcolor{blue}{==}}}2
+       {!=}{{\textcolor{blue}{!=}}}2
+       {<=}{{\textcolor{blue}{<=}}}2
+       {>=}{{\textcolor{blue}{>=}}}2,
+  }
+    
+    \lstset{style=mystyle}
+    \usepackage{fancyhdr}
+    
+    % Define header and footer styles
+    \fancypagestyle{plain}{%
+      \fancyhf{}% Clear header/footer
+      \fancyhead[L]{Homework 1}% Header left
+      \fancyhead[C]{2023/2024}% Header left
+      \fancyhead[R]{Aprendizagem}% Header right
+      \fancyfoot[C]{\thepage}% Footer center
+      \renewcommand{\headrulewidth}{0.4pt}% Header rule
+      \renewcommand{\footrulewidth}{0pt}% Footer rule
+    }
+    
+    % Apply the style to all pages except the first one
+    \pagestyle{plain}
+    \thispagestyle{empty} % Remove header/footer from first page
+    
+    \begin{document}
+    
+    \renewcommand{\arraystretch}{1.7}
+    \setlength{\columnseprule}{0.4pt}
+    \tdplotsetmaincoords{70}{110} % Set the viewing angle
+    \newcolumntype{M}[1]{>{\centering\arraybackslash\vspace{#1}}m{0.5\linewidth}<{\vspace{#1}}}
+    \newcolumntype{C}[2]{>{\centering\arraybackslash\vspace{#1}\rule{0pt}{#1}\hspace{0pt}}m{#2}}
+    \ifx\undefined\w
+    \newcolumntype{w}[1]{>{\centering\arraybackslash}m{#1}}
+    \fi
+    
+    \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+    
+    \maketitle
+    
+    \vspace{-5mm}
+    
+    \hrulefill
+    \section*{Dataset}
+    
+    
+    Consideramos o seguinte dataset D:
+    
+    \begin{table}[h!]
+      \centering
+      \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        D     & $y_1$ & $y_2$ & $y_3$ & $y_4$ & $y_{out}$ \\ \hline
+        $x_1$ & 0.24   & 1     & 1     & 0     & A         \\ \hline
+        $x_2$ & 0.06   & 2     & 0     & 0     & B         \\ \hline
+        $x_3$ & 0.04   & 0     & 0     & 0     & B         \\ \hline
     $x_4$ & 0.36   & 0     & 2     & 1     & C         \\ \hline
     $x_5$ & 0.32   & 0     & 0     & 2     & C         \\ \hline
     $x_6$ & 0.68   & 2     & 2     & 1     & A         \\ \hline
@@ -223,11 +269,11 @@ Consideramos o seguinte dataset D:
 
 \newpage
 
-\section{Exercício 1.}
+\section*{Exercício 1.}
 
 De modo a corretamente completar a árvore de decisão, é necessário calcular o Information gain (IG) da variável de output $y_{out}$ condicionada a cada uma das variáveis $y_2$, $y_3$ e $y_4$. 
 
-\subsection{Escolha do 2º nó}
+\subsection*{Escolha do 2º nó}
 
 Como queremos completar o ramo $y_1>0.4$, vamos apenas considerar as ocorrencias em que $y_1>0.4$ para calcular o IG.
 
@@ -453,7 +499,7 @@ Assim, a variável $y_3$ é a que tem maior IG, pelo que é a variável que esco
 Este nó vai ter três ramos, um para cada valor possível de $y_3$: a ocorrência $y_3=0$ tem apenas uma ocorrência e a ocorrência $y_3=1$ tem apenas duas ocorrências, pelo que estes dois nós não são expandidos.
 Por outro lado, $y_3=2$ tem 4 ocorrências, pelo que é o único nó que é expandido. Falta averiguar qual a variável que vai ser usada para expandir este nó.
 
-\subsection{Escolha do 3º nó}
+\subsection*{Escolha do 3º nó}
 
 Queremos agora completar o ramo que verifica $y_1 > 0.4$ e $y_3 = 2$. Para isso, vamos calcular o IG de $y_{out}$ para $y_2$ e $y_4$ considerando apenas as ocorrências que verificam $y_1 > 0.4$ e $y_3 = 2$:
 
@@ -517,7 +563,7 @@ Assim, a variável $y_2$ é a que tem maior IG, pelo que é a variável que esco
 Todos os nós desta árvore têm menos que 4 ocorrências, pelo que nehum deles é expandido e termina a árvore de decisão.
 
 
-\subsection{Construção da árvore de decisão}
+\subsection*{Construção da árvore de decisão}
 
 Para completar a árvore, resta preencher os nós terminais com os valores de $y_{out}$ que são mais prováveis em cada ramo. Em caso de empate, escolhemos por ordem alfabética.
 A árvore de decisão final é:
@@ -557,7 +603,7 @@ A árvore de decisão final é:
 
 \newpage
 
-\section{Exercício 2.}
+\section*{Exercício 2.}
 
 Com o objetivo de desenhar a matriz de confusão da árvore de decisão construída acima, começamos por calcular os valores previstos para o output, $\hat{y}_{out}$, para cada uma das ocorrências do dataset D:
 
@@ -585,10 +631,7 @@ Com o objetivo de desenhar a matriz de confusão da árvore de decisão constru�
 
 Assim, desenhamos a \textbf{matriz de confusão}:
 
-\begin{multicols}{2}
-  \setlength{\columnseprule}{0pt}
 
-  \vspace*{\fill}
 
   \begin{table}[H]
     \centering
@@ -604,24 +647,13 @@ Assim, desenhamos a \textbf{matriz de confusão}:
     \label{tab:confusion_matrix}
   \end{table}
 
-  \columnbreak
 
-  \vspace*{\fill}
-  
-  \begin{center}
-    \begin{figure}[H]
-      \centering
-      \includegraphics[width=0.45\textwidth]{images/confusion_matrix.png}
-      \caption{Matriz de confusão}
-      \label{fig:confusion_matrix}
-    \end{figure}
-  \end{center}
 
-\end{multicols}
+
 
 \newpage
 
-\section{Exercício 3.}
+\section*{Exercício 3.}
 
 Para calcular o $F_1$-score para cada uma das classes de $y_{out}$, começamos por calcular a precisão e o recall para cada uma delas:
 
@@ -669,7 +701,7 @@ Assim, podemos concluir que a classe com menor $F_1$-score é a classe B, com um
 
 \newpage
 
-\section{Exercício 4.}
+\section*{Exercício 4.}
 
 Para calcular o coeficiente de Spearman entre as variáveis $y_1$ e $y_2$, começamos por calcular o rank de cada uma das variáveis:
 
@@ -703,7 +735,7 @@ A fórmula para o coeficiente de Spearman é:
 
 \newpage
 
-\section{Exercício 5.}
+\section*{Exercício 5.}
 
 Queremos desenhar os histogramas da variável $y_1$ condicionados aos diferentes outcomes da variável $y_{out}$. 
 Assim, é necessário calcular os valores dos bins para 3 histogramas diferentes. Em primeiro lugar, utilizamos os dados:
@@ -734,16 +766,17 @@ Queremos que cada histograma tenha 5 bins sendo a range total $[0,1]$, logo, os 
 
 
 \begin{table}[H]
-\centering
-\begin{tabular}{|c|w{1.8cm}|w{1.8cm}|w{1.8cm}|w{1.8cm}|w{1.8cm}|w{1.8cm}|w{1.8cm}|}
-\hline
-Bins & Contagens com $y_{out} = A$ & Altura do bin para $y_{out} = A$ & Contagens com $y_{out} = B$ & Altura do bin para $y_{out} = B$ & Contagens com $y_{out} = C$ & Altura do bin para $y_{out} = C$ & Classe predominante no bin \\ \hline
-$[0,0.2]$       &  0             & 0                              & 2 & $\frac{2}{4\cdot 0.2} = 2.5$    & 0 & 0                   & B \\ \hline
-$[0.2,0.4]$     &  1             & $\frac{1}{4 \cdot 0.2} = 1.25$ & 0 & 0                               & 2 & $\frac{2}{4\cdot 0.2} = 2.5$ & C \\ \hline
-$[0.4,0.6]$     &  0             & 0                              & 1 & $\frac{1}{4\cdot 0.2} = 1.25$   & 2 & $\frac{2}{4\cdot 0.2} = 2.5$ & C \\ \hline
-$[0.6,0.8]$     &  2             & $\frac{2}{4\cdot 0.2}=2.5$     & 1 & $\frac{1}{4\cdot 0.2} = 1.25$   & 0 & 0                   & A \\ \hline
-$[0.8,1]$       &  1             & $\frac{1}{4\cdot 0.2} = 1.25$  & 0 & 0                               & 0 & 0                   & A \\ \hline
-\end{tabular}
+  \centering
+  \begin{tabular}{|c|w{1.8cm}|w{1.8cm}|w{1.8cm}|w{1.8cm}|w{1.8cm}|w{1.8cm}|w{1.8cm}|}
+    \hline
+    Bins & Contagens com $y_{out} = A$ & Altura do bin para $y_{out} = A$ & Contagens com $y_{out} = B$ & Altura do bin para $y_{out} = B$ & Contagens com $y_{out} = C$ & Altura do bin para $y_{out} = C$ & Classe predominante no bin \\ \hline
+    $[0,0.2]$       &  0             & 0                              & 2 & $\frac{2}{4\cdot 0.2} = 2.5$    & 0 & 0                   & B \\ \hline
+    $[0.2,0.4]$     &  1             & $\frac{1}{4 \cdot 0.2} = 1.25$ & 0 & 0                               & 2 & $\frac{2}{4\cdot 0.2} = 2.5$ & C \\ \hline
+    $[0.4,0.6]$     &  0             & 0                              & 1 & $\frac{1}{4\cdot 0.2} = 1.25$   & 2 & $\frac{2}{4\cdot 0.2} = 2.5$ & C \\ \hline
+    $[0.6,0.8]$     &  2             & $\frac{2}{4\cdot 0.2}=2.5$     & 1 & $\frac{1}{4\cdot 0.2} = 1.25$   & 0 & 0                   & A \\ \hline
+    $[0.8,1]$       &  1             & $\frac{1}{4\cdot 0.2} = 1.25$  & 0 & 0                               & 0 & 0                   & A \\ \hline
+    \label{tab:c_bins}
+  \end{tabular}
 \end{table}
 
 Na tabela acima encontram-se os cálculos para a altura de cada bin em cada um dos três histogramas. 
@@ -755,15 +788,74 @@ Onde $C$ é o número de ocorrências no bin, $n$ é o número total de ocorrên
 
 Obtivemos os seguintes histogramas da variável $y_1$ condicionados aos diferentes outcomes da variável $y_{out}$:
 
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{images/histogram_A.png}
+    \caption{Histograma de $y_1$ para $y_{out} = A$}
+    \label{fig:histogram_A}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{images/histogram_B.png}
+    \caption{Histograma de $y_1$ para $y_{out} = B$}
+    \label{fig:histogram_B}
+  \end{subfigure}
+  \vskip\baselineskip
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{images/histogram_C.png}
+    \caption{Histograma de $y_1$ para $y_{out} = C$}
+    \label{fig:histogram_C}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.45\textwidth}
+    \includegraphics[width=\linewidth]{images/histogram_all.png}
+    \caption{Histogramas de $y_1$ para $y_{out} = A$, $y_{out} = B$ e $y_{out} = C$}
+    \label{fig:histogram_all}
+  \end{subfigure}
+  \caption{Histogramas de $y_1$ condicionados a $y_{out}$}
+  \label{fig:histograms}
+\end{figure}
+
+Usando o critério da probabilidade máxima, podemos concluir que a classe predominante em cada bin é a classe que tem maior altura no bin, referido na tabela acima.
+Deste modo e usando este critério como root split, podemos desenhar a árvore de decisão:
+
+\begin{center}
+  \begin{forest}
+    for tree={
+      edge={->},
+      parent anchor=south,
+      child anchor=north,
+      align=center,
+      base=top,
+      draw,
+      font=\sffamily,
+      s sep=35mm, % Vertical separation between siblings
+      l sep=10mm, % Horizontal separation between parent and child nodes
+    }
+    [$y_1$, circle
+      [A, edge label={node[midway,above]{ $[0, 0.2[ $}}, diamond]
+      [C, edge label={node[midway,above]{ $[0.2, 0.6[ $}}, diamond]
+      [B, edge label={node[midway,above]{ $ [0.6, 1.0[$}}, diamond]
+    ]
+  \end{forest}
+  
+\end{center}
+
+Anteriormente, usámos a o ganho de informação com entropia para escolher a variável que iria ser usada para o root split.
+Contudo, outros métodos podem ser utilizados. Neste caso, podemos verificar que usando probabilidades condicionadas também conseguimos construir uma árvore de decisão.
+No exemplo acima, apenas usámos a variável $y_1$ para construir a árvore de decisão, mas poderíamos usar mais variáveis.
+
+
+
 
 
 \newpage
+\section*{Componente de Programação}
 
-\section{Componente de Programação}
+\subsection*{Imports}
 
-\subsection{Imports}
-
-\begin{lstlisting}[language=Python, caption=Python example]
+\begin{lstlisting}[language=Python]
   import sklearn as sk
   from sklearn.feature_selection import f_classif
   from sklearn.model_selection import train_test_split
@@ -776,12 +868,193 @@ Obtivemos os seguintes histogramas da variável $y_1$ condicionados aos diferent
   from scipy.io.arff import loadarff
 \end{lstlisting}
 
-\subsection{Dataset}
+\subsection*{Dataset}
 
-\begin{lstlisting}[language=Python, caption=Python example]
+\begin{lstlisting}[language=Python]
+  IMAGES_DIR = Path('images')
+  DATA_DIR = Path('data')
+  DATA_FILE = 'column_diagnosis.arff'
+  DATA_PATH = DATA_DIR / DATA_FILE
+  data = loadarff(DATA_PATH)
+  df = pd.DataFrame(data[0])
+  df['class'] = df['class'].str.decode('utf-8')
+  # Show the first 5 rows
+  df.head()
+\end{lstlisting}
+
+\subsection*{Question 1}
+
+\subsubsection*{F-Score}
+
+\begin{lstlisting}[language=Python]
+  X = df.drop('class', axis=1)
+  y = df['class']
+  f_statistic, p_values = f_classif(X, y)
+
+  f_statistic_df = pd.DataFrame({'feature': X.columns,
+                                'F': f_statistic,
+                                'p-value': p_values})
+  f_statistic_df.sort_values('p-value')
+
+  highest_discriminative_feature = f_statistic_df['feature'][f_statistic_df['F'].idxmax()]
+  lowest_discriminative_feature = f_statistic_df['feature'][f_statistic_df['F'].idxmin()]
+
+  print(f_statistic_df.sort_values('p-value'))
+  print("\n")
+  print(f"Variable with the highest F-statistic and lowest p_value: {highest_discriminative_feature}\n")
+  print(f"Variable with the lowest F-statistic and highest p_value: {lowest_discriminative_feature}\n")
+
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+Variable with the highest F-statistic and lowest p_value: degree_spondylolisthesis
+
+Variable with the lowest F-statistic and highest p_value: pelvic_radius
+\end{lstlisting}
+
+\subsubsection*{Class Conditional probability density functions}
+\begin{lstlisting}[language=Python]
+  # Plot the class-conditional probability density functions for the two selected features
+  plt.figure(figsize=(12, 6))
+  
+  for class_name in df['class'].unique():
+      sns.kdeplot(df[df['class'] == class_name][highest_discriminative_feature], label=class_name)
+  
+  plt.title(f"Class Conditional Probability Density Function for {highest_discriminative_feature}")
+  plt.xlabel(highest_discriminative_feature)
+  plt.ylabel('Probability density')
+  plt.legend()
+  plt.savefig(IMAGES_DIR / 'prob_dens_highest_discriminative_feature.png')
+  plt.show()
+  
+  plt.figure(figsize=(12, 6))
+  for class_name in df['class'].unique():
+      sns.kdeplot(df[df['class'] == class_name][lowest_discriminative_feature], label=class_name)
+  
+  plt.title(f"Class Conditional Probability Density Function for {lowest_discriminative_feature}")
+  plt.xlabel(lowest_discriminative_feature)
+  plt.ylabel('Probability density')
+  plt.legend()
+  plt.savefig(IMAGES_DIR /'prob_dens_lowest_discriminative_feature.png')
+  plt.show()
+\end{lstlisting}
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{0.55\textwidth}
+    \includegraphics[width=\linewidth]{images/prob_dens_highest_discriminative_feature.png}
+  \end{subfigure}
+  \begin{subfigure}{0.55\textwidth}
+    \includegraphics[width=\linewidth]{images/prob_dens_lowest_discriminative_feature.png}
+  \end{subfigure}
+\end{figure}
+
+\subsubsection*{Question 2}
+\begin{lstlisting}[language=Python]
+  # Load and partition data
+  X_train, X_test, y_train, y_test = train_test_split(X,
+                                                      y,
+                                                      train_size=0.7,
+                                                      random_state=0,
+                                                      stratify=y)
+  
+  # Define the range of depth limits and number of runs to average over
+  depths = [1, 2, 3, 4, 5, 6, 8, 10]
+  runs = 10
+  
+  # Arrays to keep Acc Values
+  train_acc = np.zeros((runs, len(depths))) # This is going to be a 10x8 array, because we want to keep all the accuracies for each run
+  test_acc = np.zeros((runs, len(depths)))
+  
+  # Loop over the runs
+  for j, depth in enumerate(depths): # Need enumerate since we need to index the depths to keep in arrays
+      for i in range(runs):
+          # Learn Classifier
+          predictor = tree.DecisionTreeClassifier(max_depth=depth)
+          predictor.fit(X_train, y_train)
+  
+          # Predict on train and test set
+          y_predicted_train = predictor.predict(X_train)
+          y_predicted_test = predictor.predict(X_test)
+  
+          # Compute accuracy
+          train_acc[i, j] = sk.metrics.accuracy_score(y_train, y_predicted_train)
+          test_acc[i, j] = sk.metrics.accuracy_score(y_test, y_predicted_test)
+  
+  # Compute mean and standard deviation for train and test accuracies
+  train_acc_mean = np.mean(train_acc, axis=0)
+  train_acc_std = np.std(train_acc, axis=0)
+  test_acc_mean = np.mean(test_acc, axis=0)
+  test_acc_std = np.std(test_acc, axis=0)
+  
+  # Plot Optional
+  plt.figure(figsize=(10, 5))
+  plt.title('Accuracy vs. Depth Limit with 10 runs per depth limit')
+  plt.errorbar(depths, train_acc_mean, yerr=train_acc_std, label='Train Accuracy')
+  plt.errorbar(depths, test_acc_mean, yerr=test_acc_std, label='Test Accuracy')
+  plt.xlabel('Depth Limit')
+  plt.ylabel('Accuracy')
+  plt.legend()
+  plt.savefig(IMAGES_DIR /'accuracy_vs_depth_limit.png')
+  plt.show()
+  
+  
+  # Plot the Exercise without Optional Part
+  plt.figure(figsize=(10, 5))
+  plt.title('Accuracy vs. Depth Limit with 1 runs per depth limit')
+  plt.plot(depths, train_acc[0], label='Train Accuracy') # Selecting the first run for each depth limit
+  plt.plot(depths, test_acc[0], label='Test Accuracy')
+  plt.xlabel('Depth Limit')
+  plt.ylabel('Accuracy')
+  plt.legend()
+  plt.savefig(IMAGES_DIR /'accuracy_vs_depth_limit_without_optional.png')
+  plt.show()
   
 \end{lstlisting}
 
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{0.55\textwidth}
+    \includegraphics[width=\linewidth]{images/accuracy_vs_depth_limit.png}
+  \end{subfigure}
+  \begin{subfigure}{0.55\textwidth}
+    \includegraphics[width=\linewidth]{images/accuracy_vs_depth_limit_without_optional.png}
+  \end{subfigure}
+\end{figure}
+
+\subsubsection*{Question 3}
+Como se vê em ambos os gráficos, a precisão de treino aumenta à medida que o limite de profundidade da árvore de decisão aumenta. No entanto, a precisão de teste aumenta até um certo limite de profundidade (neste caso, cerca de 4 ou 5) e depois começa a diminuir. Isto acontece porque a árvore de decisão está a dar overfit aos dados de treino e não está a aprender de modo a corretamente avaliar os dados de teste.
+No que toca à parte opcional, também podemos ver que o desvio padrão geralmente é pequeno no caso do treino, o que indica que os resultados são consistentes em diferentes inicializações aleatórias dos dados. No entanto, o desvio padrão é maior para os dados de teste, o que indica que os dados de teste são mais sensíveis à inicialização aleatória dos dados.
+
+\subsubsection*{Question 4}
+
+    \begin{lstlisting}[language=Python]
+      # Learn a decision tree with a minimum number of samples per leaf = 20
+      predictor = tree.DecisionTreeClassifier(min_samples_leaf=20,
+                                              random_state=0)
+      
+      # Fit all the data
+      predictor.fit(X, y)
+      
+      # Plot the tree
+      plt.figure(figsize=(20, 10))
+      tree.plot_tree(predictor,
+                      feature_names=X.columns,
+                      filled=True,
+                      class_names=predictor.classes_)
+      plt.title('Decision Tree with Minimum Samples per Leaf = 20', fontsize=20)
+      plt.savefig(IMAGES_DIR / 'decision_tree_min_samples_leaf_20.png')
+      plt.show()
+    \end{lstlisting}
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=1\linewidth]{images/decision_tree_min_samples_leaf_20.png}
+    \end{figure}
+
+De acordo com a árvore de decisão construída na alínea anterior, existem dois casos nos quais o indivíduo em questão tem um outcome de diagnóstico com Hérnia. Em primeiro lugar temos degree spondylolisthesis $\leq 16.079$ e sacral slope $\leq 28.136$. 
+Em segundo lugar, temos degree spondy|olisthesis $\leq 16.079$, sacral slope $> 28.136$, pelvic radius $ \leq 117.36$ e sacral slope $\leq 40.149$.
 
 
 
