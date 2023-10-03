@@ -1,6 +1,6 @@
 
 % RUN:
-% pdflatex -output-directory=/home/salvadortorpes/Aprendizagem/Homework1/trash /home/salvadortorpes/Aprendizagem/Homework1/G22.tex
+% pdflatex -output-directory=/Users/salvatorpes/Desktop/Aprendizagem/Homework2/trash /Users/salvatorpes/Desktop/Aprendizagem/Homework2/G022.tex
 
 % ir a settings.json e adicionar:
 % // According to the wiki, the string latex-workshop.latex.autoBuild.run has three possible values: never, onSave and onFileChange(default).
@@ -140,7 +140,7 @@
 
 
 \title{\vspace{-6mm}\includegraphics[width=15mm,scale=2]{images/IST_Logo.png}\\ \vspace{5mm}
-Aprendizagem - Homework 1 \vspace{-5mm}}
+Aprendizagem - Homework 2 \vspace{-5mm}}
 \date{1º Semestre - 23/24}
 
 \usepackage{sansmathfonts}
@@ -210,7 +210,7 @@ Aprendizagem - Homework 1 \vspace{-5mm}}
     % Define header and footer styles
     \fancypagestyle{plain}{%
       \fancyhf{}% Clear header/footer
-      \fancyhead[L]{Homework 1}% Header left
+      \fancyhead[L]{Homework 2}% Header left
       \fancyhead[C]{2023/2024}% Header left
       \fancyhead[R]{Aprendizagem}% Header right
       \fancyfoot[C]{\thepage}% Footer center
@@ -224,22 +224,27 @@ Aprendizagem - Homework 1 \vspace{-5mm}}
     
 \begin{document}
     
-    \renewcommand{\arraystretch}{1.7}
-    \setlength{\columnseprule}{0.4pt}
-    \tdplotsetmaincoords{70}{110} % Set the viewing angle
-    \newcolumntype{M}[1]{>{\centering\arraybackslash\vspace{#1}}m{0.5\linewidth}<{\vspace{#1}}}
-    \newcolumntype{C}[2]{>{\centering\arraybackslash\vspace{#1}\rule{0pt}{#1}\hspace{0pt}}m{#2}}
-    \ifx\undefined\w
-    \newcolumntype{w}[1]{>{\centering\arraybackslash}m{#1}}
-    \fi
-    
-    \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
-    
-    \maketitle
-    
-    \vspace{-5mm}
-    
-    \hrulefill
-    \section*{Dataset}
+\renewcommand{\arraystretch}{1.7}
+\setlength{\columnseprule}{0.4pt}
+\tdplotsetmaincoords{70}{110} % Set the viewing angle
+\newcolumntype{M}[1]{>{\centering\arraybackslash\vspace{#1}}m{0.5\linewidth}<{\vspace{#1}}}
+\newcolumntype{C}[2]{>{\centering\arraybackslash\vspace{#1}\rule{0pt}{#1}\hspace{0pt}}m{#2}}
+\ifx\undefined\w
+\newcolumntype{w}[1]{>{\centering\arraybackslash}m{#1}}
+\fi
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+\maketitle
+\vspace{-5mm}
+\hrulefill
+
+
+
+
+
+\section*{Dataset}
+
+
+
+
 
 \end{document}
