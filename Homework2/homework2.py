@@ -14,9 +14,26 @@ average_B = np.mean(set_B, axis=0)
 print("Average of set B: ", average_B)
 
 # Covariance matrix of set A
-cov_A = np.cov(set_A, rowvar=False, bias=True)
+cov_A = np.cov(set_A, rowvar=False)
 print("Covariance matrix of set A: \n", cov_A)
 
 # Covariance matrix of set B
-cov_B = np.cov(set_B, rowvar=False, bias=True)
+cov_B = np.cov(set_B, rowvar=False)
 print("Covariance matrix of set B: \n", cov_B)
+
+# Determinant of covariance matrix of set A
+det_cov_A = np.linalg.det(cov_A)
+print("Determinant of covariance matrix of set A: ", det_cov_A)
+
+# Determinant of covariance matrix of set B
+det_cov_B = np.linalg.det(cov_B)
+print("Determinant of covariance matrix of set B: ", det_cov_B)
+
+# Inverse of covariance matrix of set A
+inv_cov_A = np.linalg.inv(cov_A)
+print("Inverse of covariance matrix of set A: \n", inv_cov_A)
+
+# Inverse of covariance matrix of set B
+inv_cov_B = np.linalg.inv(cov_B)
+print("Inverse of covariance matrix of set B: \n", inv_cov_B)
+
