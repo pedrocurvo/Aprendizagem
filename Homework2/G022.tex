@@ -265,9 +265,21 @@ The following dataset will be used for this homework:
 \caption{Dataset}
 \end{table}
 
+\newpage
+
 \section*{1\textsuperscript{st} Question}
 
-In order to build the Bayesian classifier for this dataset, we need to compute the distribution of ${y_1,y_2}$, ${y_3,y_4}$ and $y_5$, which are the groups of independent input variables of our dataset.
+In order to build the Bayesian classifier for this dataset, we need to compute the class conditional distributions of $\{y_1,y_2\}$, $\{y_3,y_4\}$ and $y_5$, which are the groups of independent input variables of our dataset as well as the priors.
+
+\paragraph{Priors}
+
+First of all, we will compute the priors $P(y_6=A)$ and $P(y_6=B)$:
+
+\begin{align*}
+  P(y_6=A) &= \frac{3}{7} \\
+  P(y_6=B) &= \frac{4}{7} 
+\end{align*}
+
 
 \paragraph{Distribution of $y_1$ and $y_2$}
 
@@ -275,34 +287,110 @@ We are told that $y_1 \times y_2 \in \mathbb{R}$ follows a normal 2D distributio
 A multivariate normal distribution of $m$ variables $\vec{x} = \{x_1, x_2, ..., x_m\}$ is defined by its mean vector $\vec{\mu}$ and its covariance matrix $\Sigma$:
 
 \[
-  p(\vec{x}| \vec{\mu}, \Sigma) = \frac{1}{\sqrt{(2\pi)^m |\Sigma|}} \exp \left( -\frac{1}{2} (\vec{x} - \vec{\mu})^T \cdot \Sigma^{-1} \cdot (\vec{x} - \vec{\mu}) \right)
+  P(\vec{x}| \vec{\mu}, \Sigma) = \frac{1}{\sqrt{(2\pi)^m |\Sigma|}} \exp \left( -\frac{1}{2} (\vec{x} - \vec{\mu})^T \cdot \Sigma^{-1} \cdot (\vec{x} - \vec{\mu}) \right)
   \]
 
-In our case, we have $m = 2$ and we need to compute the mean vector $\vec{\mu}$ and the covariance matrix $\Sigma$:
+In our case, we have $m = 2$, $\vec{x} = \{y_1, y_2\}$ and we need to compute two class conditional distributions $p(\vec{x}|y_6=A)$ and $p(\vec{x}|y_6=B)$.
 
-\[ \mu = \begin{bmatrix} \mu_{y_1} \\ \mu_{y_2} \end{bmatrix} = \begin{bmatrix} 0.45 \\ 0.41 \end{bmatrix} 
-  \]
+\paragraph{Distribution of $\{y_1,y_2\}$ given $y_6=A$}
+\paragraph{}
+
+Considering the training data in table \ref*{tab:dataset1} with class $y_6=A$, we can compute the mean vector $\vec{\mu}$ and the covariance matrix $\Sigma$ as follows:
+
+\[
+  \vec{\mu} =  \left[\begin{matrix} \mu_{y_1} \\ \mu_{y_2} \end{matrix} \right]= \frac{1}{3} \cdot 
+  \left[\begin{matrix}
+    0.24 + 0.16 + 0.32 \\
+    0.36 + 0.48 + 0.72
+  \end{matrix}\right] = \left[\begin{matrix}
+    0.24 \\
+    0.52
+  \end{matrix}\right] \\
+\]
+
+\[
+  \Sigma = \left[ \begin{matrix}
+    \sigma_{y_1}^2 & \sigma_{y_1,y_2} \\
+    \sigma_{y_1,y_2} & \sigma_{y_2}^2
+  \end{matrix} \right] = \frac{1}{3} \cdot \begin{bmatrix}
+    \sum_{i=1}^{3} (y_{1i} - \mu_{y_1})^2 & \sum_{i=1}^{3} (y_{1i} - \mu_{y_1})(y_{2i} - \mu_{y_2}) \\
+    \sum_{i=1}^{3} (y_{1i} - \mu_{y_1})(y_{2i} - \mu_{y_2}) & \sum_{i=1}^{3} (y_{2i} - \mu_{y_2})^2
+  \end{bmatrix}  = \begin{bmatrix}
+    0.0064 & 0.0064 \\
+    0.0064 & 0.0064
+  \end{bmatrix}
+\]
+
+Now we need to compute both $|\Sigma|$ and $\Sigma^{-1}$:
+
+\[
+  |\Sigma| = 
+\]
+
+\[
+  \Sigma^{-1} = 
+\]
+
+Therefore, we have the normal distribution of $\{y_1,y_2\}$ given $y_6=A$:
+
+\[
+    P((y_1,y_2)|y_6=A) = \frac{1}{\sqrt{(2\pi)^2 |\Sigma|}} \exp \left( -\frac{1}{2} ((y_1,y_2) - \vec{\mu})^T \cdot \Sigma^{-1} \cdot ((y_1,y_2) - \vec{\mu}) \right)=
+\]
+
+
 
 
 
 \paragraph{Distribution of $y_3$ and $y_4$}
 
-The distribution of $y_3$ and $y_4$ comes directly from the information of table \ref{tab:dataset1} and is given by:
+The class conditional distributions of $y_3$ and $y_4$ come directly from the information in table \ref{tab:dataset1} and they are given by:
 
 \begin{table}[h!]
 \centering
 \begin{tabular}{|cc|cc|}
 \hline
-\multicolumn{2}{|c|}{\multirow{2}{*}{$P(y_3 \cap y_4)$}} & \multicolumn{2}{c|}{$y_3$}                     \\ \cline{3-4} 
+\multicolumn{2}{|c|}{\multirow{2}{*}{$P(y_3 \cap y_4|y_6=A)$}} & \multicolumn{2}{c|}{$y_3$}                     \\ \cline{3-4} 
 \multicolumn{2}{|c|}{}                                   & \multicolumn{1}{c|}{0}           & 1           \\ \hline
-\multicolumn{1}{|c|}{\multirow{2}{*}{$y_4$}}     & 0     & \multicolumn{1}{c|}{$P(y_3=0 \cap y_4=0) =\frac{2}{7}$} & $P(y_3=1 \cap y_4=0) =\frac{1}{7}$ \\ \cline{2-4} 
-\multicolumn{1}{|c|}{}                           & 1     & \multicolumn{1}{c|}{$P(y_3=0 \cap y_4=1) =\frac{2}{7}$} & $P(y_3=1 \cap y_4=1) =\frac{2}{7}$ \\ \hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{$y_4$}}     & 0     & \multicolumn{1}{c|}{$P(y_3=0 \cap y_4=0|y_6=A) =0$} & $P(y_3=1 \cap y_4=0|y_6=A) =0$ \\ \cline{2-4} 
+\multicolumn{1}{|c|}{}                           & 1     & \multicolumn{1}{c|}{$P(y_3=0 \cap y_4=1|y_6=A) =\frac{1}{3}$} & $P(y_3=1 \cap y_4=1|y_6=A) =\frac{2}{3}$ \\ \hline
 \end{tabular}
+\caption{Distribution of $y_3$ and $y_4$ given $y_6=A$}
 \end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|cc|cc|}
+\hline
+\multicolumn{2}{|c|}{\multirow{2}{*}{$P(y_3 \cap y_4|y_6=B)$}} & \multicolumn{2}{c|}{$y_3$}                     \\ \cline{3-4}
+\multicolumn{2}{|c|}{}                                   & \multicolumn{1}{c|}{0}           & 1           \\ \hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{$y_4$}}     & 0     & \multicolumn{1}{c|}{$P(y_3=0 \cap y_4=0|y_6=B) = \frac{1}{2}$} & $P(y_3=1 \cap y_4=0|y_6=B) =\frac{1}{4}$ \\ \cline{2-4} 
+\multicolumn{1}{|c|}{}                           & 1     & \multicolumn{1}{c|}{$P(y_3=0 \cap y_4=1|y_6=B) =\frac{1}{4}$} & $P(y_3=1 \cap y_4=1|y_6=B) =0$ \\ \hline
+\end{tabular}
+\caption{Distribution of $y_3$ and $y_4$ given $y_6=B$}
+\end{table}
+
+
 
 \paragraph{Distribution of $y_5$}
 
-The distribution of $y_5$ is given by:
+The class conditional distribution of $y_5$ is given by:
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|cc|ccc|}
+\hline
+\multicolumn{2}{|c|}{\multirow{2}{*}{$P(y_5|y_6)$}} & \multicolumn{3}{c|}{$y_5$}                                                                                                        \\ \cline{3-5} 
+\multicolumn{2}{|c|}{}                              & \multicolumn{1}{c|}{0}                           & \multicolumn{1}{c|}{1}                           & 2                           \\ \hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{$y_6$}}   & A  & \multicolumn{1}{c|}{$P(y_5=0|y_6=A) =\frac{2}{3}$} & \multicolumn{1}{c|}{$P(y_5=1|y_6=A) =0$} & $P(y_5=2|y_6=A) =\frac{1}{3}$ \\ \cline{2-5} 
+\multicolumn{1}{|c|}{}                         & B  & \multicolumn{1}{c|}{$P(y_5=0|y_6=B) =\frac{1}{4}$} & \multicolumn{1}{c|}{$P(y_5=1|y_6=B) =\frac{1}{2}$} & $P(y_5=2|y_6=B) =\frac{1}{4}$ \\ \hline
+\end{tabular}
+\caption{Distribution of $y_5$ given $y_6$}
+\end{table}
+
+\section*{2\textsuperscript{nd} Question}
+
+In order to classify the testing observations, we will need to compute the posterior probabilities.
+
 
 
 
