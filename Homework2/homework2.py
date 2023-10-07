@@ -14,11 +14,11 @@ average_B = np.mean(set_B, axis=0)
 print("Average of set B: ", average_B)
 
 # Covariance matrix of set A
-cov_A = np.cov(set_A, rowvar=False)
+cov_A = np.cov(set_A, rowvar=False, bias=True)
 print("Covariance matrix of set A: \n", cov_A)
 
 # Covariance matrix of set B
-cov_B = np.cov(set_B, rowvar=False)
+cov_B = np.cov(set_B, rowvar=False, bias=True)
 print("Covariance matrix of set B: \n", cov_B)
 
 # Determinant of covariance matrix of set A
@@ -41,8 +41,8 @@ print("Inverse of covariance matrix of set B: \n", inv_cov_B)
 x_8 = np.array([0.38, 0.52])
 prob_x_8_A = (1 / (2 * math.pi * math.sqrt(det_cov_A))) * math.exp(-0.5 * np.dot(np.dot((x_8 - average_A), inv_cov_A), np.transpose(x_8 - average_A)))
 prob_x_8_B = (1 / (2 * math.pi * math.sqrt(det_cov_B))) * math.exp(-0.5 * np.dot(np.dot((x_8 - average_B), inv_cov_B), np.transpose(x_8 - average_B)))
-print("Probability of x_8 in set A: ", prob_x_8_A)
-print("Probability of x_8 in set B: ", prob_x_8_B)
+print("Probability of x_8 in gaussian A: ", prob_x_8_A)
+print("Probability of x_8 in gaussian B: ", prob_x_8_B)
 
 p_A = 3 / 7
 p_B = 4 / 7
@@ -59,8 +59,8 @@ print("Probability of x_8 in set B: ", pB)
 x_9 = np.array([0.42, 0.59])
 prob_x_9_A = (1 / (2 * math.pi * math.sqrt(det_cov_A))) * math.exp(-0.5 * np.dot(np.dot((x_9 - average_A), inv_cov_A), np.transpose(x_9 - average_A)))
 prob_x_9_B = (1 / (2 * math.pi * math.sqrt(det_cov_B))) * math.exp(-0.5 * np.dot(np.dot((x_9 - average_B), inv_cov_B), np.transpose(x_9 - average_B)))
-print("Probability of x_9 in set A: ", prob_x_9_A)
-print("Probability of x_9 in set B: ", prob_x_9_B)
+print("Probability of x_9 in gaussian A: ", prob_x_9_A)
+print("Probability of x_9 in gaussian B: ", prob_x_9_B)
 
 p_A = 3 / 7
 p_B = 4 / 7
