@@ -54,6 +54,7 @@ pA = p_A * p_0_1_A * p_0_A * prob_x_8_A
 pB = p_B * p_0_1_B * p_0_B * prob_x_8_B
 print("Probability of x_8 in set A: ", pA)
 print("Probability of x_8 in set B: ", pB)
+print("Probability of x_8 in set A under ML", pA / p_A)
 
 # Porbability of x_9
 x_9 = np.array([0.42, 0.59])
@@ -61,6 +62,8 @@ prob_x_9_A = (1 / (2 * math.pi * math.sqrt(det_cov_A))) * math.exp(-0.5 * np.dot
 prob_x_9_B = (1 / (2 * math.pi * math.sqrt(det_cov_B))) * math.exp(-0.5 * np.dot(np.dot((x_9 - average_B), inv_cov_B), np.transpose(x_9 - average_B)))
 print("Probability of x_9 in gaussian A: ", prob_x_9_A)
 print("Probability of x_9 in gaussian B: ", prob_x_9_B)
+
+
 
 p_A = 3 / 7
 p_B = 4 / 7
@@ -73,7 +76,5 @@ pB = p_B * p_0_1_B * p_0_B * prob_x_9_B
 print("Probability of x_9 in set A: ", pA)
 print("Probability of x_9 in set B: ", pB)
 
-# Print the ML 
-print(pA / p_A)
-print(pB / p_B)
+print("Probability of x_9 in set A under ML", pA / p_A)
 
