@@ -73,4 +73,7 @@ pB = p_B * p_0_1_B * p_0_B * prob_x_9_B
 print("Probability of x_9 in set A: ", pA)
 print("Probability of x_9 in set B: ", pB)
 
+# Print the ML 
+print(pA / p_A)
+print(pB / p_B)
 
