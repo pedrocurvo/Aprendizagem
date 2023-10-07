@@ -247,6 +247,7 @@ The following dataset will be used for this homework:
 
 \begin{table}[h!]
 \centering
+\label{tab:dataset1}
 \begin{tabular}{|cc|ccccc|c|}
 \hline
 \multicolumn{2}{|c|}{\multirow{2}{*}{$D$}}                           & \multicolumn{5}{c|}{Input}                                                                                                & \multicolumn{1}{l|}{Output} \\ \cline{3-8} 
@@ -261,9 +262,47 @@ The following dataset will be used for this homework:
 \multicolumn{1}{|c|}{\multirow{2}{*}{Testing Observations}}  & $x_8$ & \multicolumn{1}{c|}{0.38}  & \multicolumn{1}{c|}{0.52}  & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{1}     & 0     & A                           \\ \cline{2-8} 
 \multicolumn{1}{|c|}{}                                       & $x_9$ & \multicolumn{1}{c|}{0.42}  & \multicolumn{1}{c|}{0.59}  & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{1}     & 1     & B                           \\ \hline
 \end{tabular}
+\caption{Dataset}
 \end{table}
 
+\section*{1\textsuperscript{st} Question}
 
+In order to build the Bayesian classifier for this dataset, we need to compute the distribution of ${y_1,y_2}$, ${y_3,y_4}$ and $y_5$, which are the groups of independent input variables of our dataset.
+
+\paragraph{Distribution of $y_1$ and $y_2$}
+
+We are told that $y_1 \times y_2 \in \mathbb{R}$ follows a normal 2D distribution.
+A multivariate normal distribution of $m$ variables $\vec{x} = \{x_1, x_2, ..., x_m\}$ is defined by its mean vector $\vec{\mu}$ and its covariance matrix $\Sigma$:
+
+\[
+  p(\vec{x}| \vec{\mu}, \Sigma) = \frac{1}{\sqrt{(2\pi)^m |\Sigma|}} \exp \left( -\frac{1}{2} (\vec{x} - \vec{\mu})^T \cdot \Sigma^{-1} \cdot (\vec{x} - \vec{\mu}) \right)
+  \]
+
+In our case, we have $m = 2$ and we need to compute the mean vector $\vec{\mu}$ and the covariance matrix $\Sigma$:
+
+\[ \mu = \begin{bmatrix} \mu_{y_1} \\ \mu_{y_2} \end{bmatrix} = \begin{bmatrix} 0.45 \\ 0.41 \end{bmatrix} 
+  \]
+
+
+
+\paragraph{Distribution of $y_3$ and $y_4$}
+
+The distribution of $y_3$ and $y_4$ comes directly from the information of table \ref{tab:dataset1} and is given by:
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|cc|cc|}
+\hline
+\multicolumn{2}{|c|}{\multirow{2}{*}{$P(y_3 \cap y_4)$}} & \multicolumn{2}{c|}{$y_3$}                     \\ \cline{3-4} 
+\multicolumn{2}{|c|}{}                                   & \multicolumn{1}{c|}{0}           & 1           \\ \hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{$y_4$}}     & 0     & \multicolumn{1}{c|}{$P(y_3=0 \cap y_4=0) =\frac{2}{7}$} & $P(y_3=1 \cap y_4=0) =\frac{1}{7}$ \\ \cline{2-4} 
+\multicolumn{1}{|c|}{}                           & 1     & \multicolumn{1}{c|}{$P(y_3=0 \cap y_4=1) =\frac{2}{7}$} & $P(y_3=1 \cap y_4=1) =\frac{2}{7}$ \\ \hline
+\end{tabular}
+\end{table}
+
+\paragraph{Distribution of $y_5$}
+
+The distribution of $y_5$ is given by:
 
 
 
