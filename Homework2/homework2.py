@@ -37,3 +37,40 @@ print("Inverse of covariance matrix of set A: \n", inv_cov_A)
 inv_cov_B = np.linalg.inv(cov_B)
 print("Inverse of covariance matrix of set B: \n", inv_cov_B)
 
+# Porbability of x_8 and x_9
+x_8 = np.array([0.38, 0.52])
+prob_x_8_A = (1 / (2 * math.pi * math.sqrt(det_cov_A))) * math.exp(-0.5 * np.dot(np.dot((x_8 - average_A), inv_cov_A), np.transpose(x_8 - average_A)))
+prob_x_8_B = (1 / (2 * math.pi * math.sqrt(det_cov_B))) * math.exp(-0.5 * np.dot(np.dot((x_8 - average_B), inv_cov_B), np.transpose(x_8 - average_B)))
+print("Probability of x_8 in set A: ", prob_x_8_A)
+print("Probability of x_8 in set B: ", prob_x_8_B)
+
+p_A = 3 / 7
+p_B = 4 / 7
+p_0_1_A = 1 / 3
+p_0_1_B = 1 / 4
+p_0_A = 1 / 3
+p_0_B = 1 / 4
+pA = p_A * p_0_1_A * p_0_A * prob_x_8_A
+pB = p_B * p_0_1_B * p_0_B * prob_x_8_B
+print("Probability of x_8 in set A: ", pA)
+print("Probability of x_8 in set B: ", pB)
+
+# Porbability of x_9
+x_9 = np.array([0.42, 0.59])
+prob_x_9_A = (1 / (2 * math.pi * math.sqrt(det_cov_A))) * math.exp(-0.5 * np.dot(np.dot((x_9 - average_A), inv_cov_A), np.transpose(x_9 - average_A)))
+prob_x_9_B = (1 / (2 * math.pi * math.sqrt(det_cov_B))) * math.exp(-0.5 * np.dot(np.dot((x_9 - average_B), inv_cov_B), np.transpose(x_9 - average_B)))
+print("Probability of x_9 in set A: ", prob_x_9_A)
+print("Probability of x_9 in set B: ", prob_x_9_B)
+
+p_A = 3 / 7
+p_B = 4 / 7
+p_0_1_A = 1 / 3
+p_0_1_B = 1 / 4
+p_0_A = 1 / 3
+p_0_B = 1 / 4
+pA = p_A * p_0_1_A * p_0_A * prob_x_9_A
+pB = p_B * p_0_1_B * p_0_B * prob_x_9_B
+print("Probability of x_9 in set A: ", pA)
+print("Probability of x_9 in set B: ", pB)
+
+
