@@ -556,9 +556,9 @@ The accuracy of a classifier is given by:
 where $TP$ is the number of true positives, $TN$ is the number of true negatives, $FP$ is the number of false positives and $FN$ is the number of false negatives.
 In our case, accuracy can only have three possible values: 0, 0.5 or 1: 0 when both $x_8$ and $x_9$ are misclassified, 0.5 when only one of them is misclassified and 1 when both are correctly classified.
 In order to maximize the accuracy, we want it to be 1. We know from table \ref{tab:dataset1} that $x_8$ belongs to class $A$ and $x_9$ belongs to class $B$. Therefore, in order to maximize the accuracy, our classifier needs to classify $x_8$ as $A$ and $x_9$ as $B$.
-$f(x_8|\theta) = A$ therefore $\theta < P(y_6=A|x_8) = 0.04298$ and $f(x_9|\theta) = B$ therefore $\theta \geq P(y_6=A|x_9) = 0.01126$. 
+$f(x_8|\theta) = A$ therefore $\theta < P(y_6=A|x_8) = 0.04298$ and $f(x_9|\theta) = B$ therefore $\theta > P(y_6=A|x_9) = 0.01126$. 
 
-\[ \theta \in [0.01126, 0.04298] \]
+\[ \theta \in ]0.01126; 0.04298[ \]
 
 Any value of $\theta$ in this interval will maximize the accuracy of our classifier.
 
