@@ -17,6 +17,7 @@
 \usepackage[letterpaper,margin=1in,marginparwidth=1.75cm]{geometry}
 \usepackage{multicol}
 \usepackage{biblatex}
+\usepackage{colortbl}
 \addbibresource{Bibliografia.bib}
 \usepackage{graphicx}
 % \graphicspath{{../Homework1/images/}}
@@ -240,6 +241,7 @@ Machine Learning - Homework 2 \vspace{-5mm}}
 
 
 
+\section*{Pen and Paper Exercises}
 
 \section*{Dataset}
 
@@ -252,7 +254,7 @@ The following dataset will be used for this homework:
 \multicolumn{2}{|c|}{\multirow{2}{*}{$D$}}                           & \multicolumn{5}{c|}{Input}                                                                                                & \multicolumn{1}{l|}{Output} \\ \cline{3-8} 
 \multicolumn{2}{|c|}{}                                               & \multicolumn{1}{c|}{$y_1$} & \multicolumn{1}{c|}{$y_2$} & \multicolumn{1}{c|}{$y_3$} & \multicolumn{1}{c|}{$y_4$} & $y_5$ & $y_6$                       \\ \hline
 \multicolumn{1}{|c|}{\multirow{7}{*}{Training Observations}} & $x_1$ & \multicolumn{1}{c|}{0.24}  & \multicolumn{1}{c|}{0.36}  & \multicolumn{1}{c|}{1}     & \multicolumn{1}{c|}{1}     & 0     & A                           \\ \cline{2-8} 
-\multicolumn{1}{|c|}{}                                       & $x_2$ & \multicolumn{1}{c|}{0.16}  & \multicolumn{1}{c|}{0.48}  & \multicolumn{1}{c|}{1}     & \multicolumn{1}{c|}{1}     & 0     & A                           \\ \cline{2-8} 
+\multicolumn{1}{|c|}{}                                       & $x_2$ & \multicolumn{1}{c|}{0.16}  & \multicolumn{1}{c|}{0.48}  & \multicolumn{1}{c|}{1}     & \multicolumn{1}{c|}{0}     & 1     & A                           \\ \cline{2-8} 
 \multicolumn{1}{|c|}{}                                       & $x_3$ & \multicolumn{1}{c|}{0.32}  & \multicolumn{1}{c|}{0.72}  & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{1}     & 2     & A                           \\ \cline{2-8} 
 \multicolumn{1}{|c|}{}                                       & $x_4$ & \multicolumn{1}{c|}{0.54}  & \multicolumn{1}{c|}{0.11}  & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{0}     & 1     & B                           \\ \cline{2-8} 
 \multicolumn{1}{|c|}{}                                       & $x_5$ & \multicolumn{1}{c|}{0.66}  & \multicolumn{1}{c|}{0.39}  & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{0}     & 0     & B                           \\ \cline{2-8} 
@@ -269,6 +271,8 @@ The following dataset will be used for this homework:
 
 \section*{1\textsuperscript{st} Question}
 
+\subsection*{a)}
+
 In order to build the Bayesian classifier for this dataset, we need to compute the class conditional distributions of $\{y_1,y_2\}$, $\{y_3,y_4\}$ and $y_5$, which are the groups of independent input variables of our dataset as well as the priors.
 
 \paragraph{Priors}
@@ -282,6 +286,7 @@ First of all, we will compute the priors $P(y_6=A)$ and $P(y_6=B)$:
 
 
 \paragraph{Distribution of $y_1$ and $y_2$}
+\paragraph{}
 
 We are told that $y_1 \times y_2 \in \mathbb{R}$ follows a normal 2D distribution.
 A multivariate normal distribution of $m$ variables $\vec{x} = \{x_1, x_2, ..., x_m\}$ is defined by its mean vector $\vec{\mu}$ and its covariance matrix $\Sigma$:
@@ -324,17 +329,29 @@ Considering the training data in table \ref{tab:dataset1} with class $y_6=A$, we
 Now we need to compute both $|\Sigma|$ and $\Sigma^{-1}$:
 
 \[
-  |\Sigma| = \det \Sigma = 0.0043 \cdot 0.0224 - 0.0064^2 = 0.00005536
+  |\Sigma| = \det \Sigma = 0.0043 \cdot 0.0224 - 0.0064^2 = 5.4613 \cdot 10^{-5}
 \]
 
 \[
-  \Sigma^{-1} = 
+  \Sigma^{-1} = \begin{bmatrix}
+    410.156 & -117.188 \\
+    -117.188 & 78.125
+  \end{bmatrix}
 \]
 
 Therefore, we have the normal distribution of $\{y_1,y_2\}$ given $y_6=A$:
 
 \[
-    P((y_1,y_2)|y_6=A) = \frac{1}{\sqrt{(2\pi)^2 |\Sigma|}} \exp \left( -\frac{1}{2} ((y_1,y_2) - \vec{\mu})^T \cdot \Sigma^{-1} \cdot ((y_1,y_2) - \vec{\mu}) \right)=
+    P((y_1,y_2)|y_6=A) = \frac{1}{\sqrt{(2\pi)^2 |\Sigma|}} \exp \left( -\frac{1}{2} \left(\begin{bmatrix} y_1 \\ y_2 \end{bmatrix} - \begin{bmatrix} 0.24 \\ 0.52 \end{bmatrix}\right)^T \cdot \begin{bmatrix}
+    410.156 & -117.188 \\
+    -117.188 & 78.125
+  \end{bmatrix} \cdot \left(\begin{bmatrix} y_1 \\ y_2 \end{bmatrix} - \begin{bmatrix} 0.24 \\ 0.52 \end{bmatrix}\right) \right)
+\]
+\[
+  = \frac{1}{\sqrt{(2\pi)^2 \cdot 5.4613 \cdot 10^{-5}}} \exp \left( -\frac{1}{2} \left[ \begin{matrix} y_1 - 0.24 \\ y_2 - 0.52 \end{matrix} \right]^T \cdot \begin{bmatrix}
+    410.156 & -117.188 \\
+    -117.188 & 78.125  
+  \end{bmatrix} \cdot \left[ \begin{matrix} y_1 - 0.24 \\ y_2 - 0.52 \end{matrix} \right] \right)
 \]
 
 
@@ -345,27 +362,81 @@ Therefore, we have the normal distribution of $\{y_1,y_2\}$ given $y_6=A$:
 
 Considering the training data in table \ref{tab:dataset1} with class $y_6=B$, we can compute the mean vector $\vec{\mu}$ and the covariance matrix $\Sigma$ as follows:
 
+\[
+  \vec{\mu} =  \left[\begin{matrix} \mu_{y_1} \\ \mu_{y_2} \end{matrix} \right]= \frac{1}{4} \cdot 
+  \left[\begin{matrix}
+    0.54 + 0.66 + 0.76 + 0.41 \\
+    0.11 + 0.39 + 0.28 + 0.53
+  \end{matrix}\right] = \left[\begin{matrix}
+    0.5925 \\
+    0.3274
+  \end{matrix}\right] \\
+\]
+
+\[
+  \Sigma = \left[ \begin{matrix}
+    \sigma_{y_1}^2 & \sigma_{y_1,y_2} \\
+    \sigma_{y_1,y_2} & \sigma_{y_2}^2
+  \end{matrix} \right] = \frac{1}{4} \cdot \begin{bmatrix}
+    \sum_{i=1}^{4} (y_{1i} - \mu_{y_1})^2 & \sum_{i=1}^{4} (y_{1i} - \mu_{y_1})(y_{2i} - \mu_{y_2}) \\
+    \sum_{i=1}^{4} (y_{1i} - \mu_{y_1})(y_{2i} - \mu_{y_2}) & \sum_{i=1}^{4} (y_{2i} - \mu_{y_2})^2
+  \end{bmatrix}  = \begin{bmatrix}
+    0.0171 & -0.0073 \\
+    -0.0073 & 0.0236
+  \end{bmatrix}
+\]
+
+Now we need to compute both $|\Sigma|$ and $\Sigma^{-1}$:
+
+\[
+  |\Sigma| = \det \Sigma = 0.0075 \cdot 0.0075 - (-0.0025)^2 = 3.519 \cdot 10^{-4}
+\]
+
+\[
+  \Sigma^{-1} = \begin{bmatrix}
+    67.1101 & 20.7954 \\
+    20.7954 & 48.7831
+  \end{bmatrix}
+\]
+
+Therefore, we have the normal distribution of $\{y_1,y_2\}$ given $y_6=B$:
+
+\[
+    P((y_1,y_2)|y_6=B) = \frac{1}{\sqrt{(2\pi)^2 |\Sigma|}} \exp \left( -\frac{1}{2} \left(\begin{bmatrix} y_1 \\ y_2 \end{bmatrix} - \begin{bmatrix} 0.5925 \\ 0.3274 \end{bmatrix}\right)^T \cdot \begin{bmatrix}
+    67.1101 & 20.7954 \\
+    20.7954 & 48.7831
+  \end{bmatrix} \cdot \left(\begin{bmatrix} y_1 \\ y_2 \end{bmatrix} - \begin{bmatrix} 0.5925 \\ 0.3274 \end{bmatrix}\right) \right)
+\]
+
+\[
+  = \frac{1}{\sqrt{(2\pi)^2 \cdot 3.519 \cdot 10^{-4}}} \exp \left( -\frac{1}{2} \left[ \begin{matrix} y_1 - 0.5925 \\ y_2 - 0.3274 \end{matrix} \right]^T \cdot \begin{bmatrix}
+    67.1101 & 20.7954 \\
+    20.7954 & 48.7831  
+  \end{bmatrix} \cdot \left[ \begin{matrix} y_1 - 0.5925 \\ y_2 - 0.3274 \end{matrix} \right] \right)
+\]
+
 
 
 
 
 \paragraph{Distribution of $y_3$ and $y_4$}
+\paragraph{}
 
 The class conditional distributions of $y_3$ and $y_4$ come directly from the information in table \ref{tab:dataset1} and they are given by:
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \begin{tabular}{|cc|cc|}
 \hline
 \multicolumn{2}{|c|}{\multirow{2}{*}{$P(y_3 \cap y_4|y_6=A)$}} & \multicolumn{2}{c|}{$y_3$}                     \\ \cline{3-4} 
 \multicolumn{2}{|c|}{}                                   & \multicolumn{1}{c|}{0}           & 1           \\ \hline
-\multicolumn{1}{|c|}{\multirow{2}{*}{$y_4$}}     & 0     & \multicolumn{1}{c|}{$P(y_3=0 \cap y_4=0|y_6=A) =0$} & $P(y_3=1 \cap y_4=0|y_6=A) =0$ \\ \cline{2-4} 
-\multicolumn{1}{|c|}{}                           & 1     & \multicolumn{1}{c|}{$P(y_3=0 \cap y_4=1|y_6=A) =\frac{1}{3}$} & $P(y_3=1 \cap y_4=1|y_6=A) =\frac{2}{3}$ \\ \hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{$y_4$}}     & 0     & \multicolumn{1}{c|}{$P(y_3=0 \cap y_4=0|y_6=A) =0$} & $P(y_3=1 \cap y_4=0|y_6=A) = \frac{1}{3}$ \\ \cline{2-4} 
+\multicolumn{1}{|c|}{}                           & 1     & \multicolumn{1}{c|}{$P(y_3=0 \cap y_4=1|y_6=A) =\frac{1}{3}$} & $P(y_3=1 \cap y_4=1|y_6=A) =\frac{1}{3}$ \\ \hline
 \end{tabular}
 \caption{Distribution of $y_3$ and $y_4$ given $y_6=A$}
 \end{table}
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \begin{tabular}{|cc|cc|}
 \hline
@@ -380,6 +451,7 @@ The class conditional distributions of $y_3$ and $y_4$ come directly from the in
 
 
 \paragraph{Distribution of $y_5$}
+\paragraph{}
 
 The class conditional distribution of $y_5$ is given by:
 
@@ -389,16 +461,236 @@ The class conditional distribution of $y_5$ is given by:
 \hline
 \multicolumn{2}{|c|}{\multirow{2}{*}{$P(y_5|y_6)$}} & \multicolumn{3}{c|}{$y_5$}                                                                                                        \\ \cline{3-5} 
 \multicolumn{2}{|c|}{}                              & \multicolumn{1}{c|}{0}                           & \multicolumn{1}{c|}{1}                           & 2                           \\ \hline
-\multicolumn{1}{|c|}{\multirow{2}{*}{$y_6$}}   & A  & \multicolumn{1}{c|}{$P(y_5=0|y_6=A) =\frac{2}{3}$} & \multicolumn{1}{c|}{$P(y_5=1|y_6=A) =0$} & $P(y_5=2|y_6=A) =\frac{1}{3}$ \\ \cline{2-5} 
+\multicolumn{1}{|c|}{\multirow{2}{*}{$y_6$}}   & A  & \multicolumn{1}{c|}{$P(y_5=0|y_6=A) =\frac{1}{3}$} & \multicolumn{1}{c|}{$P(y_5=1|y_6=A) =\frac{1}{3}$} & $P(y_5=2|y_6=A) =\frac{1}{3}$ \\ \cline{2-5} 
 \multicolumn{1}{|c|}{}                         & B  & \multicolumn{1}{c|}{$P(y_5=0|y_6=B) =\frac{1}{4}$} & \multicolumn{1}{c|}{$P(y_5=1|y_6=B) =\frac{1}{2}$} & $P(y_5=2|y_6=B) =\frac{1}{4}$ \\ \hline
 \end{tabular}
 \caption{Distribution of $y_5$ given $y_6$}
 \end{table}
 
+\subsection*{b)}
+
+In order to classify the testing observations, we will need to compute the posterior probabilities. 
+Under a MAP assumption, the predicted class for each testing observation is the one that maximizes the posterior probability.
+Since we are only interested in the maximum value over all classes, we can ignore the denominator of the posterior probability formula.
+We have two testing observations, $x_8$ and $x_9$, and we will compute the posterior probabilities for each of them:
+
+\paragraph{Posterior probabilities for $x_8$}
+\paragraph{}
+
+This training observation has the following values for the input variables: $y_1=0.38$, $y_2=0.52$, $y_3=0$, $y_4=1$ and $y_5=0$.
+
+\[ P(y_6=A|x_8) = \frac{P(x_8|y_6=A) \cdot P(y_6=A)}{P(x_8)} \propto P(x_8|y_6=A) \cdot P(y_6=A) = \]
+\[ = P(y_1=0.38,y_2=0.52|y_6=A) \cdot P(y_3=0,y_4=1|y_6=A) \cdot P(y_5=0|y_6=A) \cdot P(y_6=A) = \]
+\[ = \frac{1}{\sqrt{(2\pi)^2 \cdot 5.4613 \cdot 10^{-5}}} \exp \left( -\frac{1}{2} \left[ \begin{matrix} 0.38 - 0.24 \\ 0.52 - 0.52 \end{matrix} \right]^T \cdot \begin{bmatrix} 410.156 & -117.188 \\ -117.188 & 78.125 \end{bmatrix} \cdot \left[ \begin{matrix} 0.38 - 0.24 \\ 0.52 - 0.52 \end{matrix} \right] \right) \cdot \frac{1}{3} \cdot \frac{1}{3} \cdot \frac{3}{7} = \]
+\[ = 0.3868 \cdot \frac{1}{3} \cdot \frac{1}{3} \cdot \frac{3}{7} = 0.01842 \]
+
+\paragraph{}
+
+\[ P(y_6=B|x_8) = \frac{P(x_8|y_6=B) \cdot P(y_6=B)}{P(x_8)} \propto P(x_8|y_6=B) \cdot P(y_6=B) = \]
+\[ = P(y_1=0.38,y_2=0.52|y_6=B) \cdot P(y_3=0,y_4=1|y_6=B) \cdot P(y_5=0|y_6=B) \cdot P(y_6=B) = \]
+\[ = \frac{1}{\sqrt{(2\pi)^2 \cdot 3.519 \cdot 10^{-4}}} \exp \left( -\frac{1}{2} \left[ \begin{matrix} 0.38 - 0.5925 \\ 0.52 - 0.3274 \end{matrix} \right]^T \cdot \begin{bmatrix} 67.1101 & 20.7954 \\ 20.7954 & 48.7831 \end{bmatrix} \cdot \left[ \begin{matrix} 0.38 - 0.5925 \\ 0.52 - 0.3274 \end{matrix} \right] \right) \cdot \frac{1}{4} \cdot \frac{1}{4} \cdot \frac{4}{7} = \]
+\[ = 1.7677 \cdot \frac{1}{4} \cdot \frac{1}{4} \cdot \frac{4}{7} = 0.06313 \]
+
+\paragraph{Posterior probabilities for $x_9$}
+\paragraph{}
+
+This training observation has the following values for the input variables: $y_1=0.42$, $y_2=0.59$, $y_3=0$, $y_4=1$ and $y_5=1$.
+
+\[ P(y_6=A|x_9) = \frac{P(x_9|y_6=A) \cdot P(y_6=A)}{P(x_9)} \propto P(x_9|y_6=A) \cdot P(y_6=A) = \]
+\[ = P(y_1=0.42,y_2=0.59|y_6=A) \cdot P(y_3=0,y_4=1|y_6=A) \cdot P(y_5=1|y_6=A) \cdot P(y_6=A) = \]
+\[ = \frac{1}{\sqrt{(2\pi)^2 \cdot 5.4613 \cdot 10^{-5}}} \exp \left( -\frac{1}{2} \left[ \begin{matrix} 0.42 - 0.24 \\ 0.59 - 0.52 \end{matrix} \right]^T \cdot \begin{bmatrix} 410.156 & -117.188 \\ -117.188 & 78.125 \end{bmatrix} \cdot \left[ \begin{matrix} 0.42 - 0.24 \\ 0.59 - 0.52 \end{matrix} \right] \right) \cdot \frac{1}{3} \cdot \frac{1}{3} \cdot \frac{3}{7} = \]
+\[ = 0.1013 \cdot \frac{1}{3} \cdot \frac{1}{3} \cdot \frac{3}{7} = 0.00482 \]
+
+\paragraph{}
+
+\[ P(y_6=B|x_9) = \frac{P(x_9|y_6=B) \cdot P(y_6=B)}{P(x_9)} \propto P(x_9|y_6=B) \cdot P(y_6=B) = \]
+\[ = P(y_1=0.42,y_2=0.59|y_6=B) \cdot P(y_3=0,y_4=1|y_6=B) \cdot P(y_5=1|y_6=B) \cdot P(y_6=B) = \]
+\[ = \frac{1}{\sqrt{(2\pi)^2 \cdot 3.519 \cdot 10^{-4}}} \exp \left( -\frac{1}{2} \left[ \begin{matrix} 0.42 - 0.5925 \\ 0.59 - 0.3274 \end{matrix} \right]^T \cdot \begin{bmatrix} 67.1101 & 20.7954 \\ 20.7954 & 48.7831 \end{bmatrix} \cdot \left[ \begin{matrix} 0.42 - 0.5925 \\ 0.59 - 0.3274 \end{matrix} \right] \right) \cdot \frac{1}{4} \cdot \frac{1}{2} \cdot \frac{4}{7} = \]
+\[ = 1.4927 \cdot \frac{1}{4} \cdot \frac{1}{2} \cdot \frac{4}{7} = 0.05331 \]
+
+\paragraph{Predicted classes}
+\paragraph{}
+
+Organizing the posterior probabilities in a table, we have:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Observation & $P(y_6=A|x_i)$ & $P(y_6=B|x_i)$ \\ \hline
+$x_8$       & 0.01842         & \textbf{0.06313}        \\ \hline
+$x_9$       & 0.00482         & \textbf{0.05331}        \\ \hline
+\end{tabular}
+\label{tab:posterior_probabilities}
+\caption{Posterior probabilities for the testing observations}
+\end{table}
+
+Therefore, the predicted class for both $x_8$ and $x_9$ is $y_6=B$.
+
+\subsection*{c)}
+
+Let's consider the following classifier with a unknown treshold $\theta$ whose value we aim to find:
+
+\[
+  f(x|\theta) = \begin{cases}
+    A & \text{if } P(y_6=A|x) > \theta \\
+    B & \text{if } P(y_6=A|x) \leq \theta
+  \end{cases}
+\]
+
+\paragraph{Finding $P(y_6=A|x)$}
+\paragraph{}
+
+We are now working under a ML assumption, so, in order to classify each test observation we will only need the conditional distribution $P(x|y_6=A)$ because every class has the same prior probability.
+We used the values in the previous section and divided them by the corresponding a priori probability:
+
+\[ P(y_6 = A|x_8) = 0.04298 \]
+\[ P(y_6 = A|x_9) = 0.01126 \]
+
+\paragraph{Accuracy}
+
+The accuracy of a classifier is given by:
+
+\[ \text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN} \]
+
+where $TP$ is the number of true positives, $TN$ is the number of true negatives, $FP$ is the number of false positives and $FN$ is the number of false negatives.
+In our case, accuracy can only have three possible values: 0, 0.5 or 1: 0 when both $x_8$ and $x_9$ are misclassified, 0.5 when only one of them is misclassified and 1 when both are correctly classified.
+In order to maximize the accuracy, we want it to be 1. We know from table \ref{tab:dataset1} that $x_8$ belongs to class $A$ and $x_9$ belongs to class $B$. Therefore, in order to maximize the accuracy, our classifier needs to classify $x_8$ as $A$ and $x_9$ as $B$.
+$f(x_8|\theta) = A$ therefore $\theta < P(y_6=A|x_8) = 0.04298$ and $f(x_9|\theta) = B$ therefore $\theta \geq P(y_6=A|x_9) = 0.01126$. 
+
+\[ \theta \in [0.01126, 0.04298] \]
+
+Any value of $\theta$ in this interval will maximize the accuracy of our classifier.
+
+\newpage
+
 \section*{2\textsuperscript{nd} Question}
 
-In order to classify the testing observations, we will need to compute the posterior probabilities.
+\subsection*{a)}
 
+In order to obtain $y_2$ under an equal-range discretization, we followed the rule:
+
+\[ y_{2_{\text{normalized}}} = \begin{cases}
+  0 & \text{if } y_2 \in [0, 0.5) \\
+  1 & \text{if } y_2 \in [0.5, 1]
+\end{cases} \]
+
+The normalized values are:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  Dataset & $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ & $x_6$ & $x_7$ & $x_8$ & $x_9$ \\ \hline
+  $y_2$ & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 1 \\ \hline
+\end{tabular}
+\label{tab:dataset2}
+\caption{Normalized $y_2$ values}
+\end{table}
+
+$y_1$ will now be considered an output variable and $y_2$ to $y_6$ will be considered input variables.
+Considering the normalized values of $y_2$, we can rewrite the dataset as follows:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|cc|c|ccccc|}
+\hline
+\multicolumn{2}{|c|}{D}                              & Output & \multicolumn{5}{c|}{Input}                                                                                                         \\ \hline
+\multicolumn{1}{|c|}{Fold}                   &       & $y_1$  & \multicolumn{1}{c|}{$y_{2_{norm}}$} & \multicolumn{1}{c|}{$y_3$} & \multicolumn{1}{c|}{$y_4$} & \multicolumn{1}{c|}{$y_5$} & $y_6$ \\ \hline
+\multicolumn{1}{|c|}{\multirow{3}{*}{$F_1$}} & $x_1$ & 0.24   & \multicolumn{1}{c|}{0}              & \multicolumn{1}{c|}{1}     & \multicolumn{1}{c|}{1}     & \multicolumn{1}{c|}{0}     & A     \\ \cline{2-8} 
+\multicolumn{1}{|c|}{}                       & $x_2$ & 0.16   & \multicolumn{1}{c|}{0}              & \multicolumn{1}{c|}{1}     & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{1}     & A     \\ \cline{2-8} 
+\multicolumn{1}{|c|}{}                       & $x_3$ & 0.32   & \multicolumn{1}{c|}{1}              & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{1}     & \multicolumn{1}{c|}{2}     & A     \\ \hline
+\multicolumn{1}{|c|}{\multirow{3}{*}{$F_2$}} & $x_4$ & 0.54   & \multicolumn{1}{c|}{0}              & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{1}     & B     \\ \cline{2-8} 
+\multicolumn{1}{|c|}{}                       & $x_5$ & 0.66   & \multicolumn{1}{c|}{0}              & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{0}     & B     \\ \cline{2-8} 
+\multicolumn{1}{|c|}{}                       & $x_6$ & 0.76   & \multicolumn{1}{c|}{0}              & \multicolumn{1}{c|}{1}     & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{2}     & B     \\ \hline
+\multicolumn{1}{|c|}{\multirow{3}{*}{$F_3$}} & $x_7$ & 0.41   & \multicolumn{1}{c|}{1}              & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{1}     & \multicolumn{1}{c|}{1}     & B     \\ \cline{2-8} 
+\multicolumn{1}{|c|}{}                       & $x_8$ & 0.38   & \multicolumn{1}{c|}{1}              & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{1}     & \multicolumn{1}{c|}{0}     & A     \\ \cline{2-8} 
+\multicolumn{1}{|c|}{}                       & $x_9$ & 0.42   & \multicolumn{1}{c|}{1}              & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{1}     & \multicolumn{1}{c|}{1}     & B     \\ \hline
+\end{tabular}
+\caption{Dataset $D$ divided into three folds}
+\label{tab:dataset2_folds}
+\end{table}
+
+Adittionally, we have divided the dataset into three folds, $F_1$, $F_2$ and $F_3$.
+
+\subsection*{b)}
+
+In this exercise we aim to compute a kNN (k  nearest neighbors - Lazy Learning) classifier considering the following parameters:
+
+\begin{itemize}
+  \item $k = 3$
+  \item \textbf{Hamming Distance} as the distance to be used to compute the nearest neighbors of a given observation.
+  \[ d_H(x_i,x_j) = \sum_{l=1}^{m} \delta(y_{il},y_{jl}) \]
+  where $m$ is the number of input variables and $y_{il}$ is the value of the $l$\textsuperscript{th} input variable of the $i$\textsuperscript{th} observation.
+\end{itemize}
+
+We have divided our dataset in folds in order to perform a cross validation. We will only be interested in the first iteration of the cross validation, where $F_3$ is the testing fold and $F_1$ and $F_2$ are the training folds. 
+We will now compute the kNN classifier for each observation in $F_3$ and afterwards we will compute the MAE (Mean Absolute Error) for the testing fold.
+
+\subsubsection*{Computing the Hamming Distances}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}
+  \hline
+  Testing Observation ($x_i$) & $d_H(x_i,x_1)$ & $d_H(x_i,x_2)$ & $d_H(x_i,x_3)$ & $d_H(x_i,x_4)$ & $d_H(x_i,x_5)$ & $d_H(x_i,x_6)$ \\ \hline
+  $x_7$                       & 4              & 4              & 2 \cellcolor{yellow!25}             & 2 \cellcolor{yellow!25}             & 3 \cellcolor{yellow!25}             & 4              \\ \hline
+  $x_8$                       & 2 \cellcolor{yellow!25}             & 4              & 1 \cellcolor{yellow!25}             & 4              & 3 \cellcolor{yellow!25}             & 5              \\ \hline
+  $x_9$                       & 4              & 4              & 2 \cellcolor{yellow!25}             & 2  \cellcolor{yellow!25}            & 3 \cellcolor{yellow!25}             & 4              \\ \hline
+\end{tabular}
+\caption{Hamming distances between the testing observation $x_i$ and the training observations $x_j$}
+\label{tab:hamming_distances}
+\end{table}
+
+We are considering $k=3$, so we will only need the three nearest neighbors of each testing observation. In the table above we have filled with yellow the three nearest neighbors of each testing observation.
+
+\subsubsection*{Predicted value of $y_1$ for each testing observation}
+
+The output value we are working with is numerical, so the predicted value of $y_1$ for each testing observation will be:
+
+\[ \hat{y_1}_j = \frac{\sum_{i=1}^{k} \frac{1}{d_H(x_i,x_j)} \cdot y_{1j}}{\sum_{i=1}^{k} \frac{1}{d_H(x_i,x_j)}} \]
+
+where $k$ is the number of nearest neighbors, $d_H(x_i,x_j)$ is the Hamming distance between the testing observation $x_i$ and the $i$\textsuperscript{th} nearest neighbor and $y_{1j}$ is the value of the output variable of the $j$\textsuperscript{th} nearest neighbor.
+$\frac{1}{d_H(x_i,x_j)}$ is the weight  of the $i$\textsuperscript{th} nearest neighbor.
+
+\[ \hat{y_1}_7 = \frac{1}{\frac{1}{2} + \frac{1}{2} + \frac{1}{3}} \cdot \left( \frac{1}{2} \cdot 0.32 + \frac{1}{2} \cdot 0.54 + \frac{1}{3} \cdot 0.66 \right) = 0.4875 \]
+\[ \hat{y_1}_8 = \frac{1}{\frac{1}{2} + \frac{1}{1} + \frac{1}{3}} \cdot \left( \frac{1}{2} \cdot 0.24 + 1 \cdot 0.32 + \frac{1}{3} \cdot 0.66 \right) = 0.36 \]
+\[ \hat{y_1}_9 = \frac{1}{\frac{1}{2} + \frac{1}{2} + \frac{1}{3}} \cdot \left( \frac{1}{2} \cdot 0.32 + \frac{1}{2} \cdot 0.54 + \frac{1}{3} \cdot 0.66 \right) = 0.4875 \]
+
+We have the following predicted values for $y_1$:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+  \hline
+  Testing Observation ($x_i$) & $\hat{y_1}_i$ & $y_{1i}$ \\ \hline
+  $x_7$                       & 0.4875        & 0.41     \\ \hline
+  $x_8$                       & 0.36          & 0.38     \\ \hline
+  $x_9$                       & 0.4875        & 0.42     \\ \hline
+\end{tabular}
+\caption{Predicted values of $y_1$ for each testing observation}
+\label{tab:predicted_y1}
+\end{table}
+
+\subsubsection*{MAE}
+
+The MAE is given by:
+
+\[ \text{MAE} = \frac{1}{n} \sum_{i=1}^{n} |y_{1i} - \hat{y_{1i}}| \]
+
+where $n$ is the number of testing observations, $y_{1i}$ is the value of the output variable of the $i$\textsuperscript{th} testing observation and $\hat{y_{1i}}$ is the predicted value of the output variable of the $i$\textsuperscript{th} testing observation.
+
+\[ \text{MAE} = \frac{1}{3} \cdot (|0.41 - 0.4875| + |0.38 - 0.36| + |0.42 - 0.4875|) = 0.055 \]
+
+\newpage
+
+\section*{Programming and Critical Analysis}
+
+\subsection*{1\textsuperscript{st} Question}
+
+\subsection*{2\textsuperscript{nd} Question}
+
+\subsection*{3\textsuperscript{rd} Question}
 
 
 
