@@ -70,7 +70,7 @@ p_B = 4 / 7
 p_0_1_A = 1 / 3
 p_0_1_B = 1 / 4
 p_0_A = 1 / 3
-p_0_B = 1 / 4
+p_0_B = 1 / 2
 pA = p_A * p_0_1_A * p_0_A * prob_x_9_A
 pB = p_B * p_0_1_B * p_0_B * prob_x_9_B
 print("Probability of x_9 in set A: ", pA)
