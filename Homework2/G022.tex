@@ -509,7 +509,7 @@ This training observation has the following values for the input variables: $y_1
 \[ P(y_6=B|x_9) = \frac{P(x_9|y_6=B) \cdot P(y_6=B)}{P(x_9)} \propto P(x_9|y_6=B) \cdot P(y_6=B) = \]
 \[ = P(y_1=0.42,y_2=0.59|y_6=B) \cdot P(y_3=0,y_4=1|y_6=B) \cdot P(y_5=1|y_6=B) \cdot P(y_6=B) = \]
 \[ = \frac{1}{\sqrt{(2\pi)^2 \cdot 3.519 \cdot 10^{-4}}} \exp \left( -\frac{1}{2} \left[ \begin{matrix} 0.42 - 0.5925 \\ 0.59 - 0.3274 \end{matrix} \right]^T \cdot \begin{bmatrix} 67.1101 & 20.7954 \\ 20.7954 & 48.7831 \end{bmatrix} \cdot \left[ \begin{matrix} 0.42 - 0.5925 \\ 0.59 - 0.3274 \end{matrix} \right] \right) \cdot \frac{1}{4} \cdot \frac{1}{2} \cdot \frac{4}{7} = \]
-\[ = 1.4927 \cdot \frac{1}{4} \cdot \frac{1}{2} \cdot \frac{4}{7} = 0.05331 \]
+\[ = 1.4927 \cdot \frac{1}{4} \cdot \frac{1}{2} \cdot \frac{4}{7} = 0.10662 \]
 
 \paragraph{Predicted classes}
 \paragraph{}
@@ -522,7 +522,7 @@ Organizing the posterior probabilities in a table, we have:
 \hline
 Observation & $P(y_6=A|x_i)$ & $P(y_6=B|x_i)$ \\ \hline
 $x_8$       & 0.01842         & \textbf{0.06313}        \\ \hline
-$x_9$       & 0.00482         & \textbf{0.05331}        \\ \hline
+$x_9$       & 0.00482         & \textbf{0.10662}        \\ \hline
 \end{tabular}
 \label{tab:posterior_probabilities}
 \caption{Posterior probabilities for the testing observations}
@@ -549,12 +549,12 @@ We are now working under an ML assumption, so, in order to classify each test ob
 \[ P(y_6 = A) = P(y_6 = B) = \frac{1}{2} \]
 
 \[ P(y_6 = A|x_8) = \frac{P(x_8 | y_6 = A) \cdot P(y_6 = A)}{P(x_8)} = \frac{P(x_8 | y_6 = A) \cdot \cancel{P(y_6 = A)}}{P(x_8 | y_6 = A)\cdot \cancel{P(y_6 = A)} + P(x_8 | y_6 = B)\cdot \cancel{P(y_6 = B)}} = \]
-\[ = \frac{P(x_8 | y_6 = A)}{P(x_8 | y_6 = A) + P(x_8 | y_6 = B)} = \]
+\[ = \frac{P(x_8 | y_6 = A)}{P(x_8 | y_6 = A) + P(x_8 | y_6 = B)} = \frac{0.04298}{0.04298 + 0.110478} = 0.280077 \]
 
 \paragraph{}
 
 \[ P(y_6 = A|x_9) = \frac{ P(x_9 | y_6 = A) \cdot P(y_6 = A)}{P(x_9)} = \frac{P(x_9 | y_6 = A) \cdot \cancel{P(y_6 = A)}}{P(x_9 | y_6 = A)\cdot \cancel{P(y_6 = A)} + P(x_9 | y_6 = B)\cdot \cancel{P(y_6 = B)}} = \]
-\[ = \frac{P(x_9 | y_6 = A)}{P(x_9 | y_6 = A) + P(x_9 | y_6 = B)} = \]
+\[ = \frac{P(x_9 | y_6 = A)}{P(x_9 | y_6 = A) + P(x_9 | y_6 = B)} = \frac{0.011247}{0.011247 + 0.186588} = 0.056850\]
 
 \paragraph{Accuracy}
 
@@ -565,9 +565,9 @@ The accuracy of a classifier is given by:
 where $TP$ is the number of true positives, $TN$ is the number of true negatives, $FP$ is the number of false positives and $FN$ is the number of false negatives.
 In our case, accuracy can only have three possible values: 0, 0.5 or 1: 0 when both $x_8$ and $x_9$ are misclassified, 0.5 when only one of them is misclassified and 1 when both are correctly classified.
 In order to maximize the accuracy, we want it to be 1. We know from table \ref{tab:dataset1} that $x_8$ belongs to class $A$ and $x_9$ belongs to class $B$. Therefore, in order to maximize the accuracy, our classifier needs to classify $x_8$ as $A$ and $x_9$ as $B$.
-$f(x_8|\theta) = A$ therefore $\theta < P(y_6=A|x_8) = 0.04298$ and $f(x_9|\theta) = B$ therefore $\theta > P(y_6=A|x_9) = 0.01126$. 
+$f(x_8|\theta) = A$ therefore $\theta < P(y_6=A|x_8) = 0.280077$ and $f(x_9|\theta) = B$ therefore $\theta > P(y_6=A|x_9) = 0.056850$.
 
-\[ \theta \in ]0.01126; 0.04298[ \]
+\[ \theta \in [0.056850, 0.28007[ \]
 
 Any value of $\theta$ in this interval will maximize the accuracy of our classifier.
 
