@@ -251,23 +251,23 @@ Machine Learning - Homework 2 \vspace{-5mm}}
 The following dataset will be used for this homework:
 
 \begin{table}[h!]
-\centering
-\begin{tabular}{|cc|ccccc|c|}
-\hline
-\multicolumn{2}{|c|}{\multirow{2}{*}{$D$}}                           & \multicolumn{5}{c|}{Input}                                                                                                & \multicolumn{1}{l|}{Output} \\ \cline{3-8} 
-\multicolumn{2}{|c|}{}                                               & \multicolumn{1}{c|}{$y_1$} & \multicolumn{1}{c|}{$y_2$} & \multicolumn{1}{c|}{$y_3$} & \multicolumn{1}{c|}{$y_4$} & $y_5$ & $y_6$                       \\ \hline
-\multicolumn{1}{|c|}{\multirow{7}{*}{Training Observations}} & $x_1$ & \multicolumn{1}{c|}{0.24}  & \multicolumn{1}{c|}{0.36}  & \multicolumn{1}{c|}{1}     & \multicolumn{1}{c|}{1}     & 0     & A                           \\ \cline{2-8} 
-\multicolumn{1}{|c|}{}                                       & $x_2$ & \multicolumn{1}{c|}{0.16}  & \multicolumn{1}{c|}{0.48}  & \multicolumn{1}{c|}{1}     & \multicolumn{1}{c|}{0}     & 1     & A                           \\ \cline{2-8} 
-\multicolumn{1}{|c|}{}                                       & $x_3$ & \multicolumn{1}{c|}{0.32}  & \multicolumn{1}{c|}{0.72}  & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{1}     & 2     & A                           \\ \cline{2-8} 
-\multicolumn{1}{|c|}{}                                       & $x_4$ & \multicolumn{1}{c|}{0.54}  & \multicolumn{1}{c|}{0.11}  & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{0}     & 1     & B                           \\ \cline{2-8} 
-\multicolumn{1}{|c|}{}                                       & $x_5$ & \multicolumn{1}{c|}{0.66}  & \multicolumn{1}{c|}{0.39}  & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{0}     & 0     & B                           \\ \cline{2-8} 
-\multicolumn{1}{|c|}{}                                       & $x_6$ & \multicolumn{1}{c|}{0.76}  & \multicolumn{1}{c|}{0.28}  & \multicolumn{1}{c|}{1}     & \multicolumn{1}{c|}{0}     & 2     & B                           \\ \cline{2-8} 
-\multicolumn{1}{|c|}{}                                       & $x_7$ & \multicolumn{1}{c|}{0.41}  & \multicolumn{1}{c|}{0.53}  & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{1}     & 1     & B                           \\ \hline
-\multicolumn{1}{|c|}{\multirow{2}{*}{Testing Observations}}  & $x_8$ & \multicolumn{1}{c|}{0.38}  & \multicolumn{1}{c|}{0.52}  & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{1}     & 0     & A                           \\ \cline{2-8} 
-\multicolumn{1}{|c|}{}                                       & $x_9$ & \multicolumn{1}{c|}{0.42}  & \multicolumn{1}{c|}{0.59}  & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{1}     & 1     & B                           \\ \hline
-\end{tabular}
-\label{tab:dataset1}
-\caption{Dataset}
+  \centering
+  \begin{tabular}{|cc|ccccc|c|}
+    \hline
+    \multicolumn{2}{|c|}{\multirow{2}{*}{$D$}}                           & \multicolumn{5}{c|}{Input}                                                                                                & \multicolumn{1}{l|}{Output} \\ \cline{3-8} 
+    \multicolumn{2}{|c|}{}                                               & \multicolumn{1}{c|}{$y_1$} & \multicolumn{1}{c|}{$y_2$} & \multicolumn{1}{c|}{$y_3$} & \multicolumn{1}{c|}{$y_4$} & $y_5$ & $y_6$                       \\ \hline
+    \multicolumn{1}{|c|}{\multirow{7}{*}{Training Observations}} & $x_1$ & \multicolumn{1}{c|}{0.24}  & \multicolumn{1}{c|}{0.36}  & \multicolumn{1}{c|}{1}     & \multicolumn{1}{c|}{1}     & 0     & A                           \\ \cline{2-8} 
+    \multicolumn{1}{|c|}{}                                       & $x_2$ & \multicolumn{1}{c|}{0.16}  & \multicolumn{1}{c|}{0.48}  & \multicolumn{1}{c|}{1}     & \multicolumn{1}{c|}{0}     & 1     & A                           \\ \cline{2-8} 
+    \multicolumn{1}{|c|}{}                                       & $x_3$ & \multicolumn{1}{c|}{0.32}  & \multicolumn{1}{c|}{0.72}  & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{1}     & 2     & A                           \\ \cline{2-8} 
+    \multicolumn{1}{|c|}{}                                       & $x_4$ & \multicolumn{1}{c|}{0.54}  & \multicolumn{1}{c|}{0.11}  & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{0}     & 1     & B                           \\ \cline{2-8} 
+    \multicolumn{1}{|c|}{}                                       & $x_5$ & \multicolumn{1}{c|}{0.66}  & \multicolumn{1}{c|}{0.39}  & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{0}     & 0     & B                           \\ \cline{2-8} 
+    \multicolumn{1}{|c|}{}                                       & $x_6$ & \multicolumn{1}{c|}{0.76}  & \multicolumn{1}{c|}{0.28}  & \multicolumn{1}{c|}{1}     & \multicolumn{1}{c|}{0}     & 2     & B                           \\ \cline{2-8} 
+    \multicolumn{1}{|c|}{}                                       & $x_7$ & \multicolumn{1}{c|}{0.41}  & \multicolumn{1}{c|}{0.53}  & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{1}     & 1     & B                           \\ \hline
+    \multicolumn{1}{|c|}{\multirow{2}{*}{Testing Observations}}  & $x_8$ & \multicolumn{1}{c|}{0.38}  & \multicolumn{1}{c|}{0.52}  & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{1}     & 0     & A                           \\ \cline{2-8} 
+    \multicolumn{1}{|c|}{}                                       & $x_9$ & \multicolumn{1}{c|}{0.42}  & \multicolumn{1}{c|}{0.59}  & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{1}     & 1     & B                           \\ \hline
+  \end{tabular}
+  \caption{Dataset}
+  \label{tab:dataset}
 \end{table}
 
 \newpage
@@ -303,7 +303,7 @@ In our case, we have $m = 2$, $\vec{x} = \{y_1, y_2\}$ and we need to compute tw
 \paragraph{Distribution of $\{y_1,y_2\}$ given $y_6=A$}
 \paragraph{}
 
-Considering the training data in table \ref{tab:dataset1} with class $y_6=A$, we can compute the mean vector $\vec{\mu}$ and the covariance matrix $\Sigma$ as follows:
+Considering the training data in table 1 with class $y_6=A$, we can compute the mean vector $\vec{\mu}$ and the covariance matrix $\Sigma$ as follows:
 
 \[
   \vec{\mu} =  \left[\begin{matrix} \mu_{y_1} \\ \mu_{y_2} \end{matrix} \right]= \frac{1}{3} \cdot 
@@ -363,7 +363,7 @@ Therefore, we have the normal distribution of $\{y_1,y_2\}$ given $y_6=A$:
 \paragraph{Distribution of $\{y_1,y_2\}$ given $y_6=B$}
 \paragraph{}
 
-Considering the training data in table \ref{tab:dataset1} with class $y_6=B$, we can compute the mean vector $\vec{\mu}$ and the covariance matrix $\Sigma$ as follows:
+Considering the training data in table 1 with class $y_6=B$, we can compute the mean vector $\vec{\mu}$ and the covariance matrix $\Sigma$ as follows:
 
 \[
   \vec{\mu} =  \left[\begin{matrix} \mu_{y_1} \\ \mu_{y_2} \end{matrix} \right]= \frac{1}{4} \cdot 
@@ -425,7 +425,7 @@ Therefore, we have the normal distribution of $\{y_1,y_2\}$ given $y_6=B$:
 \paragraph{Distribution of $y_3$ and $y_4$}
 \paragraph{}
 
-The class conditional distributions of $y_3$ and $y_4$ come directly from the information in table \ref{tab:dataset1} and they are given by:
+The class conditional distributions of $y_3$ and $y_4$ come directly from the information in table 1 and they are given by:
 
 \begin{table}[H]
 \centering
@@ -564,7 +564,7 @@ The accuracy of a classifier is given by:
 
 where $TP$ is the number of true positives, $TN$ is the number of true negatives, $FP$ is the number of false positives and $FN$ is the number of false negatives.
 In our case, accuracy can only have three possible values: 0, 0.5 or 1: 0 when both $x_8$ and $x_9$ are misclassified, 0.5 when only one of them is misclassified and 1 when both are correctly classified.
-In order to maximize the accuracy, we want it to be 1. We know from table \ref{tab:dataset1} that $x_8$ belongs to class $A$ and $x_9$ belongs to class $B$. Therefore, in order to maximize the accuracy, our classifier needs to classify $x_8$ as $A$ and $x_9$ as $B$.
+In order to maximize the accuracy, we want it to be 1. We know from table 1 that $x_8$ belongs to class $A$ and $x_9$ belongs to class $B$. Therefore, in order to maximize the accuracy, our classifier needs to classify $x_8$ as $A$ and $x_9$ as $B$.
 $f(x_8|\theta) = A$ therefore $\theta < P(y_6=A|x_8) = 0.280077$ and $f(x_9|\theta) = B$ therefore $\theta > P(y_6=A|x_9) = 0.056850$.
 
 \[ \theta \in [0.056850, 0.28007[ \]
@@ -617,7 +617,7 @@ Considering the normalized values of $y_2$, we can rewrite the dataset as follow
 \multicolumn{1}{|c|}{}                       & $x_9$ & 0.42   & \multicolumn{1}{c|}{1}              & \multicolumn{1}{c|}{0}     & \multicolumn{1}{c|}{1}     & \multicolumn{1}{c|}{1}     & B     \\ \hline
 \end{tabular}
 \caption{Dataset $D$ divided into three folds}
-\label{tab:dataset2_folds}
+\label{tab:dataset2folds}
 \end{table}
 
 Adittionally, we have divided the dataset into three folds, $F_1$, $F_2$ and $F_3$.
@@ -787,17 +787,26 @@ where $n$ is the number of testing observations, $y_{1i}$ is the value of the ou
   As seen by the box plot above, both models have an equal central tendency, shown by the median. Beyond that, the variance of the models is quite similar, since the overall amplitude of the box plots is similar. However, Naive Bayes has a variance towards the lower end of the box plot, meaning it has a tendency for lower accuracy.
 
   \begin{lstlisting}[language=Python]
-    # Perform a two-sample t-test to compare the means
-  t_stat, p_value = stats.ttest_rel(knn_score, nb_score, alternative='greater')
-  print(f"t-statistic: {str(t_stat)}")
-  print(f"p-value: {str(p_value)}")
+    # Null Hypothesis: The means of the two sets of scores are equal
+    # Alternative Hypothesis: The mean of knn is statistically greater than the mean of nb
 
-  # Determine if the null hypothesis can be rejected (p < 0.05)
-  alpha = 0.05
-  if p_value < alpha:
-      print("Null hypothesis rejected: \nkNN is statistically superior to Naive Bayes.")
-  else:
-      print("Null hypothesis not rejected: \nNo significant difference between kNN and Naive Bayes.")
+    # Perform a two-sample t-test to compare the means
+    t_stat, p_value = stats.ttest_rel(knn_score, nb_score, alternative='greater') # related samples, since both classifiers are tested on the same data
+    print(f"t-statistic: {str(t_stat)}")
+    print(f"p-value: {str(p_value)}")
+
+    # Determine if the null hypothesis can be rejected (p < 0.05)
+
+    # Define the significance level (alpha) for hypothesis testing
+    alpha = 0.05
+    if p_value < alpha:
+        # Null hypothesis rejected: kNN is statistically superior to Naive Bayes
+        print("Null hypothesis rejected:")
+        print("kNN is statistically superior to Naive Bayes.")
+    else:
+        # Null hypothesis not rejected: No significant difference between kNN and Naive Bayes
+        print("Null hypothesis not rejected:")
+        print("No significant difference between kNN and Naive Bayes.")
   \end{lstlisting}
 
   \begin{lstlisting}
@@ -872,7 +881,8 @@ where $n$ is the number of testing observations, $y_{1i}$ is the value of the ou
 \end{figure}
 
 \textbf{Comment:}
-As seen by the difference confusion cummulative matrix above, the classifiers do not have significant differences, since the highest difference between them is 5. As for some entraces of the matrix, one can say both classifiers have the same performance, since the difference between them is 0. For negative values on the diagonal, it means that the classifier knn5 has a better performance than the classifier knn1, and for positive values, the opposite. As one can see, what stands out prominently in the matrix is the prevalence of positive values, outnumbering the negative ones. This observation implies that k-NN5 demonstrates superior performance in distinguishing between classes and encounters fewer instances of confusion compared to k-NN1.
+As seen by the difference confusion cummulative matrix above, the classifiers do not have significant differences, since the highest difference between them is 5. As for some entraces of the matrix, one can say both classifiers have same performance, since the difference between them is 0. For negative values on the diagonal, it means that the classifier knn5 has a better performance than the classifier knn1, and for positive values, the opposite. The rest of the cells indicate that knn5 gets more confused in some cases than knn1, and vice-versa, for example, knn5 gets more confused when the predicted class is Hernia and the actual class is Normal. For knn1, the opposite happens, it gets more confused when the predicted class is Normal and the actual class is Hernia or Spondylolisthesis, or when the predicted class is Spondylolisthesis and the actual class is Normal. 
+Nevertheless, as said before, the difference between the classifiers is not significant, since the highest difference is 5.
 
 
 
