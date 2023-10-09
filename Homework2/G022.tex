@@ -8,6 +8,7 @@
 
 \documentclass{article}
 
+
 \author{Pedro Curvo (ist1102716) $|$ Salvador Torpes (ist1102474)}
 
 \usepackage[utf8]{inputenc}
@@ -17,12 +18,14 @@
 \usepackage[letterpaper,margin=1in,marginparwidth=1.75cm]{geometry}
 \usepackage{multicol}
 \usepackage{biblatex}
+\usepackage{cancel}
 \usepackage{colortbl}
 \addbibresource{Bibliografia.bib}
 \usepackage{graphicx}
 % \graphicspath{{../Homework1/images/}}
 \usepackage{subcaption}
 \usepackage{tabularx}
+\usepackage{ulem}
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{makecell}
@@ -529,7 +532,7 @@ Therefore, the predicted class for both $x_8$ and $x_9$ is $y_6=B$.
 
 \subsection*{c)}
 
-Let's consider the following classifier with a unknown treshold $\theta$ whose value we aim to find:
+Let's consider the following classifier with a unknown threshold $\theta$ whose value we aim to find:
 
 \[
   f(x|\theta) = \begin{cases}
@@ -541,11 +544,17 @@ Let's consider the following classifier with a unknown treshold $\theta$ whose v
 \paragraph{Finding $P(y_6=A|x)$}
 \paragraph{}
 
-We are now working under a ML assumption, so, in order to classify each test observation we will only need the conditional distribution $P(x|y_6=A)$ because every class has the same prior probability.
-We used the values in the previous section and divided them by the corresponding a priori probability:
+We are now working under an ML assumption, so, in order to classify each test observation we will only need the conditional distribution $P(x|y_6=A)$ because every class has the same prior probability:
 
-\[ P(y_6 = A|x_8) = 0.04298 \]
-\[ P(y_6 = A|x_9) = 0.01126 \]
+\[ P(y_6 = A) = P(y_6 = B) = \frac{1}{2} \]
+
+\[ P(y_6 = A|x_8) = \frac{P(x_8 | y_6 = A) \cdot P(y_6 = A)}{P(x_8)} = \frac{P(x_8 | y_6 = A) \cdot \cancel{P(y_6 = A)}}{P(x_8 | y_6 = A)\cdot \cancel{P(y_6 = A)} + P(x_8 | y_6 = B)\cdot \cancel{P(y_6 = B)}} = \]
+\[ = \frac{P(x_8 | y_6 = A)}{P(x_8 | y_6 = A) + P(x_8 | y_6 = B)} = \]
+
+\paragraph{}
+
+\[ P(y_6 = A|x_9) = \frac{ P(x_9 | y_6 = A) \cdot P(y_6 = A)}{P(x_9)} = \frac{P(x_9 | y_6 = A) \cdot \cancel{P(y_6 = A)}}{P(x_9 | y_6 = A)\cdot \cancel{P(y_6 = A)} + P(x_9 | y_6 = B)\cdot \cancel{P(y_6 = B)}} = \]
+\[ = \frac{P(x_9 | y_6 = A)}{P(x_9 | y_6 = A) + P(x_9 | y_6 = B)} = \]
 
 \paragraph{Accuracy}
 
@@ -775,7 +784,7 @@ where $n$ is the number of testing observations, $y_{1i}$ is the value of the ou
   \end{figure}
 
   \textbf{Comment:}
-  As seen by the box plot above, both models have an equal central tendency, shown by the median. Beyond that, the variance of the models are quite similiar, since the overall amplitude of the box plots are similiar. However, Naive Bayes has a variance towards the lower end of the box plot, meaning it has a tendency for lower accuracy.
+  As seen by the box plot above, both models have an equal central tendency, shown by the median. Beyond that, the variance of the models is quite similar, since the overall amplitude of the box plots is similar. However, Naive Bayes has a variance towards the lower end of the box plot, meaning it has a tendency for lower accuracy.
 
   \begin{lstlisting}[language=Python]
     # Perform a two-sample t-test to compare the means
