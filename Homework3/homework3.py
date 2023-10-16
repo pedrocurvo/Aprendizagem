@@ -26,14 +26,15 @@ X_new = np.empty([len(X), 4])
 for i in range(len(X)):
     X_new[i,0]=1
     aux1=np.array([[X[i][1]] - c_1[0], [X[i][2]] - c_1[1]])
-    X_new[i,1]=math.exp(-(aux1[0]**2 + aux1[1]**2)/2)
+    X_new[i,1]=math.exp(-(aux1[0][0]**2 + aux1[1][0]**2)/2)
     aux2=np.array([[X[i][1]] - c_2[0], [X[i][2]] - c_2[1]])
-    X_new[i,2]=math.exp(-(aux2[0]**2 + aux2[1]**2)/2)
+    X_new[i,2]=math.exp(-(aux2[0][0]**2 + aux2[1][0]**2)/2)
     aux3=np.array([[X[i][1]] - c_3[0], [X[i][2]] - c_3[1]])
-    X_new[i,3]=math.exp(-(aux3[0]**2 + aux3[1]**2)/2)
+    X_new[i,3]=math.exp(-(aux3[0][0]**2 + aux3[1][0]**2)/2)
 
 # print with 5 decimal places
-print(np.around(X_new, decimals=5))
+print('Transformed dataset = \n',
+    np.around(X_new, decimals=5))
 
 # we want to apply ridge regression with lambda=0.1 to the transformed dataset
 
@@ -44,14 +45,90 @@ W = np.linalg.inv(X_new.T.dot(X_new) + 0.1*np.identity(4)).dot(X_new.T).dot(Z)
 
 
 # print with 5 decimal places
-print(np.around(W, decimals=5))
+print( 'W = \n',
+    np.around(W, decimals=5))
 
 # estimate the output value for the 4 observations in the dataset
 
 Z_hat = X_new.dot(W)
-print(np.around(Z_hat, decimals=5))
+print('Z_hat = \n',
+    np.around(Z_hat, decimals=5))
 
 # compute the RMSE
 RMSE = np.sqrt(np.sum((Z-Z_hat)**2)/len(Z))
 print("RMSE = ", np.around(RMSE, decimals=5))
-print("RMSE**2*4 = ", np.around(RMSE**2*4, decimals=5))
+print("RMSE**2*4 = ", np.around(RMSE**2*4, decimals=5), '\n \n \n')
+
+
+
+# new exercise
+# gradient descent update
+
+w_11=np.array([[1,1,1,1],
+               [1,1,2,1],
+               [1,1,1,1]])
+w_21=np.array([[1,4,1],
+               [1,1,1]])
+w_31=np.array([[1,1],
+               [3,1],
+               [1,1]])
+b_11=np.array([[1],
+            [1],
+            [1]])
+b_21=np.array([[1],
+            [1]])
+b_31=np.array([[1],
+            [1],
+            [1]])
+
+x_10=np.array([[1], [1], [1], [1]])
+t_1=np.array([[0], [1], [0]])
+x_20=np.array([[1], [0], [0], [-1]])
+t_2=np.array([[1], [0], [0]])
+
+# Porpagation of x_11
+
+print(np.around((w_11.dot(x_10) + b_11) * 0.5 - 2, decimals=5))
+x_11 = np.tanh((w_11.dot(x_10) + b_11) * 0.5 - 2)
+print("x_11 = \n", np.around(x_11, decimals=5))
+z_11 = (w_11.dot(x_10) + b_11)
+print("z_11 = \n", np.around(z_11, decimals=5))
+
+
+print(np.around((w_21.dot(x_11) + b_21) * 0.5 - 2, decimals=5))
+x_12 = np.tanh((w_21.dot(x_11) + b_21) * 0.5 - 2)
+print("x_12 = \n", np.around(x_12, decimals=5))
+z_12 = (w_21.dot(x_11) + b_21)
+print("z_12 = \n", np.around(z_12, decimals=5))
+
+print(np.around((w_31.dot(x_12) + b_31) * 0.5 - 2, decimals=5))
+x_13 = np.tanh((w_31.dot(x_12) + b_31) * 0.5 - 2)
+print("x_13 = \n", np.around(x_13, decimals=5))
+z_13 = (w_31.dot(x_12) + b_31)
+print("z_13 = \n", np.around(z_13, decimals=5))
+
+# Propagation of x_21
+
+print(np.around((w_11.dot(x_20) + b_11) * 0.5 - 2, decimals=5))
+x_21 = np.tanh((w_11.dot(x_20) + b_11) * 0.5 - 2)
+print("x_21 = \n", np.around(x_21, decimals=5))
+z_21 = (w_11.dot(x_20) + b_11)
+print("z_21 = \n", np.around(z_21, decimals=5))
+
+print(np.around((w_21.dot(x_21) + b_21) * 0.5 - 2, decimals=5))
+x_22 = np.tanh((w_21.dot(x_21) + b_21) * 0.5 - 2)
+print("x_22 = \n", np.around(x_22, decimals=5))
+z_22 = (w_21.dot(x_21) + b_21)
+print("z_22 = \n", np.around(z_22, decimals=5))
+
+print(np.around((w_31.dot(x_22) + b_31) * 0.5 - 2, decimals=5))
+x_23 = np.tanh((w_31.dot(x_22) + b_31) * 0.5 - 2)
+print("x_23 = \n", np.around(x_23, decimals=5))
+z_23 = (w_31.dot(x_22) + b_31)
+print("z_23 = \n", np.around(z_23, decimals=5))
+
+# updated weights for x_11
+
+
+deltaw_13 = -0.1 * 0.5 * (x_13 - t_1).dot(1 / (np.cosh((w_31.dot(x_12) + b_31)*0.5 -2) ** 2)).dot(x_12.T)
+print("deltaw_13 = \n", np.around(deltaw_13, decimals=5))

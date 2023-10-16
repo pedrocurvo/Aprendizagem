@@ -535,20 +535,84 @@ Our structure is the following:
 \end{center}
 
 \subsection*{Activation Function}
-\paragraph{}
 
 The activation function is the hyperbolic tangent function and it is the same for all layers:
 
-\[ f(x) = \tanh(0.5x-2) \]
+\[ \Phi(x) = f(x) = \tanh(0.5x-2) \]
 
-\[ f'(x) = \frac{1}{\cosh^2(0.5x-2)} \]
+\[ \Phi'(x) = f'(x) = \frac{0.5}{\cosh^2(0.5x-2)} =0.5 \cdot \left( 1 - \tanh^2(0.5x-2) \right) = 0.5 \cdot \left( 1 - \Phi^2(x) \right) \]
 
 \subsection*{Loss Function}
 
 The loss function is the mean square error:
 
-\[ E(W) = \frac{1}{2} \sum_{i=1}^{N} (z_i - \hat{z}_i)^2 \]
+\[ E(W) = \frac{1}{2} \sum_{i=1}^{N} ||z_i - \hat{z}_i||^2 \]
 
-\subsection*{title}
+\subsection*{Initial Weights}
+
+We are told the initial weights are:
+
+\[ w^{[1]} = \begin{bmatrix} 1 & 1 & 1 & 1 \\ 1 & 1 & 2 & 1 \\ 1 & 1 & 1 & 1 \end{bmatrix} \qquad w^{[2]} = \begin{bmatrix} 1 & 4 & 1 \\ 1 & 1 & 1 \end{bmatrix} \qquad w^{[3]} = \begin{bmatrix} 1 & 1  \\ 3 & 1 \\ 1 & 1 \end{bmatrix} \]
+\[ b^{[1]} = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} \qquad b^{[2]} = \begin{bmatrix} 1 \\ 1 \end{bmatrix} \qquad b^{[3]} = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} \]
+
+According to these weights, we can compute the initial values for $X^{[1]}$, $X^{[2]}$ and $X^{[3]}$. 
+We are considering two training observations and therefore have two different $X^{[0]}$ vectors:
+
+\[ X^{[0]}_1 = \begin{bmatrix} 1 \\ 1 \\ 1 \\ 1  \end{bmatrix} \qquad X^{[0]}_2 = \begin{bmatrix} 1 \\ 0 \\ 0 \\ -1  \end{bmatrix} \]
+
+With $X^{[0]}$ we can compute $X^{[1]}$, $X^{[2]}$ and $X^{[3]}$ - Propagation of both inputs through the network:
+
+\[ X^{[1]}_1 = \Phi(W^{[1]} \cdot X^{[0]}_1 + b^{[1]}) = \tanh \left( \left(\begin{bmatrix} 1 & 1 & 1 & 1 \\ 1 & 1 & 2 & 1 \\ 1 & 1 & 1 & 1 \end{bmatrix} \cdot \begin{bmatrix} 1 \\ 1 \\ 1 \\ 1 \end{bmatrix} + \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} \right) \cdot 0.5 - 2I \right) = \tanh \left( \begin{bmatrix} 0.5 \\ 1 \\ 0.5 \end{bmatrix} \right)  = \begin{bmatrix} 0.46212 \\ 0.76159 \\ 0.46212 \end{bmatrix} \]
+
+\[ Z^{[1]}_1 = W^{[1]} \cdot X^{[0]}_1 + b^{[1]} = \begin{bmatrix} 5 \\ 6 \\ 5 \end{bmatrix} \]
+
+\[ X^{[2]}_1 = \Phi(W^{[2]} \cdot X^{[1]}_1 + b^{[2]}) = \tanh \left( \left(\begin{bmatrix} 1 & 4 & 1 \\ 1 & 1 & 1 \end{bmatrix} \cdot \begin{bmatrix} 0.46212 \\ 0.76159 \\ 0.46212 \end{bmatrix} + \begin{bmatrix} 1 \\ 1 \end{bmatrix} \right) \cdot 0.5 - 2I \right) = \tanh \left( \begin{bmatrix} 0.45048 \\ -0.57642 \end{bmatrix} \right)  = \begin{bmatrix} 0.45048 \\ -0.57642 \end{bmatrix} \]
+
+\[ Z^{[2]}_1 = W^{[2]} \cdot X^{[1]}_1 + b^{[2]} = \begin{bmatrix} 4.97061 \\ 2.68583 \end{bmatrix} \]
+
+\[ X^{[3]}_1 = \Phi(W^{[3]} \cdot X^{[2]}_1 + b^{[3]}) = \tanh \left( \left(\begin{bmatrix} 1 & 1  \\ 3 & 1 \\ 1 & 1 \end{bmatrix} \cdot \begin{bmatrix} -0.9159 \\ -0.80494 \end{bmatrix} + \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} \right) \cdot 0.5 - 2I \right) = \tanh \left( \begin{bmatrix} -1.56297 \\ -1.11249 \\ -1.56297 \end{bmatrix} \right)  = \begin{bmatrix} -0.9159 \\ -0.80494 \\ -0.9159 \end{bmatrix} \]
+
+\[ Z^{[3]}_1 = W^{[3]} \cdot X^{[2]}_1 + b^{[3]} = \begin{bmatrix} 0.87406 \\ 1.77503 \\ 0.87406 \end{bmatrix} \]
+
+\[ X^{[1]}_2 = \Phi(W^{[1]} \cdot X^{[0]}_2 + b^{[1]}) = \tanh \left( \left(\begin{bmatrix} 1 & 1 & 1 & 1 \\ 1 & 1 & 2 & 1 \\ 1 & 1 & 1 & 1 \end{bmatrix} \cdot \begin{bmatrix} 1 \\ 0 \\ 0 \\ -1 \end{bmatrix} + \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} \right) \cdot 0.5 - 2I \right) = \tanh \left( \begin{bmatrix} -1.5 \\ -1.5 \\ -1.5 \end{bmatrix} \right)  = \begin{bmatrix} -0.90515 \\ -0.90515 \\ -0.90515 \end{bmatrix} \]
+
+\[ Z^{[1]}_2 = W^{[1]} \cdot X^{[0]}_2 + b^{[1]} = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} \]
+
+\[ X^{[2]}_2 = \Phi(W^{[2]} \cdot X^{[1]}_2 + b^{[2]}) = \tanh \left( \left(\begin{bmatrix} 1 & 4 & 1 \\ 1 & 1 & 1 \end{bmatrix} \cdot \begin{bmatrix} -0.90515 \\ -0.90515 \\ -0.90515 \end{bmatrix} + \begin{bmatrix} 1 \\ 1 \end{bmatrix} \right) \cdot 0.5 - 2I \right) = \tanh \left( \begin{bmatrix} -4.21544 \\ -2.85772 \end{bmatrix} \right)  = \begin{bmatrix} -0.99956 \\ -0.99343 \end{bmatrix} \]
+
+\[ Z^{[2]}_2 = W^{[2]} \cdot X^{[1]}_2 + b^{[2]} = \begin{bmatrix} -4.43089 \\ -1.71544 \end{bmatrix} \]
+
+\[ X^{[3]}_2 = \Phi(W^{[3]} \cdot X^{[2]}_2 + b^{[3]}) = \tanh \left( \left(\begin{bmatrix} 1 & 1  \\ 3 & 1 \\ 1 & 1 \end{bmatrix} \cdot \begin{bmatrix} -0.99956 \\ -0.99343 \end{bmatrix} + \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} \right) \cdot 0.5 - 2I \right) = \tanh \left( \begin{bmatrix} -2.4965 \\ -3.49606 \\ -2.4965 \end{bmatrix} \right)  = \begin{bmatrix} -0.98652 \\ -0.99816 \\ -0.98652 \end{bmatrix} \]
+
+\[ Z^{[3]}_2 = W^{[3]} \cdot X^{[2]}_2 + b^{[3]} = \begin{bmatrix} -0.993 \\ -2.99212 \\ -0.993 \end{bmatrix} \]
+
+\subsection*{Gradient Descent}
+
+According to the gradient descent formula, in order to update the weights we need to compute the gradient of the loss function with respect to the weights.
+We are considering the following loss function:
+
+\[ E(W) = \frac{1}{2} || \hat{z} - z ||^2 = \frac{1}{2} (\hat{z} - z)^2 = \frac{1}{2} \sum_{k=1}^{N} (\hat{z}_k - z_k)^2 = \frac{1}{2} (t - X^{[P]})^2 = \frac{1}{2} (t - X^{[P]})^T (t - X^{[P]}) \]
+
+
+Where $z = t$ is vector of actual output values and $\hat{z} = X^{[P]}$ ($P$ is the index of the last layer) is the vector of predicted output values. 
+When doing the gradient descent, we need to compute the updated weights for each layer of the network.
+The updated weight is equal to:
+
+\[ W^{[p]}_{\text{new}} = W^{[p]} - \eta \frac{\partial E(W)}{\partial W^{[p]}} \]
+
+\[ \frac{\partial E(W)}{\partial W^{[p]}} = \delta^{[p]} \cdot \frac{\partial Z^{[p]}}{\partial W^{[p]}} = \delta^{[P]} \cdot (X^{[P-1]})^T = \frac{\partial E}{\partial X^{[P]}}   \cdot \frac{\partial X^{[P]}}{\partial Z^{[P]}} \cdot (X^{[p-1]})^T = (X^{[P]} - t) \cdot \Phi'^{[P]}(Z^{[P]})\cdot (X^{[p-1]})^T \text{      if } p = P \text{ (output layer)} \]
+
+\[ \frac{\partial E(W)}{\partial W^{[p]}} = \delta^{[p]} \cdot \frac{\partial Z^{[p]}}{\partial W^{[p]}} = \delta^{[p]} \cdot (X^{[p-1]})^T = \Phi'^{[p]}(Z^{[p]}) \cdot (W^{[p+1]})^T \cdot \delta^{[p+1]} \cdot (X^{[p-1]})^T \text{      if } p < P \text{ (hidden layers)} \]
+
+\subsection*{Computing the updated weights}
+
+\subsubsection*{Updated weights for $X_1$}
+
+We have $P=3$:
+
+\[ \Delta W^{[3]} = - \eta \frac{\partial E(W)}{\partial W^{[3]}} = - \eta \cdot (X^{[3]}_1 - t) \cdot \Phi'^{[3]}(Z^{[3]}_1)\cdot (X^{[2]}_1)^T = - \eta \cdot (X^{[3]}_1 - t) \cdot 0.5 \cdot \left( 1 - \tanh^2(Z^{[3]}) \right) \cdot (X^{[2]}_1)^T \]
+
+
+
 
 \end{document}
