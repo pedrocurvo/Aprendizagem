@@ -149,3 +149,54 @@ w_32 = w_31 + deltaw_3
 # print a string with w_32 in latex code:
 latex_code = "w_32 in lateX code = " + '\\begin{bmatrix} ' + np.array2string(np.around(w_32, decimals=5), separator=' & ').replace('\n', r' \\ ' ).replace('[','').replace(']', '').replace('& \\', '\\') + '  \end{bmatrix} '
 print(latex_code)
+
+
+# updated weights for w_2
+
+
+delta_12 = -0.1 * 0.5 * 0.5 * w_31.T.dot((x_13 - t_1) * (1 - np.tanh(z_13 * 0.5 - 2) * np.tanh(z_13 * 0.5 - 2))) * (1 - np.tanh(z_12 * 0.5 - 2) * np.tanh(z_12 * 0.5 - 2)).dot(x_11.T)
+# print a string with delta_12 in latex code:
+latex_code = "delta_12 in lateX code = " + '\\begin{bmatrix} ' + np.array2string(np.around(delta_12, decimals=5), separator=' & ').replace('\n', r' \\ ' ).replace('[','').replace(']', '').replace('& \\', '\\') + '  \end{bmatrix} '
+print(latex_code)
+
+delta_22 = -0.1 * 0.5 * 0.5 * w_31.T.dot((x_23 - t_2) * (1 - np.tanh(z_23 * 0.5 - 2) * np.tanh(z_23 * 0.5 - 2))) * (1 - np.tanh(z_22 * 0.5 - 2) * np.tanh(z_22 * 0.5 - 2)).dot(x_21.T)
+# print a string with delta_22 in latex code:
+latex_code = "delta_22 in lateX code = " + '\\begin{bmatrix} ' + np.array2string(np.around(delta_22, decimals=10), separator=' & ').replace('\n', r' \\ ' ).replace('[','').replace(']', '').replace('& \\', '\\') + '  \end{bmatrix} '
+print(latex_code)
+
+deltaw_2 = delta_12 + delta_22
+# print a string with deltaw_2 in latex code:
+latex_code = "deltaw_2 in lateX code = " + '\\begin{bmatrix} ' + np.array2string(np.around(deltaw_2, decimals=5), separator=' & ').replace('\n', r' \\ ' ).replace('[','').replace(']', '').replace('& \\', '\\') + '  \end{bmatrix} '
+print(latex_code)
+
+# new w_2
+w_22 = w_21 + deltaw_2
+# print a string with w_22 in latex code:
+latex_code = "w_22 in lateX code = " + '\\begin{bmatrix} ' + np.array2string(np.around(w_22, decimals=5), separator=' & ').replace('\n', r' \\ ' ).replace('[','').replace(']', '').replace('& \\', '\\') + '  \end{bmatrix} '
+print(latex_code)
+
+
+# updated weights for w_1
+
+
+delta_11 = -0.1 * 0.5 * 0.5 * 0.5 * w_21.T.dot( w_31.T.dot((x_13 - t_1) * (1 - np.tanh(z_13 * 0.5 - 2) * np.tanh(z_13 * 0.5 - 2))) * (1 - np.tanh(z_12 * 0.5 - 2) * np.tanh(z_12 * 0.5 - 2))) * (1 - np.tanh(z_11 * 0.5 - 2) * np.tanh(z_11 * 0.5 - 2)).dot(x_10.T)
+# print a string with delta_11 in latex code:
+latex_code = "delta_11 in lateX code = " + '\\begin{bmatrix} ' + np.array2string(np.around(delta_11, decimals=5), separator=' & ').replace('\n', r' \\ ' ).replace('[','').replace(']', '').replace('& \\', '\\') + '  \end{bmatrix} '
+print(latex_code)
+
+delta_21 = -0.1 * 0.5 * 0.5 * 0.5 * w_21.T.dot( w_31.T.dot((x_23 - t_2) * (1 - np.tanh(z_23 * 0.5 - 2) * np.tanh(z_23 * 0.5 - 2))) * (1 - np.tanh(z_22 * 0.5 - 2) * np.tanh(z_22 * 0.5 - 2))) * (1 - np.tanh(z_21 * 0.5 - 2) * np.tanh(z_21 * 0.5 - 2)).dot(x_20.T)
+# print a string with delta_21 in latex code:
+latex_code = "delta_21 in lateX code = " + '\\begin{bmatrix} ' + np.array2string(np.around(delta_21, decimals=10), separator=' & ').replace('\n', r' \\ ' ).replace('[','').replace(']', '').replace('& \\', '\\') + '  \end{bmatrix} '
+print(latex_code)
+
+
+deltaw_1 = delta_11 + delta_21
+# print a string with deltaw_1 in latex code:
+latex_code = "deltaw_1 in lateX code = " + '\\begin{bmatrix} ' + np.array2string(np.around(deltaw_1, decimals=5), separator=' & ').replace('\n', r' \\ ' ).replace('[','').replace(']', '').replace('& \\', '\\') + '  \end{bmatrix}'
+print(latex_code)
+
+# new w_1
+w_12 = w_11 + deltaw_1
+# print a string with w_12 in latex code:
+latex_code = "w_12 in lateX code = " + '\\begin{bmatrix} ' + np.array2string(np.around(w_12, decimals=5), separator=' & ').replace('\n', r' \\ ' ).replace('[','').replace(']', '').replace('& \\', '\\') + '\end{bmatrix}'
+print(latex_code)
