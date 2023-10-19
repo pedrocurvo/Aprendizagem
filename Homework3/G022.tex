@@ -642,13 +642,21 @@ Where $i$ is the index of the observation.
 
 The weight variation of $W^{[3]}$ coming from the first observation is:
 
-\[ \Delta W^{[3]}_1 = - \eta \frac{\partial E(W)}{\partial W^{[3]}_1} = - \eta \cdot (X^{[3]}_1 - t_1) \circ \Phi'^{[3]}(Z^{[3]}_1)\cdot (X^{[2]}_1)^T = - 0.1 \cdot 0.5 \cdot (X^{[3]}_1 - t_1)  \circ \left( 1 - \tanh^2(Z^{[3]}_1 \cdot 0.5 - 2) \right) \cdot (X^{[2]}_1)^T = \]
-\[= \begin{bmatrix}  0.00332 & -0.00425 \\   0.01431 & -0.01831 \\   0.00332 & -0.00425  \end{bmatrix} \]
+\begin{align*}
+    \Delta W^{[3]}_1 &= - \eta \frac{\partial E(W)}{\partial W^{[3]}_1} = \\
+    &= - \eta \cdot (X^{[3]}_1 - t_1) \circ \Phi'^{[3]}(Z^{[3]}_1)\cdot (X^{[2]}_1)^T =\\
+    &= - 0.1 \cdot 0.5 \cdot (X^{[3]}_1 - t_1)  \circ \left( 1 - \tanh^2(Z^{[3]}_1 \cdot 0.5 - 2) \right) \cdot (X^{[2]}_1)^T = \\
+    &= \begin{bmatrix}  0.00332 & -0.00425 \\   0.01431 & -0.01831 \\   0.00332 & -0.00425  \end{bmatrix} \\
+\end{align*}
 
 The weight variation of $W^{[3]}$ coming from the second observation is:
 
-\[ \Delta W^{[3]}_2 = - \eta \frac{\partial E(W)}{\partial W^{[3]}_2} = - \eta \cdot (X^{[3]}_2 - t_2) \circ \Phi'^{[3]}(Z^{[3]}_2)\cdot (X^{[2]}_2)^T = - 0.1 \cdot 0.5 \cdot (X^{[3]}_2 - t_2)  \circ \left( 1 - \tanh^2(Z^{[3]}_1 \cdot 0.5 - 2) \right) \cdot (X^{[2]}_2)^T = \]
-\[= \begin{bmatrix} -0.00266 & -0.00264 \\  -0.00018 & -0.00018 \\  -0.00132 & -0.00131  \end{bmatrix}\]
+\begin{align*}
+    \Delta W^{[3]}_2 &= - \eta \frac{\partial E(W)}{\partial W^{[3]}_2} = \\
+    &= - \eta \cdot (X^{[3]}_2 - t_2) \circ \Phi'^{[3]}(Z^{[3]}_2)\cdot (X^{[2]}_2)^T =\\
+    &= - 0.1 \cdot 0.5 \cdot (X^{[3]}_2 - t_2)  \circ \left( 1 - \tanh^2(Z^{[3]}_2 \cdot 0.5 - 2) \right) \cdot (X^{[2]}_2)^T = \\
+    &= \begin{bmatrix} -0.00266 & -0.00264 \\  -0.00018 & -0.00018 \\  -0.00132 & -0.00131  \end{bmatrix} \\
+\end{align*}
 
 The total weight variation of $W^{[3]}$ is:
 
