@@ -495,7 +495,7 @@ The RMSE is:
 
 \subsection*{Structure of the Network}
 
-We are considering a MLP (Multi-Layer Perceptron) with 2 hidden layers. The input and output layers each have 3 neurons. 
+We are considering a MLP (Multi-Layer Perceptron) with 2 hidden layers. The input and output layers have 4 and 3 nodes, respectively. This means we have 4 input features and 3 output features. 
 Our structure is the following:
 
 \begin{center}
@@ -512,7 +512,7 @@ Our structure is the following:
     \foreach \i [evaluate={\y=\N/2-\i; \x=\lay; \n=\nstyle;}] in {1,...,\N}{ % loop over nodes
     
     % NODES
-    \node[node \n] (N\lay-\i) at (\x,\y) {$a_\i^{(\prev)}$};
+    \node[node \n] (N\lay-\i) at (\x,\y) {$l_\i^{(\prev)}$};
     
     % CONNECTIONS
     \ifnum\lay>1 % connect to previous layer
@@ -599,24 +599,36 @@ The reak outputs for both observations are:
 According to the gradient descent formula, in order to update the weights we need to compute the gradient of the loss function with respect to the weights.
 We are considering the following loss function for each observation:
 
-\[ E(W) = \frac{1}{2} || z-\hat{z} ||^2 = \frac{1}{2} (z-\hat{z})^2 = \frac{1}{2} (t - X^{[P]})^2 = \frac{1}{2} (t - X^{[P]})^T (t - X^{[P]}) \]
+\[ E(W) = \frac{1}{2} || z-\hat{z} ||^2 = \frac{1}{2} (z-\hat{z})^2 = \frac{1}{2} (X^{[P]} - t)^2 \]
 
 
 Where $z = t$ is vector of actual output values for the observation and $\hat{z} = X^{[P]}$ ($P$ is the index of the last layer) is the vector of predicted output values for the observation. 
 When doing the gradient descent, we need to compute the updated weights for each layer of the network.
 The updated weight is equal to:
 
-\[ W^{[p]}_{\text{new}} = W^{[p]} - \eta \frac{\partial E(W)}{\partial W^{[p]}} \]
+\begin{align*}
+    W^{[p]}_{\text{new}} = W^{[p]} - \eta &\frac{\partial E(W)}{\partial W^{[p]}} \\
+    &\frac{\partial E(W)}{\partial W^{[P]}} = \delta^{[P]} \cdot \frac{\partial Z^{[P]}}{\partial W^{[P]}} = \delta^{[P]} \cdot (X^{[P-1]})^T  \text{,      if } p = P \text{ (output layer)} \\
+    &\frac{\partial E(W)}{\partial W^{[p]}} = \delta^{[p]} \cdot \frac{\partial Z^{[p]}}{\partial W^{[p]}} = \delta^{[p]} \cdot (X^{[p-1]})^T  \text{,      if } p \neq P \text{ (hidden layer)} \\
+\end{align*}
 
-\[ \frac{\partial E(W)}{\partial W^{[p]}} = \delta^{[p]} \cdot \frac{\partial Z^{[p]}}{\partial W^{[p]}} = \delta^{[P]} \cdot (X^{[P-1]})^T = (X^{[P]}-t) \circ \Phi'^{[P]}(Z^{[P]}) \cdot (X^{[P-1]})^T \text{      if } p = P \text{ (output layer)} \]
+We can compute $\delta^{[p]}$ and $\delta^{[P]}$ as:
 
-\[ \frac{\partial E(W)}{\partial W^{[p]}} = \delta^{[p]} \cdot \frac{\partial Z^{[p]}}{\partial W^{[p]}} = \delta^{[p]} \cdot (X^{[p-1]})^T = (W^{[p+1]})^T \cdot \delta^{[p+1]} \circ \Phi'^{[p]}(Z^{[p]}) \cdot (X^{[p-1]})^T \text{      if } p \neq P \text{ (hidden layer)} \]
+\begin{align*}
+    &\delta^{[P]} = \frac{\partial E(W)}{\partial Z^{[P]}} = \frac{\partial E(W)}{\partial X^{[P]}} \circ \frac{\partial X^{[P]}}{\partial Z^{[P]}} = (X^{[P]}-t) \circ \Phi'^{[P]}(Z^{[P]}) \\
+    &\delta^{[p]} = \frac{\partial E(W)}{\partial Z^{[p]}} = \left( \frac{\partial Z^{[p+1]}}{\partial X^{[p]}} \right)^T \cdot \delta^{[p+1]} \circ \frac{\partial X^{[p]}}{\partial Z^{[p]}} = (W^{[p+1]})^T \cdot \delta^{[p+1]} \circ \Phi'^{[p]}(Z^{[p]}) \\
+\end{align*}
 
-We can define the $\delta^{[p]}$ and $\delta^{[P]}$ as:
+We also need to update the biases, according to the following formula:
 
-\[ \delta^{[P]} = \frac{\partial E(W)}{\partial Z^{[P]}} = \frac{\partial E(W)}{\partial X^{[P]}} \circ \frac{\partial X^{[P]}}{\partial Z^{[P]}} = (X^{[P]}-t) \circ \Phi'^{[P]}(Z^{[P]}) \]
+\begin{align*}
+    b^{[p]}_{\text{new}} = b^{[p]} - \eta &\frac{\partial E(W)}{\partial b^{[p]}} \\
+    &\frac{\partial E(W)}{\partial b^{[p]}} = \delta^{[p]} \cdot \frac{\partial Z^{[p]}}{\partial b^{[p]}} = \delta^{[p]} \\
+\end{align*}
 
-\[ \delta^{[p]} = \frac{\partial E(W)}{\partial Z^{[p]}} = \left( \frac{\partial Z^{[p+1]}}{\partial X^{[p]}} \right)^T \cdot \delta^{[p+1]} \circ \frac{\partial X^{[p]}}{\partial Z^{[p]}} = (W^{[p+1]})^T \cdot \delta^{[p+1]} \circ \Phi'^{[p]}(Z^{[p]}) \]
+Therefore, we can write:
+
+\[ b^{[p]}_{\text{new}} = b^{[p]} - \eta\delta^{[p]} \]
 
 \subsection*{Computing the updated weights}
 
@@ -648,19 +660,23 @@ The updated weight $W^{[3]}$ is:
 
 \subsubsection*{Updating $W^{[2]}$}
 
-The weight variation of $W^{[2]}$ coming from the first observation is:
+\paragraph{} The weight variation of $W^{[2]}$ coming from the first observation is:
 
-\[ \Delta W^{[2]}_1 = - \eta \frac{\partial E(W)}{\partial W^{[2]}_1} = - \eta \cdot (W^{[3]}_1)^T \cdot \delta^{[3]}_1 \circ \Phi'^{[2]}(Z^{[2]}_1)\cdot (X^{[1]}_1)^T = \]
-\[ = - \eta \cdot (W^{[3]}_1)^T \cdot \left( (X^{[3]}_1 - t_1) \circ \Phi'^{[3]}(Z^{[3]}_1) \right) \circ \Phi'^{[2]}(Z^{[2]}_1) \cdot (X^{[1]}_1)^T = \]
-\[ = -0.1 \cdot 0.5 \cdot 0.5 \cdot (W^{[3]}_1)^T \cdot \left( (X^{[3]}_1 - t_1) \circ \left( 1 - \tanh^2(Z^{[3]}_1 \cdot 0.5 - 2) \right) \right) \circ \left( 1 - \tanh^2(Z^{[2]}_1 \cdot 0.5 - 2) \right) \cdot (X^{[1]}_1)^T = \]
-\[ = \begin{bmatrix} 0.02027 & 0.03341 & 0.02027 \\  0.00718 & 0.01183 & 0.00718  \end{bmatrix} \]
+\begin{align*}
+    \Delta W^{[2]}_1 &= - \eta \frac{\partial E(W)}{\partial W^{[2]}_1} = - \eta \cdot (W^{[3]}_1)^T \cdot \delta^{[3]}_1 \circ \Phi'^{[2]}(Z^{[2]}_1)\cdot (X^{[1]}_1)^T = \\
+    &= - \eta \cdot (W^{[3]}_1)^T \cdot \left( (X^{[3]}_1 - t_1) \circ \Phi'^{[3]}(Z^{[3]}_1) \right) \circ \Phi'^{[2]}(Z^{[2]}_1) \cdot (X^{[1]}_1)^T = \\
+    &= -0.1 \cdot 0.5 \cdot 0.5 \cdot (W^{[3]}_1)^T \cdot \left( (X^{[3]}_1 - t_1) \circ \left( 1 - \tanh^2(Z^{[3]}_1 \cdot 0.5 - 2) \right) \right) \circ \left( 1 - \tanh^2(Z^{[2]}_1 \cdot 0.5 - 2) \right) \cdot (X^{[1]}_1)^T = \\
+    &= \begin{bmatrix} 0.02027 & 0.03341 & 0.02027 \\  0.00718 & 0.01183 & 0.00718  \end{bmatrix} \\
+\end{align*}
 
 The weight variation of $W^{[2]}$ coming from the second observation is:
 
-\[ \Delta W^{[2]}_2 = - \eta \frac{\partial E(W)}{\partial W^{[2]}_2} = - \eta \cdot (W^{[3]}_2)^T \cdot \delta^{[3]}_2 \circ \Phi'^{[2]}(Z^{[2]}_2)\cdot (X^{[1]}_2)^T = \]
-\[ = - \eta \cdot (W^{[3]}_2)^T \cdot \left( (X^{[3]}_2 - t_2) \circ \Phi'^{[3]}(Z^{[3]}_2) \right) \circ \Phi'^{[2]}(Z^{[2]}_2) \cdot (X^{[1]}_2)^T = \]
-\[ = -0.1 \cdot 0.5 \cdot 0.5 \cdot (W^{[3]}_2)^T \cdot \left( (X^{[3]}_2 - t_2) \circ \left( 1 - \tanh^2(Z^{[3]}_2 \cdot 0.5 - 2) \right) \right) \circ \left( 1 - \tanh^2(Z^{[2]}_2 \cdot 0.5 - 2) \right) \cdot (X^{[1]}_2)^T = \]
-\[ = \begin{bmatrix} -1.7871\times 10^{-6} & -1.7871\times 10^{-6} & -1.7871\times 10^{-6} \\  -2.4670\times 10^{-5} & -2.4670\times 10^{-5} & -2.4670\times 10^{-5}  \end{bmatrix} \]
+\begin{align*}
+    \Delta W^{[2]}_2 &= - \eta \frac{\partial E(W)}{\partial W^{[2]}_2} = - \eta \cdot (W^{[3]}_2)^T \cdot \delta^{[3]}_2 \circ \Phi'^{[2]}(Z^{[2]}_2)\cdot (X^{[1]}_2)^T = \\
+    &= - \eta \cdot (W^{[3]}_2)^T \cdot \left( (X^{[3]}_2 - t_2) \circ \Phi'^{[3]}(Z^{[3]}_2) \right) \circ \Phi'^{[2]}(Z^{[2]}_2) \cdot (X^{[1]}_2)^T = \\
+    &= -0.1 \cdot 0.5 \cdot 0.5 \cdot (W^{[3]}_2)^T \cdot \left( (X^{[3]}_2 - t_2) \circ \left( 1 - \tanh^2(Z^{[3]}_2 \cdot 0.5 - 2) \right) \right) \circ \left( 1 - \tanh^2(Z^{[2]}_2 \cdot 0.5 - 2) \right) \cdot (X^{[1]}_2)^T = \\
+    &= \begin{bmatrix} -1.7871\times 10^{-6} & -1.7871\times 10^{-6} & -1.7871\times 10^{-6} \\  -2.4670\times 10^{-5} & -2.4670\times 10^{-5} & -2.4670\times 10^{-5}  \end{bmatrix} \\
+\end{align*}
 
 The total weight variation of $W^{[2]}$ is:
 
@@ -691,7 +707,7 @@ The weight variation of $W^{[1]}$ coming from the second observation is:
     &= - \eta \cdot (W^{[2]}_2)^T \cdot \left( (W^{[3]}_2)^T \cdot \left( (X^{[3]}_2 - t_2) \circ \Phi'^{[3]}(Z^{[3]}_2) \right) \circ \Phi'^{[2]}(Z^{[2]}_2) \right) \circ \Phi'^{[1]}(Z^{[1]}_2) \cdot (X^{[0]}_2)^T = \\
     &= -0.1 \cdot 0.5 \cdot 0.5 \cdot 0.5 \cdot (W^{[2]}_2)^T \cdot \left( (W^{[3]}_2)^T \cdot \left( (X^{[3]}_2 - t_2) \circ \left( 1 - \tanh^2(Z^{[3]}_2 \cdot 0.5 - 2) \right) \right) \circ \left( 1 - \tanh^2(Z^{[2]}_2 \cdot 0.5 - 2) \right) \right) \circ \\
     &\circ \left( 1 - \tanh^2(Z^{[1]}_2 \cdot 0.5 - 2) \right) \cdot (X^{[0]}_2)^T = \\
-    &= \begin{bmatrix}  2.6410e-06 &  0.0000e+00 &  0.0000e+00 & -2.6410e-06 \\   3.1762e-06 &  0.0000e+00 &  0.0000e+00 & -3.1762e-06 \\   2.6410e-06 &  0.0000e+00 &  0.0000e+00 & -2.6410e-06  \end{bmatrix}
+    &= \begin{bmatrix}  2.6410\times 10^{-6} &  0.0000e+00 &  0.0000e+00 & -2.6410\times 10^{-6} \\   3.1762\times 10^{-6} &  0.0000e+00 &  0.0000e+00 & -3.1762\times 10^{-6} \\   2.6410\times 10^{-6} &  0.0000e+00 &  0.0000e+00 & -2.6410\times 10^{-6}  \end{bmatrix}
 \end{align*}
 
 The total weight variation of $W^{[1]}$ is:
@@ -702,8 +718,63 @@ The updated weight $W^{[1]}$ is:
 
 \[ W^{[1]}_{\text{new}} = W^{[1]} + \Delta W^{[1]} = \begin{bmatrix} 1.02336 & 1.02336 & 1.02336 & 1.02336 \\  1.04011 & 1.04011 & 2.04011 & 1.04011 \\  1.02336 & 1.02336 & 1.02336 & 1.02336\end{bmatrix} \]
 
-\subsection*{Updating the biases}
+\subsection*{Computing the updated biases}
+
+\subsubsection*{Updating $b^{[3]}$}
+
+\begin{align*}
+    &\Delta b^{[3]}_1 = - \eta \delta^{[3]}_1 = - \eta X^{[3]}_1 - t_1 \circ \Phi'^{[3]}(Z^{[3]}_1) = \begin{bmatrix} 0.00738 \\  0.03177 \\  0.00738\end{bmatrix}\\
+    &\Delta b^{[3]}_2 = - \eta \delta^{[3]}_2 = - \eta X^{[3]}_2 - t_2 \circ \Phi'^{[3]}(Z^{[3]}_2) = \begin{bmatrix} 0.00266 \\  0.00018 \\  0.00132\end{bmatrix} \\
+    &b^{[3]}_{\text{new}} = b^{[3]} + \Delta b^{[3]} = b^{[3]} + \Delta b^{[3]}_1 + \Delta b^{[3]}_2 = \begin{bmatrix} 1.01004 \\  1.03196 \\  1.0087 \end{bmatrix} \\
+\end{align*}
+
+\subsubsection*{Updating $b^{[2]}$}
+
+\begin{align*}
+    &\Delta b^{[2]}_1 = - \eta \delta^{[2]}_1 = - \eta (W^{[3]}_1)^T \cdot \delta^{[3]}_1 \circ \Phi'^{[2]}(Z^{[2]}_1) = \begin{bmatrix} 0.04387 \\  0.01554\end{bmatrix} \\
+    &\Delta b^{[2]}_2 = - \eta \delta^{[2]}_2 = - \eta (W^{[3]}_2)^T \cdot \delta^{[3]}_2 \circ \Phi'^{[2]}(Z^{[2]}_2) = \begin{bmatrix} 1.97440\times 10^{-6} \\  2.72552\times 10^{-5}\end{bmatrix} \\
+    &b^{[2]}_{\text{new}} = b^{[2]} + \Delta b^{[2]} = b^{[2]} + \Delta b^{[2]}_1 + \Delta b^{[2]}_2 = \begin{bmatrix} 1.04387 \\  1.01556\end{bmatrix} \\
+\end{align*}
+
+\subsubsection*{Updating $b^{[1]}$}
+
+\begin{align*}
+    &\Delta b^{[1]}_1 = - \eta \delta^{[1]}_1 = - \eta (W^{[2]}_1)^T \cdot \delta^{[2]}_1 \circ \Phi'^{[1]}(Z^{[1]}_1) = \begin{bmatrix} 0.02336 \\  0.04011 \\  0.02336\end{bmatrix} \\
+    &\Delta b^{[1]}_2 = - \eta \delta^{[1]}_2 = - \eta (W^{[2]}_2)^T \cdot \delta^{[2]}_2 \circ \Phi'^{[1]}(Z^{[1]}_2) = \begin{bmatrix} 2.6410\times 10^{-6} \\  3.1762\times 10^{-6} \\  2.6410\times 10^{-6}\end{bmatrix} \\
+    &b^{[1]}_{\text{new}} = b^{[1]} + \Delta b^{[1]} = b^{[1]} + \Delta b^{[1]}_1 + \Delta b^{[1]}_2 = \begin{bmatrix} 1.02336 \\  1.04011 \\  1.02336\end{bmatrix} \\
+\end{align*}
+
+\subsection*{Results}
+
+The updated weights and biases are:
+
+\setlength{\columnseprule}{0pt}
+\begin{multicols}{2}
+
+\begin{center}
+    \begin{align*}
+        &W^{[1]}_{\text{new}} = \begin{bmatrix} 1.02336 & 1.02336 & 1.02336 & 1.02336 \\  1.04011 & 1.04011 & 2.04011 & 1.04011 \\  1.02336 & 1.02336 & 1.02336 & 1.02336\end{bmatrix} \\  
+        &W^{[2]}_{\text{new}} = \begin{bmatrix} 1.02027 & 4.03341 & 1.02027 \\  1.00715 & 1.01181 & 1.00715  \end{bmatrix} \\
+        &W^{[3]}_{\text{new}} = \begin{bmatrix} 1.00067 & 0.9931  \\  3.01413 & 0.9815  \\  1.002   & 0.99443  \end{bmatrix} \\
+    \end{align*}
+\end{center}
 
 
+\columnbreak
+
+\begin{center}
+    \begin{align*}
+        &b^{[1]}_{\text{new}} = \begin{bmatrix} 1.02336 \\  1.04011 \\  1.02336\end{bmatrix} \\
+        &b^{[2]}_{\text{new}} = \begin{bmatrix} 1.04387 \\  1.01556\end{bmatrix} \\
+        &b^{[3]}_{\text{new}} = \begin{bmatrix} 1.01004 \\  1.03196 \\  1.0087 \end{bmatrix} \\
+    \end{align*}
+\end{center}
+
+
+\end{multicols}
+
+\newpage
+
+\section*{Programming and Critical Analysis}
 
 \end{document}
