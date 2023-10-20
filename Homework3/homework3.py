@@ -82,9 +82,9 @@ b_31=np.array([[1],
             [1]])
 
 x_10=np.array([[1], [1], [1], [1]])
-t_1=np.array([[0], [1], [0]])
+t_1=np.array([[-1], [1], [-1]])
 x_20=np.array([[1], [0], [0], [-1]])
-t_2=np.array([[1], [0], [0]])
+t_2=np.array([[1], [-1], [-1]])
 
 # Porpagation of x_11
 
@@ -145,7 +145,7 @@ print(latex_code)
 delta_32 = (x_23 - t_2) * derivada(z_23) # delta 3 para a observação 2
 variacao_32 = -0.1 * delta_32.dot(x_22.T) # variação do peso 3 devido à observação 2
 # print a string with variacao_32 in latex code:
-latex_code = "variacao_32 in lateX code = " + '\\begin{bmatrix} ' + np.array2string(np.around(variacao_32, decimals=5), separator=' & ').replace('\n', r' \\ ' ).replace('[','').replace(']', '').replace('& \\', '\\') + '  \end{bmatrix} '
+latex_code = "variacao_32 in lateX code = " + '\\begin{bmatrix} ' + np.array2string(np.around(variacao_32, decimals=8), separator=' & ').replace('\n', r' \\ ' ).replace('[','').replace(']', '').replace('& \\', '\\') + '  \end{bmatrix} '
 print(latex_code)
 
 deltaw_3 = variacao_31 + variacao_32
@@ -199,7 +199,7 @@ print(latex_code)
 delta_12 = w_21.T.dot(delta_22) * derivada(z_21)
 variacao_12 = -0.1 * delta_12.dot(x_20.T)
 # print a string with variacao_12 in latex code:
-latex_code = "variacao_12 in lateX code = " + '\\begin{bmatrix} ' + np.array2string(np.around(variacao_12, decimals=5), separator=' & ').replace('\n', r' \\ ' ).replace('[','').replace(']', '').replace('& \\', '\\') + '  \end{bmatrix}'
+latex_code = "variacao_12 in lateX code = " + '\\begin{bmatrix} ' + np.array2string(np.around(variacao_12, decimals=15), separator=' & ').replace('\n', r' \\ ' ).replace('[','').replace(']', '').replace('& \\', '\\') + '  \end{bmatrix}'
 print(latex_code)
 
 
@@ -228,7 +228,7 @@ print(latex_code)
 
 deltab32 = -0.1 * delta_32
 # print a string with deltab32 in latex code:
-latex_code = "deltab32 in lateX code = " + '\\begin{bmatrix} ' + np.array2string(np.around(deltab32, decimals=5), separator=' & ').replace('\n', r' \\ ' ).replace('[','').replace(']', '').replace('& \\', '\\') + '\end{bmatrix}'
+latex_code = "deltab32 in lateX code = " + '\\begin{bmatrix} ' + np.array2string(np.around(deltab32, decimals=8), separator=' & ').replace('\n', r' \\ ' ).replace('[','').replace(']', '').replace('& \\', '\\') + '\end{bmatrix}'
 print(latex_code)
 
 b_32 = b_31 + deltab31 + deltab32
@@ -264,7 +264,7 @@ print(latex_code)
 
 deltab12 = -0.1 * delta_12
 # print a string with deltab12 in latex code:
-latex_code = "deltab12 in lateX code = " + '\\begin{bmatrix} ' + np.array2string(np.around(deltab12, decimals=10), separator=' & ').replace('\n', r' \\ ' ).replace('[','').replace(']', '').replace('& \\', '\\') + '\end{bmatrix}'
+latex_code = "deltab12 in lateX code = " + '\\begin{bmatrix} ' + np.array2string(np.around(deltab12, decimals=11), separator=' & ').replace('\n', r' \\ ' ).replace('[','').replace(']', '').replace('& \\', '\\') + '\end{bmatrix}'
 print(latex_code)
 
 b_12 = b_11 + deltab11 + deltab12
