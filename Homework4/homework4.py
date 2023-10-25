@@ -200,8 +200,6 @@ for i in range(len(observations)):
     for j in range(len(observations)):
         if clusters[i] == clusters[j] and i != j:
             distances.append(np.linalg.norm(observations[i] - observations[j], ord=1))
-            print(observations[i], observations[j])
-    print(f'distances: {distances}')
     a.append(np.mean(distances))
 print(f'a: {a}')
 
