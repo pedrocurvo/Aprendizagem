@@ -251,3 +251,4 @@ print(f's for solution: {(np.mean(s_1) + np.mean(s_2) )/ 2}')
 
 
 
+
