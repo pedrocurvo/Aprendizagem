@@ -88,6 +88,9 @@ for i in range(len(observations)):
     mu1 += responsabilities['1'][i] * observations[i][1:]
 mu1 = mu1 / np.sum(responsabilities['1'])
 print(f'mu1: {mu1}')
+# print a string with mu1 in latex code:
+latex_code = "mu1 in lateX code = " + '\\begin{bmatrix} ' + np.array2string(np.around(mu1, decimals=5), separator=' & ').replace('\n', r' \\ ' ).replace('[','').replace(']', '').replace('& \\', '\\') + '  \end{bmatrix}'
+print(latex_code)
 
 sigma1 = np.zeros((2, 2))
 for i in range(len(observations)):
@@ -95,7 +98,11 @@ for i in range(len(observations)):
    multiplication = np.dot(array, array.T)
    sigma1 += responsabilities['1'][i] * multiplication
 sigma1 = sigma1 / np.sum(responsabilities['1'])
-print(f'sigma1:\n {sigma1}')
+# print sigma1 with 5 decimals
+print(f'sigma1:\n ', np.round(sigma1, 5))
+# print a string with sigma1 in latex code:
+latex_code = "sigma1 in lateX code = " + '\\begin{bmatrix} ' + np.array2string(np.around(sigma1, decimals=5), separator=' & ').replace('\n', r' \\ ' ).replace('[','').replace(']', '').replace('& \\', '\\') + '  \end{bmatrix}'
+print(latex_code)
 
 p1 = 0
 for i in range(len(observations)):
@@ -111,6 +118,9 @@ for i in range(len(observations)):
     mu2 += responsabilities['2'][i] * observations[i][1:]
 mu2 = mu2 / np.sum(responsabilities['2'])
 print(f'mu2: {mu2}')
+# print a string with mu2 in latex code:
+latex_code = "mu2 in lateX code = " + '\\begin{bmatrix} ' + np.array2string(np.around(mu2, decimals=5), separator=' & ').replace('\n', r' \\ ' ).replace('[','').replace(']', '').replace('& \\', '\\') + '  \end{bmatrix}'
+print(latex_code)
 
 
 sigma2 = np.zeros((2, 2))
@@ -119,7 +129,11 @@ for i in range(len(observations)):
     multiplication = np.dot(array, array.T)
     sigma2 += responsabilities['2'][i] * multiplication
 sigma2 = sigma2 / np.sum(responsabilities['2'])
-print(f'sigma2:\n {sigma2}')
+# print sigma2 with 5 decimals
+print(f'sigma2:\n ', np.round(sigma2, 5))
+# print a string with sigma2 in latex code:
+latex_code = "sigma2 in lateX code = " + '\\begin{bmatrix} ' + np.array2string(np.around(sigma2, decimals=5), separator=' & ').replace('\n', r' \\ ' ).replace('[','').replace(']', '').replace('& \\', '\\') + '  \end{bmatrix}'
+print(latex_code)
 
 p2 = 0
 for i in range(len(observations)):
