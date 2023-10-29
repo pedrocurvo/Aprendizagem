@@ -151,9 +151,10 @@ print(f'pi2: {pi2:.5f}\n')
 # Given a x_new observation, calculate the probability of belonging to each cluster
 print('\n------------------------------X New -----------------------------\n')
 
-x_new = np.array([1, 0.6, 0.1])
+x_new = np.array([1, 0.3, 0.7])
 
 # Calculate the Gaussian and Bernoulli probabilities for each cluster
+print(f'x_new: {x_new}, mu1: {mu1}, sigma1: {sigma1}, p1: {p1}, pi1: {pi1}')
 gaussian_1 = multivariate_normal.pdf(x_new[1:], mean=mu1, cov=sigma1)
 print(f'Gaussian 1 x_new: {gaussian_1:.5f}')
 bernoulli_1 = bernoulli.pmf(x_new[0], p1)
@@ -195,9 +196,9 @@ for i in range(len(observations)):
     print(f'Gaussian 2_{i+1}: {gaussian_2:.5f}')
     bernoulli_2 = bernoulli.pmf(observations[i][0], p2)
     print(f'Bernoulli 2_{i+1}: {bernoulli_2:.5f}')
-    responsability_1 = gaussian_1 * bernoulli_1 * pi1
+    responsability_1 = gaussian_1 * bernoulli_1 
     print(f'Responsability 1_{i+1}: {responsability_1:.5f}')
-    responsability_2 = gaussian_2 * bernoulli_2 * pi2
+    responsability_2 = gaussian_2 * bernoulli_2
     print(f'Responsability 2_{i+1}: {responsability_2:.5f}')
     # Normalize the responsibilities
     sum_responsabilities = responsability_1 + responsability_2

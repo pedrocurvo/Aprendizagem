@@ -380,6 +380,8 @@ In the M-Step (Maximization Step), we will compute the new parameters for each c
 
 \[ p_{1_{\text{new}}} = \frac{\sum_{i=1}^4 \gamma_{1i} \vec{x}_i}{\sum_{i=1}^4 \gamma_{1i}} = 0.23404 \]
 
+\[ \pi_{1_{\text{new}}} = \frac{\sum_{i=1}^4 \gamma_{1i}}{4} = 0.38617 \]
+
 \subsubsection*{New Parameters for Cluster $c_2$}
 
 \[ \vec{\mu}_{2_{\text{new}}} = \frac{\sum_{i=1}^4 \gamma_{2i} \vec{x}_i}{\sum_{i=1}^4 \gamma_{2i}} = \begin{bmatrix} 0.30914 & 0.21042  \end{bmatrix} \]
@@ -388,6 +390,8 @@ In the M-Step (Maximization Step), we will compute the new parameters for each c
 
 \[ p_{2_{\text{new}}} = \frac{\sum_{i=1}^4 \gamma_{2i} \vec{x}_i}{\sum_{i=1}^4 \gamma_{2i}} = 0.66732 \]
 
+\[ \pi_{2_{\text{new}}} = \frac{\sum_{i=1}^4 \gamma_{2i}}{4} = 0.61383 \]
+
 \subsection*{New table with the updated parameters}
 
 \begin{table}[h!]
@@ -395,9 +399,9 @@ In the M-Step (Maximization Step), we will compute the new parameters for each c
   \begin{tabular}{c|c|c|c}
     Cluster & $\pi_k$ & Parameters for $\{y_1\}$ & Parameters for $\{y_2, y_3\}$ \\ \hline
     \rule{0pt}{30pt}
-    1 ($c_1$) & $P(c_1) = \pi_1 = 0.5$ & $p_1 = 0.23404$ & $\{y_2, y_3\} \sim \mathcal{N}\left( \vec{\mu}_1 = \begin{bmatrix} 0.02651 \\ 0.50713 \end{bmatrix}, \Sigma_1 = \begin{bmatrix} 0.14137 & -0.10541 \\ -0.10541 & 0.09605 \end{bmatrix} \right)$ \\ 
+    1 ($c_1$) & $P(c_1) = \pi_1 = 0.38617$ & $p_1 = 0.23404$ & $\{y_2, y_3\} \sim \mathcal{N}\left( \vec{\mu}_1 = \begin{bmatrix} 0.02651 \\ 0.50713 \end{bmatrix}, \Sigma_1 = \begin{bmatrix} 0.14137 & -0.10541 \\ -0.10541 & 0.09605 \end{bmatrix} \right)$ \\ 
     \rule{0pt}{30pt}
-    2 ($c_2$) & $P(c_2) = \pi_2 = 0.5$ & $p_2 = 0.66732$ & $\{y_2, y_3\} \sim \mathcal{N}\left( \vec{\mu}_2 = \begin{bmatrix} 0.30914 \\ 0.21042 \end{bmatrix}, \Sigma_2 = \begin{bmatrix} 0.10829 & -0.08865 \\ -0.08865 & 0.10412 \end{bmatrix} \right)$ \\ 
+    2 ($c_2$) & $P(c_2) = \pi_2 = 0.61383$ & $p_2 = 0.66732$ & $\{y_2, y_3\} \sim \mathcal{N}\left( \vec{\mu}_2 = \begin{bmatrix} 0.30914 \\ 0.21042 \end{bmatrix}, \Sigma_2 = \begin{bmatrix} 0.10829 & -0.08865 \\ -0.08865 & 0.10412 \end{bmatrix} \right)$ \\ 
   \end{tabular}
   \caption{New Parameters for each cluster}
   \label{tab:new_parameters}
@@ -407,76 +411,76 @@ In the M-Step (Maximization Step), we will compute the new parameters for each c
 
 \section*{2\textsuperscript{nd} Question}
 
-We now have a new observation $\vec{x}_{\text{new}}$ and want to compute the probability of belonging to each cluster. The new observation is:
+We now have a new observation $\vec{x}_{\text{new}}$ and want to compute the probability of belonging to each cluster using a ML approach. The new observation is:
 
 \[ \vec{x}_{\text{new}} = \begin{bmatrix} 1 \\ 0.3 \\ 0.7 \end{bmatrix} \]
 
-First of all, we will compute $P(\vec{x}_{\text{new}} | c_k) P(c_k)$ for clusters $c_1$ and $c_2$:
+First, we will compute $P(\vec{x}_{\text{new}} | c_k) P(c_k)$ for clusters $c_1$ and $c_2$:
 
-\[ P(\vec{x}_{\text{new}} | c_1) P(c_1) = P(y_1 = 1 | c_1) P(\{y_2, y_3\}  = \{0.3, 0.7\} | c_1) \pi_1 = 0.23404 \cdot 0.98904 \cdot 0.5 = 0.08939 \]
+\[ P(\vec{x}_{\text{new}} | c_1)P(c_1)= P(y_1 = 1 | c_1) P(\{y_2, y_3\} \pi_1  = \{0.3, 0.7\} | c_1) = 0.23404 \cdot 0.02708 \cdot 0.38617 = 0.00245 \]
 
-\[ P(\vec{x}_{\text{new}} | c_2) P(c_2) = P(y_1 = 1 | c_2) P(\{y_2, y_3\}  = \{0.3, 0.7\} | c_2) \pi_2 = 0.66732 \cdot 1.42292 \cdot 0.5 = 0.58286 \]
+\[ P(\vec{x}_{\text{new}} | c_2)P(c_2) = P(y_1 = 1 | c_2) P(\{y_2, y_3\} \pi_2  = \{0.3, 0.7\} | c_2) = 0.66732 \cdot 0.06843 \cdot 0.61383 = 0.02803 \]
 
 And then, we can compute $\gamma_{ki}$:
 
-\[ \gamma_{1_{\text{new}}} = P(c_1| \vec{x}_{\text{new}}) = \frac{P(\vec{x}_{\text{new}} | c_1) P(c_1)}{P(\vec{x}_{\text{new}})} = \frac{0.08939}{0.08939 + 0.58286} = 0.13297 \]
+\[ \gamma_{1_{\text{new}}} = P(c_1| \vec{x}_{\text{new}}) = \frac{P(\vec{x}_{\text{new}} | c_1) P(c_1)}{P(\vec{x}_{\text{new}})} = \frac{0.00245}{0.00245 + 0.02803} = 0.08029 \]
 
-\[ \gamma_{2_{\text{new}}} = P(c_2| \vec{x}_{\text{new}}) = \frac{P(\vec{x}_{\text{new}} | c_2) P(c_2)}{P(\vec{x}_{\text{new}})} = \frac{0.58286}{0.08939 + 0.58286} = 0.86703 \]
+\[ \gamma_{2_{\text{new}}} = P(c_2| \vec{x}_{\text{new}}) = \frac{P(\vec{x}_{\text{new}} | c_2) P(c_2)}{P(\vec{x}_{\text{new}})} = \frac{0.02803}{0.00245 + 0.02803} = 0.91971 \]
 
-\paragraph{Answer} We can conclude that the observation $\vec{x}_{\text{new}}$ belongs to cluster $c_2$ with a probability of 0.86703 and to cluster $c_1$ with a probability of 0.13297.
+\paragraph{Answer} We can conclude that the observation $\vec{x}_{\text{new}}$ belongs to cluster $c_2$ with a probability of 0.91971 and to cluster $c_1$ with a probability of 0.08029.
 
 \newpage
 
 \section*{3\textsuperscript{rd} Question}
 
 Along the first and second questions, we have worked under a soft assignment approach. In this question, we will work under a hard assignment approach: we will assign each observation to the cluster with the highest probability instead of assigning each observation to each cluster with a certain probability.
-We first need to determine the cluster for each observation, using the parameters from table \ref{tab:new_parameters}:
+Beyond that, we are asked to use a ML approach to compute the responsibilities. Hence, we will compute $P(\vec{x}_{\text{new}} | c_k)$ for clusters $c_1$ and $c_2$, using the parameters from table \ref{tab:new_parameters}:
 
 \subsection*{Cluster for $\vec{x}_1$}
 
-\[ P(\vec{x}_1 | c_1) P(c_1) = P(y_1 = 1 | c_1) P(\{y_2, y_3\}  = \{0.6, 0.1\} | c_1) \pi_1 = 0.23404 \cdot 0.98904 \cdot 0.5 = 0.08939 \]
+\[ P(\vec{x}_1 | c_1) = P(y_1 = 1 | c_1) P(\{y_2, y_3\}  = \{0.6, 0.1\} | c_1) = 0.23404 \cdot 0.98904 = 0.23147 \]
 
-\[ P(\vec{x}_1 | c_2) P(c_2) = P(y_1 = 1 | c_2) P(\{y_2, y_3\}  = \{0.6, 0.1\} | c_2) \pi_2 = 0.66732 \cdot 1.42292 \cdot 0.5 = 0.58286 \]
+\[ P(\vec{x}_1 | c_2) = P(y_1 = 1 | c_2) P(\{y_2, y_3\}  = \{0.6, 0.1\} | c_2) = 0.66732 \cdot 1.42292 = 0.94954 \]
 
-\[ \gamma_{11} = P(c_1| \vec{x}_1) = \frac{P(\vec{x}_1 | c_1) P(c_1)}{P(\vec{x}_1)} = \frac{0.08939}{0.08939 + 0.58286} = 0.13297 \]
+\[ \gamma_{11} = P(c_1| \vec{x}_1) = \frac{P(\vec{x}_1 | c_1)}{P(\vec{x}_1)} = \frac{0.23147}{0.23147 + 0.94954} = 0.19600 \]
 
-\[ \gamma_{21} = P(c_2| \vec{x}_1) = \frac{P(\vec{x}_1 | c_2) P(c_2)}{P(\vec{x}_1)} = \frac{0.58286}{0.08939 + 0.58286} = 0.86703 \]
+\[ \gamma_{21} = P(c_2| \vec{x}_1) = \frac{P(\vec{x}_1 | c_2)}{P(\vec{x}_1)} = \frac{0.94954}{0.23147 + 0.58286} = 0.80400 \]
 
 \paragraph{} We can conclude that the observation $\vec{x}_1$ belongs to cluster $c_2$ because $\gamma_{21} > \gamma_{11}$.
 
 \subsection*{Cluster for $\vec{x}_2$}
 
-\[ P(\vec{x}_2 | c_1) P(c_1) = P(y_1 = 0 | c_1) P(\{y_2, y_3\}  = \{-0.4, 0.8\} | c_1) \pi_1 = 0.76596 \cdot 1.65326 \cdot 0.5 = 0.48902 \]
+\[ P(\vec{x}_2 | c_1) = P(y_1 = 0 | c_1) P(\{y_2, y_3\}  = \{-0.4, 0.8\} | c_1) = 0.76596 \cdot 1.65326   = 1.26633 \]
 
-\[ P(\vec{x}_2 | c_2) P(c_2) = P(y_1 = 0 | c_2) P(\{y_2, y_3\}  = \{-0.4, 0.8\} | c_2) \pi_2 = 0.33268 \cdot 0.26673 \cdot 0.5 = 0.05447 \]
+\[ P(\vec{x}_2 | c_2) = P(y_1 = 0 | c_2) P(\{y_2, y_3\}  = \{-0.4, 0.8\} | c_2) = 0.33268 \cdot 0.26673   = 0.08874 \]
 
-\[ \gamma_{12} = P(c_1| \vec{x}_2) = \frac{P(\vec{x}_2 | c_1) P(c_1)}{P(\vec{x}_2)} = \frac{0.48902}{0.48902 + 0.05447} = 0.89978 \]
+\[ \gamma_{12} = P(c_1| \vec{x}_2) = \frac{P(\vec{x}_2 | c_1)}{P(\vec{x}_2)} = \frac{1.26633}{1.26633 + 0.08874} = 0.93451 \]
 
-\[ \gamma_{22} = P(c_2| \vec{x}_2) = \frac{P(\vec{x}_2 | c_2) P(c_2)}{P(\vec{x}_2)} = \frac{0.05447}{0.48902 + 0.05447} = 0.10022 \]
+\[ \gamma_{22} = P(c_2| \vec{x}_2) = \frac{P(\vec{x}_2 | c_2)}{P(\vec{x}_2)} = \frac{0.08874}{1.26633 + 0.08874} = 0.06549 \]
 
 \paragraph{} We can conclude that the observation $\vec{x}_2$ belongs to cluster $c_1$ because $\gamma_{12} > \gamma_{22}$.
 
 \subsection*{Cluster for $\vec{x}_3$}
 
-\[ P(\vec{x}_3 | c_1) P(c_1) = P(y_1 = 0 | c_1) P(\{y_2, y_3\}  = \{0.2, 0.5\} | c_1) \pi_1 = 0.76596 \cdot 1.87753 \cdot 0.5 = 0.55535 \]
+\[ P(\vec{x}_3 | c_1) = P(y_1 = 0 | c_1) P(\{y_2, y_3\}  = \{0.2, 0.5\} | c_1) = 0.76596 \cdot 1.87753  = 1.43811 \]
 
-\[ P(\vec{x}_3 | c_2) P(c_2) = P(y_1 = 0 | c_2) P(\{y_2, y_3\}  = \{0.2, 0.5\} | c_2) \pi_2 = 0.33268 \cdot 1.36519 \cdot 0.5 = 0.27879 \]
+\[ P(\vec{x}_3 | c_2) = P(y_1 = 0 | c_2) P(\{y_2, y_3\}  = \{0.2, 0.5\} | c_2) = 0.33268 \cdot 1.36519  = 0.45417 \]
 
-\[ \gamma_{13} = P(c_1| \vec{x}_3) = \frac{P(\vec{x}_3 | c_1) P(c_1)}{P(\vec{x}_3)} = \frac{0.55535}{0.55535 + 0.27879} = 0.66578 \]
+\[ \gamma_{13} = P(c_1| \vec{x}_3) = \frac{P(\vec{x}_3 | c_1)}{P(\vec{x}_3)} = \frac{1.43811}{1.43811 + 0.45417} = 0.75999 \]
 
-\[ \gamma_{23} = P(c_2| \vec{x}_3) = \frac{P(\vec{x}_3 | c_2) P(c_2)}{P(\vec{x}_3)} = \frac{0.27879}{0.55535 + 0.27879} = 0.33422 \]
+\[ \gamma_{23} = P(c_2| \vec{x}_3) = \frac{P(\vec{x}_3 | c_2)}{P(\vec{x}_3)} = \frac{0.45417}{1.43811 + 0.45417} = 0.24001 \]
 
 \paragraph{} We can conclude that the observation $\vec{x}_3$ belongs to cluster $c_1$ because $\gamma_{13} > \gamma_{23}$.
 
 \subsection*{Cluster for $\vec{x}_4$}
 
-\[ P(\vec{x}_4 | c_1) P(c_1) = P(y_1 = 1 | c_1) P(\{y_2, y_3\}  = \{0.4, -0.1\} | c_1) \pi_1 = 0.23404 \cdot 0.08873 \cdot 0.5 = 0.00802 \]
+\[ P(\vec{x}_4 | c_1) = P(y_1 = 1 | c_1) P(\{y_2, y_3\}  = \{0.4, -0.1\} | c_1) = 0.23404 \cdot 0.08873  = 0.02077 \]
 
-\[ P(\vec{x}_4 | c_2) P(c_2) = P(y_1 = 1 | c_2) P(\{y_2, y_3\}  = \{0.4, -0.1\} | c_2) \pi_2 = 0.66732 \cdot 1.08391 \cdot 0.5 = 0.44399 \]
+\[ P(\vec{x}_4 | c_2) = P(y_1 = 1 | c_2) P(\{y_2, y_3\}  = \{0.4, -0.1\} | c_2) = 0.66732 \cdot 1.08391  = 0.72331 \]
 
-\[ \gamma_{14} = P(c_1| \vec{x}_4) = \frac{P(\vec{x}_4 | c_1) P(c_1)}{P(\vec{x}_4)} = \frac{0.00802}{0.00802 + 0.44399} = 0.01774 \]
+\[ \gamma_{14} = P(c_1| \vec{x}_4) = \frac{P(\vec{x}_4 | c_1)}{P(\vec{x}_4)} = \frac{0.02077}{0.02077 + 0.72331} = 0.02791 \]
 
-\[ \gamma_{24} = P(c_2| \vec{x}_4) = \frac{P(\vec{x}_4 | c_2) P(c_2)}{P(\vec{x}_4)} = \frac{0.44399}{0.00802 + 0.44399} = 0.98226 \]
+\[ \gamma_{24} = P(c_2| \vec{x}_4) = \frac{P(\vec{x}_4 | c_2)}{P(\vec{x}_4)} = \frac{0.72331}{0.02077 + 0.72331} = 0.97209 \]
 
 \paragraph{} We can conclude that the observation $\vec{x}_4$ belongs to cluster $c_2$ because $\gamma_{24} > \gamma_{14}$.
 
@@ -769,6 +773,376 @@ Considering the case where the maximum number of observations in a class in one 
 \newpage
 
 \section*{Programming and Critical Analysis}
+
+\subsection*{Imports}
+
+\begin{lstlisting}[language=Python]
+  import pandas as pd
+  from scipy.io.arff import loadarff
+  from sklearn.cluster import KMeans
+  from sklearn.preprocessing import MinMaxScaler
+  from sklearn.decomposition import PCA
+  import matplotlib.pyplot as plt
+  import numpy as np
+  from sklearn.metrics import silhouette_score, silhouette_samples
+  from pathlib import Path
+  import math
+\end{lstlisting}
+
+\subsection*{Loading Data Set}
+\begin{lstlisting}[language=Python]
+  IMAGES_DIR = Path('images')
+  IMAGES_DIR.mkdir(parents=True, exist_ok=True)
+  DATA_DIR = Path('data')
+  DATA_DIR.mkdir(parents=True, exist_ok=True)
+  DATA_FILE = 'column_diagnosis.arff'
+  DATA_PATH = DATA_DIR / DATA_FILE
+  data = loadarff(DATA_PATH)
+  df = pd.DataFrame(data[0])
+  df['class'] = df['class'].str.decode('utf-8')
+  # Show the first 5 rows
+  df.head()
+\end{lstlisting}
+
+\subsection*{Pre Processing}
+\begin{lstlisting}[language=Python]
+  # Make the data unsupervised
+  X = df.drop('class', axis=1)
+  
+  # Ground truth
+  y = df['class']
+  
+  # Normalize the data using MinMaxScaler
+  scaler = MinMaxScaler()
+  X_scaled = scaler.fit_transform(X)
+\end{lstlisting}
+
+\subsection*{Question 1}
+\begin{lstlisting}[language=Python]
+  # Apply K-means clustering for k {2, 3, 4, 5}
+  k_values = [2, 3, 4, 5]
+  silhouette_scores = []
+  purity_scores = []
+  
+  for k in k_values:
+      kmeans = KMeans(n_clusters=k,
+                      random_state=0)
+      cluster_labels = kmeans.fit_predict(X_scaled)
+  
+      # Calculate silhouette score for each sample
+      silhouette = silhouette_samples(X_scaled, cluster_labels)
+  
+      # Split the silhouette scores by cluster
+      silhouette_per_cluster = [silhouette[cluster_labels == i] for i in range(k)]
+  
+      # Calculate the average silhouette score for each cluster
+      silhouette_per_cluster_avg = [np.mean(silhouette_per_cluster[i]) for i in range(k)]
+  
+      # Calculate the average silhouette score for all clusters
+      silhouette_avg = np.mean(silhouette_per_cluster_avg)
+      print(f'Silhouette score for {k} clusters: {silhouette_avg:.5f}')
+      silhouette_scores.append(silhouette_avg)
+  
+      # Purity
+      clusters = {i: [] for i in range(k)}
+      for i in range(len(cluster_labels)):
+          clusters[cluster_labels[i]].append(y[i])
+  
+      # Count the most frequent class in each cluster
+      cluster_purities = [clusters[i].count(max(clusters[i], key=clusters[i].count)) for i in range(k)]
+  
+      # Calculate purity
+      purity = sum(cluster_purities) / len(y)
+      purity_scores.append(purity)
+      print(f'Purity score for {k} clusters: {purity:.5f}')
+  
+  # Plot the silhouette scores
+  plt.figure(figsize=(10, 6))
+  plt.plot(k_values, silhouette_scores, marker='o')
+  plt.xlabel('Number of clusters')
+  plt.xticks(k_values)
+  plt.ylabel('Silhouette score')
+  plt.title('Silhouette score for different number of clusters')
+  # Write the silhouette scores on the plot
+  for i, score in enumerate(silhouette_scores):
+      plt.text(k_values[i] + 0.02, score + 0.001, f'{score:.5f}', bbox=dict(facecolor='white', alpha=0.8))
+  plt.savefig(IMAGES_DIR / 'silhouette.png')
+  plt.show()
+  
+  # Plot the purity scores
+  plt.figure(figsize=(10, 6))
+  plt.plot(k_values, purity_scores, marker='o')
+  plt.xlabel('Number of clusters')
+  plt.xticks(k_values)
+  plt.ylabel('Purity score')
+  plt.title('Purity score for different number of clusters')
+  # Write the purity scores on the plot
+  for i, score in enumerate(purity_scores):
+      plt.text(k_values[i] + 0.02, score + 0.001, f'{score:.5f}', bbox=dict(facecolor='white', alpha=0.5))
+  plt.savefig(IMAGES_DIR / 'purity.png')
+  plt.show()
+\end{lstlisting}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/silhouette.png}
+  \caption{Silhouette score for different number of clusters}
+  \label{fig:silhouette}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/purity.png}
+  \caption{Purity score for different number of clusters}
+  \label{fig:purity}
+\end{figure}
+
+\textbf{Comment}
+
+\begin{itemize}
+  \item For k=2, the silhouette score is 0.34478 and the purity score is 0.62903. Indicating that the clustering with two clusters has relatively good cohesion and separation, with data points well-matched to their own clusters and somewhat distant from other clusters. The purity score suggests that the majority of data points within each cluster belong to the same class, but there
+  is some mixing of classes.
+  \item For k=3, the silhouette score decreases to 0.27273, which may indicate some overlap or less distinct clusters. However, the purity score improves to 0.66774, indicating that each cluster contains a higher proportion of data points from a single class. This suggests a trade-off between silhouette and purity.
+  \item For k=4, the silhouette score further decreases to 0.23819, indicating more overlap or less distinct clusters. The purity score remains relatively high at 0.66129, indicating good consistency with class labels.
+  \item For k=5, the silhouette score decreases to 0.22962, indicating more overlap or less distinct clusters. The purity score remains relatively high at 0.67419, indicating good consistency with class labels.
+\end{itemize}
+
+Overall, these results show that the choice of the number of clusters (k) affects the quality of the clustering solution. A smaller k (k=2) results in better silhouette scores but lower purity, indicating that clusters are more distinct but not as pure in terms of class membership. A larger k (k=5) provides higher purity but lower silhouette scores, suggesting more class consistency but potentially less distinct clusters. The choice of k should be made based on the specific aim of the clustering task, considering the trade-off between silhouette and purity.
+
+\subsection*{Question 2}
+\begin{lstlisting}[language=Python]
+  # Apply PCA to reduce the dimensionality to 2
+  pca = PCA(n_components=2)
+  X_pca = pca.fit_transform(X_scaled)
+  
+  # Plot the data
+  plt.figure(figsize=(10, 6))
+  plt.scatter(X_pca[:, 0], X_pca[:, 1])
+  plt.xlabel('First principal component')
+  plt.ylabel('Second principal component')
+  plt.title('Data after PCA')
+  plt.savefig(IMAGES_DIR / 'pca.png')
+  plt.show()
+\end{lstlisting}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/pca.png}
+  \caption{Data after PCA}
+  \label{fig:pca}
+\end{figure}
+
+\textbf{i)}
+
+\begin{lstlisting}[language=Python]
+  print(f'Explained variance: {pca.explained_variance_ratio_}')
+\end{lstlisting}
+\begin{lstlisting}[language=Python]
+Explained variance: [0.56181445 0.20955953]
+\end{lstlisting}
+
+\textbf{Comment}
+
+When considering the variability explained by the top two principal components in a PCA (Principal Component Analysis), the values represent the proportion of total variance in the data that is captured by each of these components.
+\begin{itemize}
+  \item PC1 captures the largest portion of variance in the data, about 57\%. This suggests that PC1 is a significant component that summarizes the primary patterns in the data. A high value for PC1 indicates that it carries substantial information about the relationships between the original features.
+  \item PC2 explains the next largest portion of variance after PC1. It captures approximately 20.96% of the total variability. While PC2 has less explanatory power than PC1, it is still an important component that contributes significantly to the data's structure. PC2 may represent additional patterns that are orthogonal to those captured by PC1.
+\end{itemize}
+When summing the explained variances of PC1 and PC2 (0.56181445 + 0.20955953), you get a total explained variance of approximately 77.14%. This means that these two principal components collectively account for approximately 77.14% of the total variance in the data.
+
+The proportion of variance explained by the top principal components informs about the dimensionality reduction achieved by the PCA. In this case, a significant amount of variability is retained by considering only the top two principal components, which can be beneficial for simplifying the data while preserving the most essential information.
+However, one may need to perform a deeper analysis of the eigenvectors associated with these components to help identify which original features contribute the most to each principal component.
+
+
+\textbf{ii)}
+
+\begin{lstlisting}[language=Python]
+  # Compute Column Importance for each component
+  xvector = pca.components_[0] * max(X_pca[:,0])
+  yvector = pca.components_[1] * max(X_pca[:,1])
+
+  columns = X.columns
+  impt_features = {columns[i] : math.sqrt(xvector[i]**2) for i in range(len(columns))}
+  sorted_features = sorted(zip(impt_features.values(),impt_features.keys()),reverse=True)
+  print("Features by importance for first component:\n")
+  for i in range(len(sorted_features)):
+      print(f'{sorted_features[i][1]} : {sorted_features[i][0]:.5f}')
+
+  impt_features = {columns[i] : math.sqrt(yvector[i]**2) for i in range(len(columns))}
+  sorted_features = sorted(zip(impt_features.values(),impt_features.keys()),reverse=True)
+  print("\nFeatures by importance for second component:\n")
+  for i in range(len(sorted_features)):
+      print(f'{sorted_features[i][1]} : {sorted_features[i][0]:.5f}')
+
+  # Compute Column Importance and Sort
+  columns = X.columns
+  impt_features = {columns[i] : math.sqrt(xvector[i]**2 + yvector[i]**2) for i in range(len(columns))}
+  sorted_features = sorted(zip(impt_features.values(),impt_features.keys()),reverse=True)
+  print("\nFeatures by importance:\n")
+  for i in range(len(sorted_features)):
+      print(f'{sorted_features[i][1]} : {sorted_features[i][0]:.5f}')
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+  Features by importance for first component:
+
+  pelvic_incidence : 0.44394
+  lumbar_lordosis_angle : 0.38651
+  pelvic_tilt : 0.35046
+  sacral_slope : 0.24439
+  degree_spondylolisthesis : 0.16278
+  pelvic_radius : 0.08691
+  
+  Features by importance for second component:
+  
+  pelvic_tilt : 0.37797
+  pelvic_radius : 0.32762
+  sacral_slope : 0.24994
+  pelvic_incidence : 0.05640
+  lumbar_lordosis_angle : 0.04513
+  degree_spondylolisthesis : 0.00258
+  
+  Features by importance:
+  
+  pelvic_tilt : 0.51544
+  pelvic_incidence : 0.44751
+  lumbar_lordosis_angle : 0.38913
+  sacral_slope : 0.34957
+  pelvic_radius : 0.33895
+  degree_spondylolisthesis : 0.16280
+\end{lstlisting}
+
+\textbf{Comment}
+The first principal component (PC1) is mainly influenced by features related to pelvic and lumbar angles and tilts. This suggests that PC1 might represent a combination of characteristics related to the angles and tilts of the pelvis and lumbar spine.
+The second principal component (PC2) is primarily associated with pelvic tilt and pelvic radius. It may capture variations in the tilt and radius of the pelvic region.
+Understanding the feature importance in each principal component can help interpret and use the components for dimensionality reduction or feature selection while preserving the most relevant information in the data.
+
+\subsection*{Question 3}
+\begin{lstlisting}[language=Python]
+  # K-means clustering with k = 3
+  k = 3
+  kmeans = KMeans(n_clusters=k,
+                  random_state=0)
+  cluster_labels = kmeans.fit_predict(X_scaled)
+  
+  # Plot the data with y = ground truth
+  target_names = y.unique()
+  colors = ['navy', 'turquoise', 'darkorange']
+  plt.figure(figsize=(10, 6))
+  
+  for i, targets in enumerate(target_names):
+      plt.scatter(X_pca[y==targets,0],
+                  X_pca[y==targets,1],
+                  color=colors[i],
+                  alpha=.8,
+                  lw=2,
+                  label=targets)
+  
+  plt.legend(loc='best', shadow=False, scatterpoints=1)
+  plt.title('Points with Ground truth')
+  plt.savefig(IMAGES_DIR / 'ground_truth.png')
+  plt.show()
+  
+  # Plot the data with y = cluster labels
+  plt.figure(figsize=(10, 6))
+  
+  
+  
+  for i, targets in enumerate(target_names):
+      plt.scatter(X_pca[cluster_labels==i,0],
+                  X_pca[cluster_labels==i,1],
+                  color=colors[i],
+                  alpha=.8,
+                  lw=2)
+  
+  plt.title('Clusters for k = 3 using K-means')
+  plt.savefig(IMAGES_DIR / 'clusters.png')
+  plt.show()
+  
+  # Clusters if we assigned the max ground truth class to each cluster
+  # Attribute Cluster label to a ground truth class
+  clusters = {i: [] for i in range(3)}
+  for i in range(len(cluster_labels)):
+      clusters[cluster_labels[i]].append(y[i])
+  for i in range(len(clusters)):
+      print(f'cluster {i}')
+      print(f'Normal: {clusters[i].count("Normal")}')
+      print(f'Hernia: {clusters[i].count("Hernia")}')
+      print(f'Spondylolisthesis: {clusters[i].count("Spondylolisthesis")}\n')
+  lista = [max(clusters[i], key=clusters[i].count) for i in range(3)]
+  print(lista)
+  
+  plt.figure(figsize=(10, 6))
+  for i, targets in enumerate(target_names):
+      plt.scatter(X_pca[cluster_labels==i,0],
+                  X_pca[cluster_labels==i,1],
+                  color=colors[i],
+                  alpha=.8,
+                  lw=2,
+                  label=lista[i])
+  plt.legend(loc='best', shadow=False, scatterpoints=1)
+  plt.title('Clusters for k = 3 using K-means and labelled with the most frequent class')
+  plt.savefig(IMAGES_DIR / 'clusters_frequency.png')
+  plt.show()
+\end{lstlisting}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/ground_truth.png}
+  \caption{Points with Ground truth}
+  \label{fig:ground_truth}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/clusters.png}
+  \caption{Clusters for k = 3 using K-means}
+  \label{fig:clusters}
+\end{figure}
+
+\textbf{Label the clusters with the most frequent class for visualization}
+
+\begin{lstlisting}[language=Python]
+  cluster 0
+  Normal: 24
+  Hernia: 8
+  Spondylolisthesis: 73
+  
+  cluster 1
+  Normal: 73
+  Hernia: 51
+  Spondylolisthesis: 16
+  
+  cluster 2
+  Normal: 3
+  Hernia: 1
+  Spondylolisthesis: 61
+  
+  ['Spondylolisthesis', 'Normal', 'Spondylolisthesis']
+\end{lstlisting}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/clusters_frequency.png}
+  \caption{Clusters for k = 3 using K-means and labelled with the most frequent class}
+  \label{fig:clusters_frequency}
+\end{figure}
+
+\subsection*{Question 4}
+
+Using the results we obtained for Question 1 and Question 3, we conclude that one may use clustering to identify groups of patients with similar characteristics to perform a potential diagnosis on a new patient or even to subtype groups inside a major one for specific treatments. However, one need to be careful while fine-tuning the clusters, due to the trade-off we observed between silhouette and purity scores.
+In addition, one may use PCA to reduce the dimensionality of the data and identify the most relevant features for the clustering task.
+However, one need to be careful while selecting the number of principal components to retain, as this may affect the amount of information retained in the data. Also, we need to be careful, since the clusters might not represent quite well the classes of the patients.
+It's important to recognize that the clusters generated through clustering may not perfectly align with the known classes of patients.
+For instance, in Question 3, where we plotted three clusters and have three ground truth classes, the cluster-class mapping is not straightforward, since the clusters do not represent the classes in a one-to-one fashion.
+Two clusters may correspond to the same class, as we can see in the labelled clusters using the most frequent class. Suggestions for merging these clusters into one may be considered in further post-processing steps.
+The third cluster, representing a mix of about 50% Normal and 50% Hernia, does not effectively represent the known classes. This incongruity can pose mistakes if used for diagnosis.
+In light of these considerations, the application of clustering for diagnosis requires careful attention. While it can be a valuable tool for identifying patient groups with similar characteristics, it should be complemented with domain knowledge and a thorough understanding of the data.
+
+
+
+
+
 
 
 
