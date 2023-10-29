@@ -12,6 +12,9 @@
 # bin folder
 bin/**
 
+# build folder
+trash/**
+
 # .vscode
 .vscode/**
 .DS_Store
