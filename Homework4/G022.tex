@@ -399,9 +399,9 @@ In the M-Step (Maximization Step), we will compute the new parameters for each c
   \begin{tabular}{c|c|c|c}
     Cluster & $\pi_k$ & Parameters for $\{y_1\}$ & Parameters for $\{y_2, y_3\}$ \\ \hline
     \rule{0pt}{30pt}
-    1 ($c_1$) & $P(c_1) = \pi_1 = 0.38617$ & $p_1 = 0.23404$ & $\{y_2, y_3\} \sim \mathcal{N}\left( \vec{\mu}_1 = \begin{bmatrix} 0.02651 \\ 0.50713 \end{bmatrix}, \Sigma_1 = \begin{bmatrix} 0.14137 & -0.10541 \\ -0.10541 & 0.09605 \end{bmatrix} \right)$ \\ 
+    1 ($c_1$) & $\pi_1 = 0.38617$ & $p_1 = 0.23404$ & $\{y_2, y_3\} \sim \mathcal{N}\left( \vec{\mu}_1 = \begin{bmatrix} 0.02651 \\ 0.50713 \end{bmatrix}, \Sigma_1 = \begin{bmatrix} 0.14137 & -0.10541 \\ -0.10541 & 0.09605 \end{bmatrix} \right)$ \\ 
     \rule{0pt}{30pt}
-    2 ($c_2$) & $P(c_2) = \pi_2 = 0.61383$ & $p_2 = 0.66732$ & $\{y_2, y_3\} \sim \mathcal{N}\left( \vec{\mu}_2 = \begin{bmatrix} 0.30914 \\ 0.21042 \end{bmatrix}, \Sigma_2 = \begin{bmatrix} 0.10829 & -0.08865 \\ -0.08865 & 0.10412 \end{bmatrix} \right)$ \\ 
+    2 ($c_2$) & $\pi_2 = 0.61383$ & $p_2 = 0.66732$ & $\{y_2, y_3\} \sim \mathcal{N}\left( \vec{\mu}_2 = \begin{bmatrix} 0.30914 \\ 0.21042 \end{bmatrix}, \Sigma_2 = \begin{bmatrix} 0.10829 & -0.08865 \\ -0.08865 & 0.10412 \end{bmatrix} \right)$ \\ 
   \end{tabular}
   \caption{New Parameters for each cluster}
   \label{tab:new_parameters}
@@ -411,15 +411,15 @@ In the M-Step (Maximization Step), we will compute the new parameters for each c
 
 \section*{2\textsuperscript{nd} Question}
 
-We now have a new observation $\vec{x}_{\text{new}}$ and want to compute the probability of belonging to each cluster using a ML approach. The new observation is:
+We now have a new observation $\vec{x}_{\text{new}}$ and want to compute the probability of belonging to each cluster. The new observation is:
 
 \[ \vec{x}_{\text{new}} = \begin{bmatrix} 1 \\ 0.3 \\ 0.7 \end{bmatrix} \]
 
 First, we will compute $P(\vec{x}_{\text{new}} | c_k) P(c_k)$ for clusters $c_1$ and $c_2$:
 
-\[ P(\vec{x}_{\text{new}} | c_1)P(c_1)= P(y_1 = 1 | c_1) P(\{y_2, y_3\} \pi_1  = \{0.3, 0.7\} | c_1) = 0.23404 \cdot 0.02708 \cdot 0.38617 = 0.00245 \]
+\[ P(\vec{x}_{\text{new}} | c_1)P(c_1)= P(y_1 = 1 | c_1) P(\{y_2, y_3\}   = \{0.3, 0.7\} | c_1) \cdot \pi_1 = 0.23404 \cdot 0.02708 \cdot 0.38617 = 0.00245 \]
 
-\[ P(\vec{x}_{\text{new}} | c_2)P(c_2) = P(y_1 = 1 | c_2) P(\{y_2, y_3\} \pi_2  = \{0.3, 0.7\} | c_2) = 0.66732 \cdot 0.06843 \cdot 0.61383 = 0.02803 \]
+\[ P(\vec{x}_{\text{new}} | c_2)P(c_2) = P(y_1 = 1 | c_2) P(\{y_2, y_3\}   = \{0.3, 0.7\} | c_2) \cdot \pi_2 = 0.66732 \cdot 0.06843 \cdot 0.61383 = 0.02803 \]
 
 And then, we can compute $\gamma_{ki}$:
 
@@ -444,7 +444,7 @@ Beyond that, we are asked to use a ML approach to compute the responsibilities. 
 
 \[ \gamma_{11} = P(c_1| \vec{x}_1) = \frac{P(\vec{x}_1 | c_1)}{P(\vec{x}_1)} = \frac{0.23147}{0.23147 + 0.94954} = 0.19600 \]
 
-\[ \gamma_{21} = P(c_2| \vec{x}_1) = \frac{P(\vec{x}_1 | c_2)}{P(\vec{x}_1)} = \frac{0.94954}{0.23147 + 0.58286} = 0.80400 \]
+\[ \gamma_{21} = P(c_2| \vec{x}_1) = \frac{P(\vec{x}_1 | c_2)}{P(\vec{x}_1)} = \frac{0.94954}{0.23147 + 0.94954} = 0.80400 \]
 
 \paragraph{} We can conclude that the observation $\vec{x}_1$ belongs to cluster $c_2$ because $\gamma_{21} > \gamma_{11}$.
 
@@ -946,7 +946,7 @@ Explained variance: [0.56181445 0.20955953]
 When considering the variability explained by the top two principal components in a PCA (Principal Component Analysis), the values represent the proportion of total variance in the data that is captured by each of these components.
 \begin{itemize}
   \item PC1 captures the largest portion of variance in the data, about 57\%. This suggests that PC1 is a significant component that summarizes the primary patterns in the data. A high value for PC1 indicates that it carries substantial information about the relationships between the original features.
-  \item PC2 explains the next largest portion of variance after PC1. It captures approximately 20.96% of the total variability. While PC2 has less explanatory power than PC1, it is still an important component that contributes significantly to the data's structure. PC2 may represent additional patterns that are orthogonal to those captured by PC1.
+  \item PC2 explains the next largest portion of variance after PC1. It captures approximately 20.96\% of the total variability. While PC2 has less explanatory power than PC1, it is still an important component that contributes significantly to the data's structure. PC2 may represent additional patterns that are orthogonal to those captured by PC1.
 \end{itemize}
 When summing the explained variances of PC1 and PC2 (0.56181445 + 0.20955953), you get a total explained variance of approximately 77.14%. This means that these two principal components collectively account for approximately 77.14% of the total variance in the data.
 
