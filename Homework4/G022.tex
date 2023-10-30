@@ -582,9 +582,10 @@ We are told that the purity of our clustering is 0.75, therefore:
   \Leftrightarrow &3 = \max_j (\#(c_1 \cap l_j)) + \max_j (\#(c_2 \cap l_j))
 \end{align*}
 
-Therefore, we have two options, either $\max_j (\#(c_1 \cap l_j)) = 3$ and $\max_j (\#(c_2 \cap l_j)) = 0$ or $\max_j (\#(c_1 \cap l_j)) = 2$ and $\max_j (\#(c_2 \cap l_j)) = 1$.
+Therefore, for a general solution, we have two options, either $\max_j (\#(c_1 \cap l_j)) = 3$ and $\max_j (\#(c_2 \cap l_j)) = 0$ or $\max_j (\#(c_1 \cap l_j)) = 2$ and $\max_j (\#(c_2 \cap l_j)) = 1$.
+The first one, does not make sense since it would mean that we have an empty cluster.
 
-\subsection*{1\textsuperscript{st} Option}
+\subsection*{General Solution Using 2 Clusters}
 
 Considering the case where the maximum number of observations in a class in one cluster is 2 and the maximum number of observations in a class in the other cluster is 1, we have the following options:
 
@@ -736,36 +737,10 @@ Considering the case where the maximum number of observations in a class in one 
 
 In each of these diagrams, different colors represent different classes.
 
-\subsection*{2\textsuperscript{nd} Option}
+\subsection*{Using the Result from Previous Question}
 
-Considering the case where the maximum number of observations in a class in one cluster is 3 and the maximum number of observations in a class in the other cluster is 0, we have the following options:
-
-\begin{center}
-  \begin{tikzpicture}
-    % Option 1
-    \node at (-6, 0) {Option 1};
-
-    % draw a thick circle
-    \draw [thick] (-2,0) circle [radius=1.2];
-    \draw [thick] (2,0) circle [radius=1.2];
-
-    % draw the labels for each cluster
-    \node at (-2, 1.5) {$c_1$};
-    \node at (2,  1.5) {$c_2$};
-
-    % draw 4 points in the first cluster
-    \filldraw[red] (-2.5,  0.5) circle (2pt);
-    \filldraw[red] (-2.5, -0.5) circle (2pt);
-    \filldraw[red] (-1.5,  0.5) circle (2pt);
-    \filldraw[blue] (-1.5, -0.5) circle (2pt);
-
-    % draw 0 points in the second cluster
-
-    % draw the number of classes
-    \node at (6,0) {2 classes};
-
-  \end{tikzpicture}
-\end{center}
+If we consider the result from the previous question, where we have two observations per cluster, we can eliminate 
+Option 1 to 3. Leaving us with Option 4 and 5.
 
 
 \paragraph{Answer:} We can conclude that a purity of 0.75 can be obtained if our data is classified in 2 or 3 classes.
@@ -1130,13 +1105,20 @@ Understanding the feature importance in each principal component can help interp
 
 \subsection*{Question 4}
 
-Using the results we obtained for Question 1 and Question 3, we conclude that one may use clustering to identify groups of patients with similar characteristics to perform a potential diagnosis on a new patient or even to subtype groups inside a major one for specific treatments. However, one need to be careful while fine-tuning the clusters, due to the trade-off we observed between silhouette and purity scores.
+
+  Using the results we obtained for Question 1 and Question 3, we conclude that one may use clustering to identify groups of patients with similar characteristics to perform a potential diagnosis on a new patient or even to subtype groups inside a major one for specific treatments. However, one need to be careful while fine-tuning the clusters, due to the trade-off we observed between silhouette and purity scores.
+
 In addition, one may use PCA to reduce the dimensionality of the data and identify the most relevant features for the clustering task.
-However, one need to be careful while selecting the number of principal components to retain, as this may affect the amount of information retained in the data. Also, we need to be careful, since the clusters might not represent quite well the classes of the patients.
-It's important to recognize that the clusters generated through clustering may not perfectly align with the known classes of patients.
+However, again, one needs to be careful while selecting the number of principal components to retain, as this may affect the amount of information retained in the data.
+
+Also, the clusters might not represent quite well the classes of the patients. It's important to recognize that the clusters generated through clustering may not perfectly align with the known classes of patients.
+
 For instance, in Question 3, where we plotted three clusters and have three ground truth classes, the cluster-class mapping is not straightforward, since the clusters do not represent the classes in a one-to-one fashion.
+
 Two clusters may correspond to the same class, as we can see in the labelled clusters using the most frequent class. Suggestions for merging these clusters into one may be considered in further post-processing steps.
+
 The third cluster, representing a mix of about 50\% Normal and 50\% Hernia, does not effectively represent the known classes. This incongruity can pose mistakes if used for diagnosis.
+
 In light of these considerations, the application of clustering for diagnosis requires careful attention. While it can be a valuable tool for identifying patient groups with similar characteristics, it should be complemented with domain knowledge and a thorough understanding of the data.
 
 
