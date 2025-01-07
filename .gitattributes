@@ -1,0 +1,2 @@
+# Consider JupyterNotebooks as Python
+*.ipynb linguist-language=Python
